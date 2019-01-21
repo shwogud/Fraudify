@@ -18,7 +18,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
   <div>
     <h1>Fraudifyyyyy</h1>
-    <SplashContainer />
+    {/* <SplashContainer /> */}
 
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />

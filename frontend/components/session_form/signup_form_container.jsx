@@ -14,8 +14,7 @@ const mapStateToProps = ({ errors }) => {
     user: {
       username: '',
       password: '',
-      email: '',
-      imageURL: 'default image'
+      // imageURL: 'default image'
     }
   };
 };
