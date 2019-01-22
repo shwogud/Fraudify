@@ -457,7 +457,8 @@ function (_React$Component) {
       this.props.processForm(user).then(function () {
         return _this3.props.history.push("/feed");
       });
-    }
+    } //I feel like the 'class' warning appeared here
+
   }, {
     key: "demoUserSignIn",
     value: function demoUserSignIn() {

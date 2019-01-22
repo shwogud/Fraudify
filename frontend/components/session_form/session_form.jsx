@@ -21,6 +21,7 @@ class SessionForm extends React.Component {
       .then(() => this.props.history.push("/feed"));
   }
 
+  //I feel like the 'class' warning appeared here
   demoUserSignIn() {
     const demo = {username: 'demo', password: 'password'};
     this.props.login(demo).then(() => this.props.history.push("/feed"));
