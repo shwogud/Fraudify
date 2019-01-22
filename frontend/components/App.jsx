@@ -8,22 +8,33 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-import Splash from './splash/splash_index';
+import Splash from './splash/splash_index'; //initial page with signup/login
 import SplashContainer from './splash/splash_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 // import NavbarContainer from './navbar/navbar_container';
 
+import MainContentContainer from './main_content/main_content_container';
+
 const App = () => (
   <div>
-    <h1>Fraudifyyyyy</h1>
+    <header>
+      <h1>Everyone sees this</h1>
+
+    </header>
     {/* <SplashContainer /> */}
 
+
+
+    {/* AuthRoute: when logged in, cannot reach login/signup page 
+    ProtectedRoute: can only reach route when logged in */}
+    {/* <Route path="" /> */}
     <Switch>
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <AuthRoute path="/" component={Splash} />
+      <AuthRoute path="/login" component={LoginFormContainer} />
+      <AuthRoute path="/signup" component={SignupFormContainer} />
+      <Route path="/feed" component={MainContentContainer} />
+      <Route path="/" component={SplashContainer}/>
     </Switch>
     {/* <ProtectedRoute path="/" component={NavbarContainer} /> */}
   </div>

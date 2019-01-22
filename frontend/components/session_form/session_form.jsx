@@ -17,7 +17,8 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user)
+      .then(() => this.props.history.push("/feed"));
   }
 
   renderErrors() {
@@ -46,6 +47,7 @@ class SessionForm extends React.Component {
             <label>Username:
               <input type="text"
                 value={this.state.username}
+                placeholder="Username"
                 onChange={this.update('username')}
                 className="login-input"
               />
@@ -55,12 +57,13 @@ class SessionForm extends React.Component {
             <label>Password:
               <input type="password"
                 value={this.state.password}
+                placeholder="Password"
                 onChange={this.update('password')}
                 className="login-input"
               />
             </label>
             <br />
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <button>{this.props.formType}</button>
           </div>
         </form>
         {/* {question} {this.props.navLink} */}
