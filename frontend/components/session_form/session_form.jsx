@@ -21,6 +21,11 @@ class SessionForm extends React.Component {
       .then(() => this.props.history.push("/feed"));
   }
 
+  demoUserSignIn() {
+    const demo = {username: 'demo', password: 'password'};
+    this.props.login(demo).then(() => this.props.history.push("/feed"));
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -34,12 +39,19 @@ class SessionForm extends React.Component {
   }
 
 
+
+
   render() {
+    // let question;
+    // question = this.props.formType === 'signup' ? "Have an account?" : "Dont have an account?"
+
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <br />
-          <button> Log In As Demo User </button>
+
+          <button onClick={() => this.demoUserSignIn()}> Log In As Demo User </button>
+
           <p> - OR - </p>
           {this.renderErrors()}
           <div className="login-form">
@@ -65,7 +77,10 @@ class SessionForm extends React.Component {
             <br />
             <button>{this.props.formType}</button>
           </div>
+          
         </form>
+        <p>Already have an account?</p>
+
         {/* {question} {this.props.navLink} */}
       </div>
     );

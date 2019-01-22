@@ -19,10 +19,10 @@ import MainContentContainer from './main_content/main_content_container';
 
 const App = () => (
   <div>
-    <header>
+    {/* <header>
       <h1>Everyone sees this</h1>
 
-    </header>
+    </header> */}
     {/* <SplashContainer /> */}
 
 

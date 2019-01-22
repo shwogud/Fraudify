@@ -1,7 +1,18 @@
 import React from 'react';
-
+// import { logout } from '../../util/session_api_util'
+// import { logout } from '../../actions/session_actions'
 
 class MainContent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleLogout() {
+    this.props.logout().then(() => this.props.history.push('/'));
+  }
+
   render() {
     return (
       <div className="main-content">
@@ -12,7 +23,8 @@ class MainContent extends React.Component {
           <Route path="/collection" component={Collection} />
           <Redirect to="/browse/albums" />
         </Switch> */}
-        <button onClick={this.props.logout}>Log Out</button>
+
+        <button onClick={this.handleLogout}>Log Out</button>
       </div>
     )
   }

@@ -4,32 +4,31 @@ import { Link } from 'react-router-dom';
 class SplashIndex extends React.Component {
 
   render() {
-
+    
     return (
-      <div className="splashAll">
+      <div className="splashAll"> 
         <header className="splashNavBar">
-          <p>Fraudify</p>
-
-          <Link to='/signup'>
-            <button type="button" className="btn-signup">Sign up</button>
-          </Link>
-
-          <Link to='/login'>
-            <button type="button" className="btn-login">Log In</button>
-          </Link>
-        </header>
-      
-          <div>
-
-         
-
+          <div className="nav-right">
+          
+            <i class="fab fa-spotify"></i>
+            <p>Fraudify</p>
           </div>
 
+          <div className="nav-left">
+              <Link to='/signup' className="signup">Sign up</Link>
+              <Link to='/login' className="login"> Log in</Link>
+          </div>
+        </header>
 
-          <div>
-            <h1>Music for everyone.</h1>
-            <h3>Millions of songs. No credit card needed.</h3>
-            <button>GET SPOTIFY FREE</button>
+          <div className="body-all">
+            <div className="body">
+              <h1>Music for everyone.</h1>
+              <h3>Millions of songs. No payment needed.</h3>
+              <Link to='/signup'>
+                <button className="splash-button">GET FRAUDIFY FREE</button>
+              </Link>
+            </div>
+  
           </div>
 
         </div>
