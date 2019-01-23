@@ -1,0 +1,126 @@
+.fraudify {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  padding-top: 100px;
+  /* padding-bottom: 10px; */
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+}
+
+
+.auth-form-container {
+  display: block;
+  width: 100%;
+  height: 850px;
+  text-align: center;
+}
+
+.auth-form-container i {
+  font-size: 35px;
+}
+
+.auth-box {
+  padding-top: 30px;
+  display: block;
+  width: 275px;
+  height: 500px;
+  margin: 0 auto;
+  /* border: 2px solid red; */
+  
+}
+
+.demo-button {
+  background-color: #3b5998;
+  color: white;
+  font-size: 14px;
+  padding: 16px 48px 18px;
+  border-radius: 500px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.demo-button:hover {
+    text-decoration: none;
+    background-color: #4773d1;
+    text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+}
+
+.auth-box p {
+  margin: auto;
+  text-align: center;
+  padding-top: 17px;
+}
+
+.auth-form {
+  /* text-align: center; */
+}
+
+.auth-input-username {
+  display: flex;
+  width: 260px;
+  height: 25px;
+  align-content: center;
+  /* padding-right: 10px; */
+}
+
+.auth-input-password {
+  display: flex;
+  width: 260px;
+  height: 25px;
+  /* padding-top: 10px; */
+  align-content: center;
+}
+/* input::placeholder {
+  font-size: 13px;
+  padding-left: 10px;
+} */
+
+input[type=text] {
+  font-size: 13px;
+  width: 100%;
+  padding: 5px 15px;
+  margin: 8px 0;
+  width: 240px;
+  /* box-sizing: border-box; */
+}
+
+input[type=password] {
+  font-size: 13px;
+  width: 100%;
+  padding: 5px 15px;
+  margin: 8px 0;
+  width: 240px;
+  /* box-sizing: border-box; */
+}
+
+
+.auth-button {
+  background-color: #1fa14d;
+  color: white;
+  font-size: 14px;
+  padding: 16px 48px 18px;
+  border-radius: 500px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin: 10px;
+  width: 100%;
+}
+
+.auth-button:hover {
+    text-decoration: none;
+    background-color: #17bd51;
+    text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+}
+
+
+.error-handle {
+  color: red;
+  list-style-type: none;
+}
+
+
+
