@@ -44,6 +44,19 @@
 
 .signup, .login {
   color: white;
+  text-decoration: none;
+}
+
+.signup:hover {
+    /* text-decoration: underline; */
+    border-bottom: 2px solid #1fa14d;
+    border-bottom-color: #1fa14d;
+}
+
+.login:hover {
+    /* text-decoration: underline; */
+    border-bottom: 2px solid #1fa14d;
+    border-bottom-color: #1fa14d;
 }
 
 .splashNavBar p {
@@ -88,6 +101,7 @@
   transition-property: background-color, border-color, color, box-shadow, filter, -webkit-box-shadow, -webkit-filter;
   letter-spacing: 2px;
   cursor: pointer;
+  border: none;
 }
 
 .splash-button:hover {
