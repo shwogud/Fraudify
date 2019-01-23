@@ -33,8 +33,8 @@ const App = () => (
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
-      <Route path="/feed" component={MainContentContainer} />
-      <Route path="/" component={SplashContainer}/>
+      <ProtectedRoute path="/feed" component={MainContentContainer} />
+      <AuthRoute path="/" component={SplashContainer}/>
     </Switch>
     {/* <ProtectedRoute path="/" component={NavbarContainer} /> */}
   </div>

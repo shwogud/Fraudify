@@ -200,10 +200,10 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
     path: "/signup",
     component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
     path: "/feed",
     component: _main_content_main_content_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
     path: "/",
     component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_4__["default"]
   })));
@@ -370,10 +370,9 @@ var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
   return {
     errors: Object.values(errors.session),
-    formType: 'login',
-    navLink: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-      to: "/signup"
-    }, "Sign Up"),
+    formType: 'LOG IN',
+    inputType: 'login',
+    // navLink: <Link to="/signup">Sign Up</Link>,
     user: {
       username: "",
       password: ""
@@ -410,6 +409,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -432,6 +432,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
 var SessionForm =
 /*#__PURE__*/
 function (_React$Component) {
@@ -446,6 +447,7 @@ function (_React$Component) {
     _this.state = _this.props.user; //comes from one of the containers
 
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.demoUserSignIn = _this.demoUserSignIn.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -473,13 +475,13 @@ function (_React$Component) {
       this.props.processForm(user).then(function () {
         return _this3.props.history.push("/feed");
       });
-    } //I feel like the 'class' warning appeared here
-
+    }
   }, {
     key: "demoUserSignIn",
-    value: function demoUserSignIn() {
+    value: function demoUserSignIn(e) {
       var _this4 = this;
 
+      e.preventDefault();
       var demo = {
         username: 'demo',
         password: 'password'
@@ -491,20 +493,34 @@ function (_React$Component) {
   }, {
     key: "renderErrors",
     value: function renderErrors() {
+      var _this5 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          class: "error-handle",
+          className: "error-handle-".concat(_this5.props.inputType),
           key: "error-".concat(i)
         }, error);
       }));
-    }
+    } // { `auth-form-${this.props.inputType}` }
+
   }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this6 = this;
 
-      // let question;
-      // question = this.props.formType === 'signup' ? "Have an account?" : "Dont have an account?"
+      var otherLink = this.props.formType === "LOG IN" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "login-text"
+      }, "Don't have an account? "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "switch-to-signup-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "other-link-".concat(this.props.inputType),
+        to: "/signup",
+        onClick: this.props.clearSessionErrors
+      }, "SIGN UP FOR FRAUDIFY"))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Already have an account? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "other-link-".concat(this.props.inputType),
+        to: "/login",
+        onClick: this.props.clearSeessionErrors
+      }, "Log In"));
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "auth-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -513,29 +529,33 @@ function (_React$Component) {
         className: "fab fa-spotify"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Fraudify")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
-        className: "auth-box"
+        className: "auth-box-".concat(this.props.inputType)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "demo-button",
-        onClick: function onClick() {
-          return _this5.demoUserSignIn();
+        className: "demo-button-".concat(this.props.inputType),
+        onClick: function onClick(e) {
+          return _this6.demoUserSignIn(e);
         }
-      }, "Log In As Demo User"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " - or - "), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "auth-form"
+      }, "LOG IN AS DEMO USER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " - or - "), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "auth-form-".concat(this.props.inputType)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
+        required: true,
+        type: "text-".concat(this.props.inputType),
         value: this.state.username,
         placeholder: "Username",
         onChange: this.update('username'),
-        className: "auth-input-username"
+        className: "auth-input-username-".concat(this.props.inputType)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "password",
+        required: true,
+        type: "password-".concat(this.props.inputType),
         value: this.state.password,
         placeholder: "Password",
         onChange: this.update('password'),
         className: "auth-input-password"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "auth-button"
-      }, this.props.formType))));
+        className: "auth-button-".concat(this.props.inputType)
+      }, this.props.formType))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "other-link-text"
+      }, otherLink));
     }
   }]);
 
@@ -571,10 +591,9 @@ var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
   return {
     errors: errors.session,
-    formType: 'signup',
-    navLink: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-      to: "/login"
-    }, "Log In"),
+    formType: 'SIGN UP',
+    inputType: 'signup',
+    // navLink: <Link to="/login">Log In</Link>,
     //also pass in user info
     user: {
       username: '',
@@ -738,13 +757,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  var root = document.getElementById('root');
-  var store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(); // TESTING START
+  var root = document.getElementById('root'); // const store = configureStore();
+
+  var store;
+
+  if (window.currentUser) {
+    var preloadedState = {
+      entities: {
+        users: _defineProperty({}, window.currentUser.id, window.currentUser)
+      },
+      session: {
+        id: window.currentUser.id
+      }
+    };
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  } // TESTING START
+
 
   window.getState = store.getState;
   window.dispatch = store.dispatch; // TESTING END
@@ -985,7 +1023,7 @@ var Auth = function Auth(_ref) {
     exact: exact,
     render: function render(props) {
       return !loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/"
+        to: "/feed"
       });
     }
   });
@@ -1001,7 +1039,7 @@ var Protected = function Protected(_ref2) {
     exact: exact,
     render: function render(props) {
       return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/"
+        to: "/login"
       });
     }
   });

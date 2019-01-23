@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -6,6 +7,7 @@ class SessionForm extends React.Component {
     this.state = this.props.user; //comes from one of the containers
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoUserSignIn = this.demoUserSignIn.bind(this);
   }
 
   componentWillUnmount() {
@@ -25,8 +27,9 @@ class SessionForm extends React.Component {
       .then(() => this.props.history.push("/feed"));
   }
 
-  //I feel like the 'class' warning appeared here
-  demoUserSignIn() {
+  
+  demoUserSignIn(e) {
+    e.preventDefault();
     const demo = {username: 'demo', password: 'password'};
     this.props.login(demo).then(() => this.props.history.push("/feed"));
   }
@@ -35,7 +38,7 @@ class SessionForm extends React.Component {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
-          <li class = "error-handle" key={`error-${i}`}>
+          <li className={`error-handle-${this.props.inputType}`} key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -43,12 +46,26 @@ class SessionForm extends React.Component {
     );
   }
 
-
-
+// { `auth-form-${this.props.inputType}` }
 
   render() {
-    // let question;
-    // question = this.props.formType === 'signup' ? "Have an account?" : "Dont have an account?"
+    const otherLink = this.props.formType === "LOG IN" ? (
+      <article><section className="login-text">Don't have an account? </section> 
+        <button className="switch-to-signup-button">
+          <Link
+          className={`other-link-${this.props.inputType}`} 
+          to="/signup"
+          onClick={this.props.clearSessionErrors}
+        >SIGN UP FOR FRAUDIFY</Link>
+        </button>
+        </article>
+    ) : (
+        <p>Already have an account? <Link
+          className={`other-link-${this.props.inputType}`}
+          to="/login"
+          onClick={this.props.clearSeessionErrors}
+        >Log In</Link></p>
+      )
 
     return (
       <div className="auth-form-container">
@@ -56,29 +73,30 @@ class SessionForm extends React.Component {
           <i className="fab fa-spotify"></i>
           <h1>Fraudify</h1>
         </div>
-        <form onSubmit={this.handleSubmit} className="auth-box">
+        <form onSubmit={this.handleSubmit} className={`auth-box-${this.props.inputType}`}>
+          
           <br />
           <button
-            className="demo-button"
-            onClick={() => this.demoUserSignIn()}>Log In As Demo User 
+            className={`demo-button-${this.props.inputType}`}       
+            onClick={(e) => this.demoUserSignIn(e)}>LOG IN AS DEMO USER 
           </button>
 
           <p> - or - </p>
           {this.renderErrors()}
-          <div className="auth-form">
+          <div className={`auth-form-${this.props.inputType}`}>
             <br />
             <label>
-              <input type="text"
+              <input required type={`text-${this.props.inputType}`}
                 value={this.state.username}
                 placeholder="Username"
                 onChange={this.update('username')}
-                className="auth-input-username"
+                className={`auth-input-username-${this.props.inputType}`}
               />
             </label>
             <br />
             {/* {signupInfo} */}
             <label>
-              <input type="password"
+              <input required type={`password-${this.props.inputType}`}
                 value={this.state.password}
                 placeholder="Password"
                 onChange={this.update('password')}
@@ -88,14 +106,15 @@ class SessionForm extends React.Component {
             <br />
 
             <button 
-              className="auth-button">{this.props.formType}
+              className={`auth-button-${this.props.inputType}`}>{this.props.formType}
             </button>
           </div>
           
         </form>
-        {/* <p>Already have an account?</p> */}
 
-        {/* {question} {this.props.navLink} */}
+        <div className="other-link-text">
+          {otherLink}
+        </div>
       </div>
     );
   }
