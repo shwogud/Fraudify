@@ -4,6 +4,13 @@ import Root from './components/root';
 
 import configureStore from './store/store';
 
+import {
+  requestAllPlaylists, 
+  requestPlaylist,
+  createPlaylist,
+  deletePlaylist
+         } from './actions/playlist_actions';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -30,6 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // TESTING START
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+
+  window.requestAllPlaylists = requestAllPlaylists;
+  window.requestPlaylist = requestPlaylist;
+  window.createPlaylist = createPlaylist;
+  window.deletePlaylist = deletePlaylist;
+
+ 
   // TESTING END
 
 

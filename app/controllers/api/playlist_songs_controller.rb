@@ -8,6 +8,15 @@ class Api::PlaylistSongsController < ApplicationController
     end
   end
 
+  def show
+    @playlist_song = PlaylistSong.find_by(id: params[:id])
+    if @playlist_song
+      render "api/playlist_songs/show"
+    else
+      render json: @playlist_songs.errors.full_messages
+    end
+  end
+
   def destroy
     @playlist_song = PlaylistSong.find_by(
       playlist_id: playlist_song_params[:playlist_id],
@@ -16,7 +25,7 @@ class Api::PlaylistSongsController < ApplicationController
 
     if @playlist_song
       @playlist_song.destroy 
-      render "api/playlist_songs/show"
+      # render "api/playlist_songs/show"
     else
       render @playlist_song.errors.full_messages;
     end

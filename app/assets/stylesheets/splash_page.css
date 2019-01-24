@@ -1,9 +1,11 @@
 .splashAll {
   height: 900px;
+  
 
   font-family: 'Montserrat', sans-serif;
   color: white;
   background-repeat: round;
+  /* object-fit: cover; */
   background-image: linear-gradient(
                   rgba(20, 20, 20, .4),
                   rgba(20, 20, 20, .4)),
