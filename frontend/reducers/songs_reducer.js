@@ -28,12 +28,14 @@ const songsReducer = (state = {}, action) => {
       return merge({}, action.album.song_ids);
 
 
+      
     case RECEIVE_PLAYLIST_SONG:
     
       newState = merge({}, state, action.song);
       return newState;
 
     case REMOVE_PLAYLIST_SONG:
+    //destroyed the song already in my backend
       return merge({}, action.data.songs);
 
     default:

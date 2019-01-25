@@ -1,11 +1,10 @@
 import React from 'react';
-// import { logout } from '../../util/session_api_util'
-// import { logout } from '../../actions/session_actions'
+import { Route, Redirect } from 'react-router-dom';
+import PlaylistIndexContainer from '../playlists/playlist_index_container';
 
 class MainContent extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleLogout = this.handleLogout.bind(this);
   }
 
@@ -13,16 +12,14 @@ class MainContent extends React.Component {
     this.props.logout().then(() => this.props.history.push('/'));
   }
 
+
+
   render() {
     return (
       <div className="main-content">
         <h1>Welcome to the Main Content Page!</h1>
-        {/* <Switch> */}
-          {/* <Route path="/browse" component={Browse} /> */}
-          {/* <Route path="/search" component={Search} />
-          <Route path="/collection" component={Collection} />
-          <Redirect to="/browse/albums" /> */}
-        {/* </Switch> */}
+
+        <PlaylistIndexContainer />
 
         <button onClick={this.handleLogout}>Log Out</button>
       </div>
