@@ -1,17 +1,38 @@
 import { merge } from 'lodash';
-import { RECEIVE_ALL_SONGS, RECEIVE_SONG } from '../actions/song_actions';
-import { RECEIVE_PLAY_LIST } from './'
+import { RECEIVE_ALL_SONGS, RECEIVE_SONG,
+        RECEIVE_PLAYLIST_SONG, 
+        REMOVE_PLAYLIST_SONG 
+        } from '../actions/song_actions';
+
+// import { REMOVE_PLAYLIST_SONG } from '../actions/playlist_song_actions'
+
+import { RECEIVE_PLAYLIST } from '../actions/playlist_actions';
+
 const songsReducer = (state = {}, action) => {
   Object.freeze(state);
+  let newState;
   switch (action.type) {
-    // case RECEIVE_PLAYLIST:
-    //   return merge({}, state, { [action.song.id]: action.song })
 
     case RECEIVE_ALL_SONGS:
       return merge({}, action.songs);
 
     case RECEIVE_SONG:
       return merge({}, { [action.song.id]: action.song });
+
+    //When I go to playlist page, only puts those playlist songs up
+    case RECEIVE_PLAYLIST:
+      return merge({}, action.data.songs);
+
+
+    case RECEIVE_PLAYLIST_SONG:
+      newState = merge({}, state, { [action.song.id]: action.song });
+      return newState;
+
+    case REMOVE_PLAYLIST_SONG:
+      newState = merge({}, state);
+      debugger
+      delete newState[action.playlistSongId];
+      return newState;
 
     default:
       return state;

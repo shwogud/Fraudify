@@ -214,11 +214,12 @@ var receiveAllPlaylists = function receiveAllPlaylists(playlists) {
     type: RECEIVE_ALL_PLAYLISTS,
     playlists: playlists
   };
-};
-var receivePlaylist = function receivePlaylist(playlist) {
+}; //pulling the entire playlist
+
+var receivePlaylist = function receivePlaylist(data) {
   return {
     type: RECEIVE_PLAYLIST,
-    playlist: playlist
+    data: data
   };
 };
 var removePlaylist = function removePlaylist(playlist) {
@@ -306,11 +307,14 @@ var createPlaylistSong = function createPlaylistSong(playlistSong) {
       return dispatch(receivePlaylistSong(playlistSong));
     });
   };
-};
-var deletePlaylistSong = function deletePlaylistSong(id) {
+}; // export const deletePlaylistSong = (id) => dispatch => {
+//   return APIUtil.destroyPlaylistSong(id).then( () => dispatch(removePlaylistSong(id)))
+// }
+
+var deletePlaylistSong = function deletePlaylistSong(playlistSong) {
   return function (dispatch) {
-    return _util_playlist_song_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyPlaylistSong"](id).then(function () {
-      return dispatch(removePlaylistSong(id));
+    return _util_playlist_song_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyPlaylistSong"](playlistSong).then(function (res) {
+      return dispatch(removePlaylistSong(res));
     });
   };
 };
@@ -397,33 +401,54 @@ var logout = function logout() {
 /*!******************************************!*\
   !*** ./frontend/actions/song_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_ALL_SONGS, RECEIVE_SONG, receiveAllSongs, receiveSong, requestAllSongs, requestSong */
+/*! exports provided: RECEIVE_ALL_SONGS, RECEIVE_SONG, RECEIVE_PLAYLIST_SONG, REMOVE_PLAYLIST_SONG, requestAllSongs, requestSong, addPlaylistSong, removePlaylistSong */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_SONGS", function() { return RECEIVE_ALL_SONGS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SONG", function() { return RECEIVE_SONG; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllSongs", function() { return receiveAllSongs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSong", function() { return receiveSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_PLAYLIST_SONG", function() { return RECEIVE_PLAYLIST_SONG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_PLAYLIST_SONG", function() { return REMOVE_PLAYLIST_SONG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAllSongs", function() { return requestAllSongs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestSong", function() { return requestSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addPlaylistSong", function() { return addPlaylistSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removePlaylistSong", function() { return removePlaylistSong; });
 /* harmony import */ var _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/song_api_util */ "./frontend/util/song_api_util.js");
 
 var RECEIVE_ALL_SONGS = 'RECEIVE_ALL_SONGS';
 var RECEIVE_SONG = 'RECEIVE_SONG';
+var RECEIVE_PLAYLIST_SONG = 'RECEIVE_PLAYLIST_SONG';
+var REMOVE_PLAYLIST_SONG = 'REMOVE_PLAYLIST_SONG';
+
 var receiveAllSongs = function receiveAllSongs(songs) {
   return {
     type: RECEIVE_ALL_SONGS,
     songs: songs
   };
 };
+
 var receiveSong = function receiveSong(song) {
   return {
     type: RECEIVE_SONG,
     song: song
   };
+};
+
+var receivePlaylistSong = function receivePlaylistSong(song) {
+  return {
+    type: RECEIVE_PLAYLIST_SONG,
+    song: song
+  };
+};
+
+var deletePlaylistSong = function deletePlaylistSong(song) {
+  return {
+    type: REMOVE_PLAYLIST_SONG,
+    song: song
+  };
 }; //Thunk actionssssss
+
 
 var requestAllSongs = function requestAllSongs() {
   return function (dispatch) {
@@ -436,6 +461,25 @@ var requestSong = function requestSong(id) {
   return function (dispatch) {
     return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchSong"](id).then(function (song) {
       return dispatch(receiveSong(song));
+    });
+  };
+}; //this is updating the database, and request_playlist (from playlist actions)
+//is fetching entire playlist from database.
+//I should really just be adding a song using receivePlaylistSong
+//Next Step: add RECEIVE_PLAYLIST_SONG to songs_reducer? 
+
+var addPlaylistSong = function addPlaylistSong(playlistId, songId) {
+  return function (dispatch) {
+    return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["addPlaylistSong"](playlistId, songId).then(function (payload) {
+      return dispatch(receivePlaylistSong(payload));
+    });
+  };
+}; //The APIUtil might need to be fixed?
+
+var removePlaylistSong = function removePlaylistSong(playlistId, songId) {
+  return function (dispatch) {
+    return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["removePlaylistSong"](playlistId, songId).then(function (payload) {
+      return dispatch(deletePlaylistSong(payload));
     });
   };
 };
@@ -1038,7 +1082,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/playlist_actions */ "./frontend/actions/playlist_actions.js");
+/* harmony import */ var _actions_song_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/song_actions */ "./frontend/actions/song_actions.js");
+/* harmony import */ var _actions_playlist_song_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/playlist_song_actions */ "./frontend/actions/playlist_song_actions.js");
+/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./actions/album_actions */ "./frontend/actions/album_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 
 
 
@@ -1067,11 +1117,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  window.dispatch = store.dispatch; //playlist actions
+
   window.requestAllPlaylists = _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_4__["requestAllPlaylists"];
   window.requestPlaylist = _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_4__["requestPlaylist"];
   window.createPlaylist = _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_4__["createPlaylist"];
-  window.deletePlaylist = _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_4__["deletePlaylist"]; // TESTING END
+  window.deletePlaylist = _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_4__["deletePlaylist"]; //song actions
+
+  window.requestAllSongs = _actions_song_actions__WEBPACK_IMPORTED_MODULE_5__["requestAllSongs"];
+  window.requestSong = _actions_song_actions__WEBPACK_IMPORTED_MODULE_5__["requestSong"];
+  window.addPlaylistSong = _actions_song_actions__WEBPACK_IMPORTED_MODULE_5__["addPlaylistSong"];
+  window.removePlaylistSong = _actions_song_actions__WEBPACK_IMPORTED_MODULE_5__["removePlaylistSong"]; //playlist_song actions
+
+  window.deletePlaylistSong = _actions_playlist_song_actions__WEBPACK_IMPORTED_MODULE_6__["deletePlaylistSong"]; //album actions
+
+  window.requestAllAlbums = _actions_album_actions__WEBPACK_IMPORTED_MODULE_7__["requestAllAlbums"];
+  window.requestAlbum = _actions_album_actions__WEBPACK_IMPORTED_MODULE_7__["requestAlbum"]; // TESTING END
 
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
@@ -1237,21 +1298,24 @@ var playlistReducer = function playlistReducer() {
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, action.playlists);
 
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PLAYLIST"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, _defineProperty({}, action.playlist.id, action.playlist));
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, _defineProperty({}, action.data.playlist.id, action.data.playlist));
 
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_PLAYLIST"]:
       newState = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state);
       delete newState[action.playlistId];
       return newState;
+    //This is not where I add/remove songs from my playlist, right?
     // case RECEIVE_PLAYLIST_SONG:
-    //   newState = merge({}, state);
-    //   let id = action.playlistSong.id;
-    //   let song = action.playlistSong;
-    //   newState[id] = song;
-    //   return newState;
     // case REMOVE_PLAYLIST_SONG:
-    //   newState = merge({}, state);
-    //   let songs = 
+    //I have NO idea what this is doing
+
+    case _actions_playlist_song_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_ALL_SONGS"]:
+      newState = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, _defineProperty({}, action.songs.id, action.songs.songs));
+      return newState;
+    //How do I add song ids or titles to my playlist?
+    // case RECEIVE_PLAYLIST_SONG:
+    //   newState = merge({}, state, {[action.playlistSong.song_id]: action.playlistSong});
+    //   return newState;
 
     default:
       return state;
@@ -1372,10 +1436,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_song_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/song_actions */ "./frontend/actions/song_actions.js");
-!(function webpackMissingModule() { var e = new Error("Cannot find module './'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/playlist_actions */ "./frontend/actions/playlist_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+ // import { REMOVE_PLAYLIST_SONG } from '../actions/playlist_song_actions'
 
 
 
@@ -1383,15 +1448,28 @@ var songsReducer = function songsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
+  var newState;
 
   switch (action.type) {
-    // case RECEIVE_PLAYLIST:
-    //   return merge({}, state, { [action.song.id]: action.song })
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_SONGS"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, action.songs);
 
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SONG"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, _defineProperty({}, action.song.id, action.song));
+    //When I go to playlist page, only puts those playlist songs up
+
+    case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_PLAYLIST"]:
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, action.data.songs);
+
+    case _actions_song_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PLAYLIST_SONG"]:
+      newState = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, _defineProperty({}, action.song.id, action.song));
+      return newState;
+
+    case _actions_song_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_PLAYLIST_SONG"]:
+      newState = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state);
+      debugger;
+      delete newState[action.playlistSongId];
+      return newState;
 
     default:
       return state;
@@ -1703,13 +1781,15 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/song_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchSongs, fetchSong */
+/*! exports provided: fetchSongs, fetchSong, addPlaylistSong, removePlaylistSong */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSongs", function() { return fetchSongs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSong", function() { return fetchSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addPlaylistSong", function() { return addPlaylistSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removePlaylistSong", function() { return removePlaylistSong; });
 var fetchSongs = function fetchSongs() {
   return $.ajax({
     method: 'GET',
@@ -1720,6 +1800,27 @@ var fetchSong = function fetchSong(id) {
   return $.ajax({
     method: 'GET',
     url: "api/songs/".concat(id)
+  });
+};
+var addPlaylistSong = function addPlaylistSong(playlistId, songId) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/playlist_songs',
+    data: {
+      playlist_song: {
+        playlist_id: playlistId,
+        song_id: songId
+      }
+    }
+  });
+};
+var removePlaylistSong = function removePlaylistSong(playlistId, songId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "api/playlist_songs/".concat(playlistId),
+    data: {
+      songId: songId
+    }
   });
 };
 

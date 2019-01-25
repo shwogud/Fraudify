@@ -11,6 +11,24 @@ import {
   deletePlaylist
          } from './actions/playlist_actions';
 
+import {
+  requestAllSongs,
+  requestSong,
+  addPlaylistSong, 
+  removePlaylistSong,
+
+         } from './actions/song_actions';
+
+import {
+  deletePlaylistSong,
+} from './actions/playlist_song_actions';
+
+import {
+  requestAllAlbums,
+  requestAlbum
+} from './actions/album_actions';
+    
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -38,10 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
+  //playlist actions
   window.requestAllPlaylists = requestAllPlaylists;
   window.requestPlaylist = requestPlaylist;
   window.createPlaylist = createPlaylist;
   window.deletePlaylist = deletePlaylist;
+
+  //song actions
+  window.requestAllSongs = requestAllSongs;
+  window.requestSong = requestSong;
+  window.addPlaylistSong = addPlaylistSong;
+  window.removePlaylistSong = removePlaylistSong;
+
+  //playlist_song actions
+  window.deletePlaylistSong = deletePlaylistSong;
+
+  //album actions
+  window.requestAllAlbums = requestAllAlbums;
+  window.requestAlbum = requestAlbum;
 
  
   // TESTING END

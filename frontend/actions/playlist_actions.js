@@ -12,10 +12,11 @@ export const receiveAllPlaylists = (playlists) => {
   }
 }
 
-export const receivePlaylist = (playlist) => {
+//pulling the entire playlist
+export const receivePlaylist = (data) => {
   return {
     type: RECEIVE_PLAYLIST,
-    playlist,
+    data,
   }
 }
 
