@@ -24,5 +24,6 @@ export const requestAllArtists = () => dispatch => {
 }
 
 export const requestArtist = (id) => dispatch => {
+  
   return ArtistAPIUtil.fetchArtist(id).then(artist => dispatch(receiveArtist(artist)));
 };

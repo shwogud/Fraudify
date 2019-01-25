@@ -27,6 +27,11 @@ import {
   requestAllAlbums,
   requestAlbum
 } from './actions/album_actions';
+
+import {
+  requestAllArtists,
+  requestArtist 
+} from './actions/artist_actions';
     
 
 
@@ -75,6 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestAllAlbums = requestAllAlbums;
   window.requestAlbum = requestAlbum;
 
+  //artist actions
+  window.requestAllArtists = requestAllArtists;
+  window.requestArtist = requestArtist;
  
   // TESTING END
 

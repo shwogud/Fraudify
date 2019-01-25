@@ -1,6 +1,8 @@
 import { merge } from 'lodash';
 import { RECEIVE_ALL_PLAYLISTS, RECEIVE_PLAYLIST, REMOVE_PLAYLIST } from '../actions/playlist_actions'
-import { RECEIVE_ALL_SONGS, RECEIVE_PLAYLIST_SONG, REMOVE_PLAYLIST_SONG } from '../actions/playlist_song_actions'
+import { RECEIVE_ALL_SONGS } from '../actions/song_actions';
+
+// import { RECEIVE_PLAYLIST_SONG, REMOVE_PLAYLIST_SONG } from '../actions/playlist_song_actions'
 
 const playlistReducer = (state = {}, action) => {
   Object.freeze(state);

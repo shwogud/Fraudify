@@ -26,9 +26,9 @@ const receivePlaylistSong = song => {
   };
 };
 
-const deletePlaylistSong = song => ({
+const deletePlaylistSong = data => ({
   type: REMOVE_PLAYLIST_SONG,
-  song
+  data
 });
 
 
@@ -62,7 +62,9 @@ export const addPlaylistSong = (playlistId, songId) => {
 //The APIUtil might need to be fixed?
 export const removePlaylistSong = (playlistId, songId) => {
   return dispatch => {
+    
     return APIUtil.removePlaylistSong(playlistId, songId).then(payload => {
+      
       return dispatch(deletePlaylistSong(payload));
     });
   };

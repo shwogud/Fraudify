@@ -7,6 +7,7 @@ import { RECEIVE_ALL_SONGS, RECEIVE_SONG,
 // import { REMOVE_PLAYLIST_SONG } from '../actions/playlist_song_actions'
 
 import { RECEIVE_PLAYLIST } from '../actions/playlist_actions';
+import { RECEIVE_ALBUM } from '../actions/album_actions';
 
 const songsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -22,17 +23,18 @@ const songsReducer = (state = {}, action) => {
     //When I go to playlist page, only puts those playlist songs up
     case RECEIVE_PLAYLIST:
       return merge({}, action.data.songs);
+    
+    case RECEIVE_ALBUM:
+      return merge({}, action.album.song_ids);
 
 
     case RECEIVE_PLAYLIST_SONG:
-      newState = merge({}, state, { [action.song.id]: action.song });
+    
+      newState = merge({}, state, action.song);
       return newState;
 
     case REMOVE_PLAYLIST_SONG:
-      newState = merge({}, state);
-      debugger
-      delete newState[action.playlistSongId];
-      return newState;
+      return merge({}, action.data.songs);
 
     default:
       return state;

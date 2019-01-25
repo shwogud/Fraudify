@@ -27,6 +27,11 @@ export const removePlaylistSong = (playlistId, songId) => {
   return $.ajax({
     method: 'DELETE',
     url: `api/playlist_songs/${playlistId}`,
-    data: { songId },
+    data: {
+      playlist_song: {
+      playlist_id: playlistId,
+      song_id: songId
+      }
+    }
   });
 };
