@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PlaylistIndexContainer from '../playlists/playlist_index_container';
+import PlaylistShowContainer from '../playlists/playlist_show_containers';
+
 
 class MainContent extends React.Component {
   constructor(props) {

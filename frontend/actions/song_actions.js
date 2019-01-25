@@ -64,7 +64,6 @@ export const removePlaylistSong = (playlistId, songId) => {
   return dispatch => {
     
     return APIUtil.removePlaylistSong(playlistId, songId).then(payload => {
-      debugger
       return dispatch(deletePlaylistSong(payload));
     });
   };

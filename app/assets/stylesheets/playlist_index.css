@@ -1,0 +1,46 @@
+.playlist-page {
+  background-image: linear-gradient(rgb(6, 92, 18), rgb(5, 39, 133));
+}
+
+.all-playlist-boxes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.playlist-index-box {
+  display: block;
+  border: 1px solid red;
+  margin: 10px;
+}
+
+.playlist-index-box:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.playlist-index-box p {
+  margin: 0px;
+  padding: 5px;
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.playlist-title {
+  font-weight: bold;
+}
+
+.playlist-username {
+
+}
+
+.playlist-username:hover {
+  border-bottom: 3px solid white;
+  cursor: pointer;
+}
+
+.playlist-index-images {
+  width: 215px;
+  height: 215px;
+}

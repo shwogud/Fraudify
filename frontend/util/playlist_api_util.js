@@ -9,6 +9,7 @@ export const fetchPlaylists = () => {
 
 //single playlist
 export const fetchPlaylist = (id) => {
+  
   return $.ajax ({
       method: 'GET',
       url: `api/playlists/${id}`

@@ -16,6 +16,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 // import NavbarContainer from './navbar/navbar_container';
 
 import MainContentContainer from './main_content/main_content_container';
+import PlaylistIndexContainer from './playlists/playlist_index_container';
+import PlaylistShow from './playlists/playlist_show_containers';
 
 const App = () => (
   <div>
@@ -34,6 +36,7 @@ const App = () => (
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <ProtectedRoute path="/feed" component={MainContentContainer} />
+      <ProtectedRoute path="/collection/playlists/:playlistId" component={PlaylistShow}/>
       <AuthRoute path="/" component={SplashContainer}/>
     </Switch>
     {/* <ProtectedRoute path="/" component={NavbarContainer} /> */}

@@ -14,6 +14,7 @@ export const receiveAllPlaylists = (playlists) => {
 
 //pulling the entire playlist
 export const receivePlaylist = (data) => {
+  
   return {
     type: RECEIVE_PLAYLIST,
     data,

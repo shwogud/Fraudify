@@ -57,8 +57,18 @@ Song.create([
 
 Playlist.create([
   { title: 'Everyday We Lit Bro', user_id: 1 },
+  { title: 'Everyday We Lit Bro', user_id: 1 },
+  { title: 'Everyday We Lit Bro', user_id: 1 },
+  { title: 'Everyday We Lit Bro', user_id: 1 },
+  { title: 'Everyday We Lit Bro', user_id: 1 },
+  { title: 'Everyday We Lit Bro', user_id: 1 },
+  { title: 'Everyday We Lit Bro', user_id: 1 },
+  { title: 'Everyday We Lit Bro', user_id: 1 },
   { title: 'Shower Vibes', user_id: 3 },
   { title: 'Workout Vibes', user_id: 4 },
+  { title: 'playlist1', user_id: 1 },
+  { title: 'playlist2', user_id: 3 },
+  { title: 'playlist3', user_id: 4 },
 ])
 
 PlaylistSong.create([

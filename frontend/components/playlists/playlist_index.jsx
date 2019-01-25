@@ -23,8 +23,11 @@ class PlaylistIndex extends React.Component {
         if (playlist.user_id === this.currentUser.id) {
           
           return (
-            <li key={playlist.id}>
-              <Link to={`/collection/playlists/${playlist.id}`}>{playlist.title}</Link>
+            <li className="playlist-index-box" key={playlist.id}>
+              <img className="playlist-index-images" src={window.brentURL1} />
+              <Link to={`/collection/playlists/${playlist.id}`}><p className="playlist-title">{playlist.title}</p></Link>
+              <p className="playlist-username">{playlist.username}</p>
+              
             </li>
           )
         }
@@ -35,8 +38,8 @@ class PlaylistIndex extends React.Component {
     }
     
     return (
-      <div>
-        <ul>
+      <div className="playlist-page">
+        <ul className="all-playlist-boxes">
           {playlists}
         </ul>
       </div>
