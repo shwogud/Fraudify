@@ -3,24 +3,36 @@ import { Link } from 'react-router-dom';
 import PlaylistShowSongInfo from './playlist_show_song_info';
 
 class PlaylistShow extends React.Component {
+  constructor(props) {
+    super(props);
+    
+  }
   
   componentDidMount() {
     this.props.fetchPlaylist(this.props.match.params.playlistId);
-    // this.props.fetchAllSongs();
+    this.props.fetchAllSongs();
   }
 
   playlistSongs() {
     let songs;
     if (this.props.playlist.song_ids) {
       let playlistSongs = [];
-
+    
       for(let i = 0; i < this.props.playlist.song_ids.length; i++) {
         playlistSongs.push(this.props.songs[this.props.playlist.song_ids[i]])
       }
-
+    
       songs = (
         playlistSongs.map( song => {
-          return (<li key={song.id}>{song.title}</li>)
+          // return (<li key={song.id}>{song.title}</li>)
+          console.log(song);
+          return (
+            <div key={song.id}>
+              <p>{song.title}</p>
+              <p>{song.artist}</p>
+              <p>{song.album}</p>
+            </div>
+          )
           
         })
       )
@@ -36,9 +48,10 @@ class PlaylistShow extends React.Component {
     //   );
     // }
     else {
+      
       songs = null;
     }
-
+   
     return songs;
   };
   
@@ -50,8 +63,10 @@ class PlaylistShow extends React.Component {
 
     let playlist;
     let playlistsongs;
+
     
     if (this.props.playlist) {
+      
       // playlistsongs = (
       //   <div>
       //     {this.playlistSongs()}
@@ -76,14 +91,15 @@ class PlaylistShow extends React.Component {
       )
     }
     else {
+      
       playlist = null;
-      playlistsongs = null;
+      // playlistsongs = null;
     }
     
     return (
       <div>
         {playlist}
-        {playlistsongs}
+        {/* {playlistsongs} */}
       </div>
     )
   }

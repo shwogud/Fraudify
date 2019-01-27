@@ -1070,16 +1070,17 @@ var PlaylistShow =
 function (_React$Component) {
   _inherits(PlaylistShow, _React$Component);
 
-  function PlaylistShow() {
+  function PlaylistShow(props) {
     _classCallCheck(this, PlaylistShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(PlaylistShow).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(PlaylistShow).call(this, props));
   }
 
   _createClass(PlaylistShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchPlaylist(this.props.match.params.playlistId); // this.props.fetchAllSongs();
+      this.props.fetchPlaylist(this.props.match.params.playlistId);
+      this.props.fetchAllSongs();
     }
   }, {
     key: "playlistSongs",
@@ -1094,9 +1095,11 @@ function (_React$Component) {
         }
 
         songs = playlistSongs.map(function (song) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          // return (<li key={song.id}>{song.title}</li>)
+          console.log(song);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: song.id
-          }, song.title);
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, song.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, song.artist), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, song.album));
         });
       } // if (this.props.songs[0]) {
       //   songs = (
@@ -1151,11 +1154,10 @@ function (_React$Component) {
           className: "playlist-show-songs"
         }, this.playlistSongs()));
       } else {
-        playlist = null;
-        playlistsongs = null;
+        playlist = null; // playlistsongs = null;
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, playlist, playlistsongs);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, playlist);
     }
   }]);
 
