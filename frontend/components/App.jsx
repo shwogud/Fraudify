@@ -19,6 +19,8 @@ import PlaylistIndexContainer from './playlists/playlist_index_container';
 import PlaylistShow from './playlists/playlist_show_containers';
 import AlbumsIndexContainer from './albums/albums_index_container';
 import AlbumsShowContainer from './albums/albums_show_container';
+import ArtistsIndexContainer from './artists/artists_index_container';
+import ArtistsShowContainer from './artists/artists_show_container';
 
 const App = () => (
   <div>
@@ -39,6 +41,7 @@ const App = () => (
       <ProtectedRoute path="/feed" component={MainContentContainer} />
       <ProtectedRoute path="/collection/playlists/:playlistId" component={PlaylistShow}/>
       <ProtectedRoute path="/collection/albums/:albumId" component={AlbumsShowContainer} />
+      <ProtectedRoute path="/collection/artists/:artistId" component={ArtistsShowContainer} />
       <AuthRoute path="/" component={SplashContainer}/>
     </Switch>
     {/* <ProtectedRoute path="/" component={NavbarContainer} /> */}

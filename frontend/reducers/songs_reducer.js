@@ -8,6 +8,7 @@ import { RECEIVE_ALL_SONGS, RECEIVE_SONG,
 
 import { RECEIVE_PLAYLIST } from '../actions/playlist_actions';
 import { RECEIVE_ALBUM } from '../actions/album_actions';
+import { RECEIVE_ALL_ARTISTS } from '../actions/song_actions';
 
 const songsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -26,6 +27,10 @@ const songsReducer = (state = {}, action) => {
     
     case RECEIVE_ALBUM:
       return merge({}, action.album.song_ids);
+    
+    // case RECEIVE_ALL_ARTISTS:
+    // debugger
+    //   return merge({}, state, action.artists.song_ids);
 
 
       
