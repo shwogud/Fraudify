@@ -4,7 +4,7 @@ import PlaylistIndexContainer from '../playlists/playlist_index_container';
 import PlaylistShowContainer from '../playlists/playlist_show_containers';
 import AlbumsIndexContainer from '../albums/albums_index_container';
 import ArtistsIndexContainer from '../artists/artists_index_container';
-
+import SongsIndexContainer from '../songs/songs_index_container';
 
 class MainContent extends React.Component {
   constructor(props) {
@@ -21,11 +21,12 @@ class MainContent extends React.Component {
   render() {
     return (
       <div className="main-content">
-        <h1>Welcome to the Main Content Page!</h1>
+        {/* <h1>Welcome to the Main Content Page!</h1> */}
 
         {/* <PlaylistIndexContainer /> */}
         {/* <AlbumsIndexContainer /> */}
         <ArtistsIndexContainer />
+        {/* <SongsIndexContainer /> */}
 
         <button onClick={this.handleLogout}>Log Out</button>
       </div>

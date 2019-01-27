@@ -1,0 +1,147 @@
+.test {
+  background: black;
+  /* margin-left: 315px; */
+}
+
+.artist-top {
+  margin-left: 315px;
+  /* border: 1px solid red; */
+  height: 415px;
+  background-image: linear-gradient(
+                  rgba(20, 20, 20, .5),
+                  rgba(20, 20, 20, .5)),
+                  url('taylor_image.jpg');
+  background-repeat: round;
+}
+
+.artist-name {
+  text-align: center;
+  font-size: 72px;
+  line-height: 82px;
+  letter-spacing: -.005em;
+  font-weight: var(--glue-font-weight-black);
+  color: #fff;
+  text-transform: none;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.flex-play-button{
+  display: flex;
+  justify-content: center;
+}
+.artist-play-button {
+  background-color: #1db954;
+  padding: 11px 44px;
+  color: white;
+  font-size: 12px;
+  border-radius: 500px;
+  transition-property: background-color, border-color, color, box-shadow, filter, -webkit-box-shadow, -webkit-filter;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border: none;
+}
+
+.artist-middle {
+  display: flex;
+  padding-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 315px;
+  /* border: 1px solid red; */
+  list-style-type: none;
+}
+
+.artist-music-note {
+  color: white;
+  padding-right: 15px;
+}
+
+.artist-artist-name {
+  color: rgba(255, 255, 255, 0.708);
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 7px;
+}
+
+.album-title {
+  color:white;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 7px;
+}
+
+.song-title {
+  color: white;
+  padding-left: 5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.artist-bottom {
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 315px;
+  /* border: 1px solid red; */
+  list-style-type: none;
+  padding-bottom: 15px;
+  width: 50px;
+}
+
+.Songs {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 315px;
+  color: white;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -.005em;
+  font-weight: var(--glue-font-weight-black);
+  text-transform: none;
+  
+}
+
+.Albums {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 315px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  color: white;
+      font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -.005em;
+    font-weight: var(--glue-font-weight-black);
+    text-transform: none;
+}
+
+.artist-top-pic {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  /* border-radius: 50%; */
+}
+
+.artist-middle-pic {
+  width: 50px;
+  height: 50px;
+}
+
+
+.artist-bottom-pic {
+  width: 200px;
+  height: 200px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.each-album {
+  width: 205px;
+  /* border: 1px solid blue; */
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.flex-wrap-albums {
+  display: flex;
+  flex-wrap: wrap;
+}

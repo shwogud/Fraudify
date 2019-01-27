@@ -1,0 +1,40 @@
+.artist-index-page{
+  height: 900px;
+  background-color: black;
+  margin-left: 315px;
+}
+
+.artist-index-nav {
+  color: white;
+}
+
+.artists {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.artist-index-image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.artists-name-link {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: .015em;
+  font-weight: var(--glue-font-weight-bold);
+  color: #fff;
+  text-transform: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.artist-pic-and-name {
+  display: block;
+  padding: 30px;
+  text-align: center;
+}

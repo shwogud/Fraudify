@@ -1,0 +1,53 @@
+.song-index {
+  height: 900px;
+  background-image: linear-gradient(rgb(3, 4, 95), rgb(1, 5, 19));
+}
+
+.all-songs {
+  list-style-type: none;
+  padding-left: 215px;
+  padding-bottom: 35px;
+}
+
+.first-line {
+  display: flex;
+}
+
+.second-line {
+  display: flex;
+  padding-left: 17px;
+}
+
+
+.song-title {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: .015em;
+  padding-left: 10px;
+  color: rgba(255, 255, 255, 0.845);
+}
+
+.song-music-note{
+  color: rgba(255, 255, 255, 0.845);
+}
+
+.song-links {
+  color: rgba(255, 255, 255, 0.845);
+}
+
+.song-artist {
+  padding-right: 5px;
+  color: rgba(255, 255, 255, 0.934);
+  opacity: .6;
+}
+
+.song-separator {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.845);
+}
+
+.song-album {
+  padding-left: 5px;
+  color: rgba(255, 255, 255, 0.845);
+  opacity: .6;
+}
