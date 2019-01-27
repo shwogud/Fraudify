@@ -2,7 +2,6 @@ import React from 'react';
 
 class PlaylistShowSongInfo extends React.Component {
   render() {
-
     return (
       <div>
         <ul>

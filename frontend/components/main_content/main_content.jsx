@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PlaylistIndexContainer from '../playlists/playlist_index_container';
 import PlaylistShowContainer from '../playlists/playlist_show_containers';
-
+import AlbumsIndexContainer from '../albums/albums_index_container';
 
 class MainContent extends React.Component {
   constructor(props) {
@@ -22,6 +22,7 @@ class MainContent extends React.Component {
         <h1>Welcome to the Main Content Page!</h1>
 
         <PlaylistIndexContainer />
+        {/* <AlbumsIndexContainer /> */}
 
         <button onClick={this.handleLogout}>Log Out</button>
       </div>

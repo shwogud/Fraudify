@@ -1,4 +1,64 @@
 .playlist-show-page {
+  height: 900px;
   display: flex;
+  font-family: 'Montserrat', sans-serif;
+  background-image: linear-gradient(rgb(32, 2, 32), rgb(4, 17, 53));
 }
 
+.playlist-show-left {
+  text-align: center;
+}
+
+.playlist-show-images {
+  margin-top: 40px;
+
+  padding-left: 200px;
+  width: 325px;
+  height: 325px;
+
+
+}
+
+.play-button {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  background-color: #1db954;
+  padding: 11px 44px;
+  border-radius: 500px;
+  cursor: pointer;
+  
+}
+
+.playlist-show-info {
+  list-style-type: none;
+  padding-left: 200px;
+  color: white;
+}
+
+.playlist-show-title {
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.playlist-show-username {
+font-size: 13px;
+padding-bottom: 25px;
+}
+
+.playlist-show-length {
+  font-size: 15px;
+  padding-top: 25px;
+  text-transform: uppercase;
+}
+
+
+
+.playlist-show-songs {
+  margin-top: 60px;
+  margin-left: 40px;
+  border: 1px solid red;
+  list-style-type: none;
+  color: white;
+}
