@@ -1,19 +1,23 @@
-// import { connect } from 'react-redux';
-// import React from 'react';
-// import { logout } from '../../actions/session_actions';
-// import Navbar from './navbar_index';
 
-// const mapStateToProps = ({ session, entities: { users } }) => {
-//   return {
-//     currentUser: users[session.id]
-//   };
-// };
+import { connect } from 'react-redux';
+import { logout } from '../../actions/session_actions';
+import Navbar from './navbar';
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     logout: () => dispatch(logout())
-//   };
-// };
+const msp = (state) => {
+  
+  return {
+    currentUser: state.entities.users[state.session.id]
+  };
+};
+
+const mdp = dispatch => {
+  return {
+    logout: () => dispatch(logout())
+  };
+};
 
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(msp, mdp)(Navbar);
+
+
+// 6768347a

@@ -1,0 +1,72 @@
+.sidebar_all{
+  color: white;
+  padding-left: 25px;
+}
+
+.sidebar-all p {
+  color: white;
+}
+
+.sidebar-all i {
+  color: white;
+  font-size: 40px;
+}
+
+.sidebar-logo-name {
+  display: flex;
+  align-items: center;
+  padding-bottom: 35px;
+}
+
+.magnifying-glass {
+  color: white;
+}
+
+.sidebar-name {
+  font-size: 25px;
+  padding-left: 5px;
+}
+
+.search-pic-name {
+  display: flex;
+  padding-bottom: 15px;
+}
+
+.searchh {
+  padding-left: 20px;
+}
+
+.home-pic-name {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.home-pic {
+  font-size: 25px;
+  padding-right: 25px;
+}
+
+.lib-pic-name {
+  display: flex;
+}
+
+.lib-name {
+  padding-left: 20px;
+}
+
+
+.sidebar-bottom {
+  /* border: 1px solid red; */
+}
+
+.sidebar-user {
+  display: flex;
+  color: white;
+  margin-top: 700px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  /* text-align: center; */
+}
+
+

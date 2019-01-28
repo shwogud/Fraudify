@@ -9,9 +9,11 @@ const playlistReducer = (state = {}, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_ALL_PLAYLISTS:
-      return merge({}, state, action.playlists);
+      // debugger
+      return merge({}, action.playlists);
 
     case RECEIVE_PLAYLIST:
+    // debugger
       return merge({}, state, {[action.data.playlist.id]: action.data.playlist});
 
     case REMOVE_PLAYLIST:
@@ -26,10 +28,11 @@ const playlistReducer = (state = {}, action) => {
 
 
     //I have NO idea what this is doing
-    case RECEIVE_ALL_SONGS:
-      newState = merge({}, state, {[action.songs.id]: action.songs.songs});
+    // case RECEIVE_ALL_SONGS:
+    // debugger
+    //   newState = merge({}, state, {[action.songs.id]: action.songs.songs});
 
-      return newState;
+    //   return newState;
 
     //How do I add song ids or titles to my playlist?
     // case RECEIVE_PLAYLIST_SONG:

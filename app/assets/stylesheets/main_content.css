@@ -1,0 +1,16 @@
+.containers {
+  display: flex;
+}
+
+.bigggy {
+  width: 1690px;
+}
+
+.sidebar-container {
+  background: black;
+  text: white;
+  min-width: 200px;
+  /* border: 1px solid red; */
+  padding-left: 25px;
+  padding-top: 25px;
+}

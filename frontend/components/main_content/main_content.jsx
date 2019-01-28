@@ -6,7 +6,8 @@ import PlaylistShowContainer from '../playlists/playlist_show_containers';
 import AlbumsIndexContainer from '../albums/albums_index_container';
 import ArtistsIndexContainer from '../artists/artists_index_container';
 import SongsIndexContainer from '../songs/songs_index_container';
-
+import NavBarContainer from '../navbar/navbar_container';
+import SideBarContainer from '../sidebar/sidebar_container'
 
 class MainContent extends React.Component {
   constructor(props) {
@@ -23,23 +24,23 @@ class MainContent extends React.Component {
   render() {
     return (
       <div className="main-content">
+        <div className="containers">
+          <div className="sidebar-container">
+            <SideBarContainer />
+          </div>
+          <div>
+            <NavBarContainer />
 
-        <ul className='playlist-nav'>
-          <li><Link to="/collection/playlists">PLAYLISTS</Link></li>
-          <li><Link to="/collection/artists">ARTISTS</Link></li>
-          <li><Link to="/collection/albums">ALBUMS</Link></li>
-          <li><Link to="/collection/songs">SONGS</Link></li>
-        </ul>
+            <PlaylistIndexContainer />
+            <ArtistsIndexContainer />
+            <AlbumsIndexContainer />
 
+            {/* <SongsIndexContainer /> */}
 
-        {/* <h1>Welcome to the Main Content Page!</h1> */}
+            {/* <button onClick={this.handleLogout}>Log Out</button> */}
+          </div>
 
-        {/* <PlaylistIndexContainer /> */}
-        <AlbumsIndexContainer />
-        {/* <ArtistsIndexContainer /> */}
-        {/* <SongsIndexContainer /> */}
-
-        <button onClick={this.handleLogout}>Log Out</button>
+        </div>
       </div>
       
     )

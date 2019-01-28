@@ -9,8 +9,8 @@ class ArtistShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchArtist(this.props.match.params.artistId);
-    this.props.fetchAllSongs();
-    this.props.fetchAllAlbums();
+    // this.props.fetchAllSongs();
+    // this.props.fetchAllAlbums();
   }
 
   render() {
@@ -22,6 +22,11 @@ class ArtistShow extends React.Component {
         </div>
       )
     }
+
+    if (!this.props.artist.songs) {
+      return null;
+    }
+   
     else {
        let artistInfo = (
         <div className="artist-top">

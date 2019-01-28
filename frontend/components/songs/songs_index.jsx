@@ -18,7 +18,7 @@ class SongsIndex extends React.Component {
     if (!this.props.songs) {
       return null;
     }
-
+    
     songs = (
       this.props.songs.map((song, i) => {
         return (
@@ -26,7 +26,7 @@ class SongsIndex extends React.Component {
         )
       })
     );
-
+    
     return (
       <ul className="song-index">
         {songs}

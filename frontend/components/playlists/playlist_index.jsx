@@ -10,6 +10,7 @@ class PlaylistIndex extends React.Component {
     this.currentUser = this.props.currentUser;
     // this.state = this.props.currentUser;
     
+    
   }
 
   componentDidMount() {
@@ -17,8 +18,16 @@ class PlaylistIndex extends React.Component {
   }
 
   render() {
+    
     let playlists;
+
+    if (!this.props.playlists[0]) {
+       
+      return null;
+    }
+    
     if (this.props.playlists) {
+       
       playlists = this.props.playlists.map( playlist => {
         if (playlist.user_id === this.currentUser.id) {
           
@@ -34,9 +43,10 @@ class PlaylistIndex extends React.Component {
       });
     }
     else {
+       
       playlists = null;
     }
-    
+     
     return (
       <div className="playlist-page">
         <ul className="all-playlist-boxes">

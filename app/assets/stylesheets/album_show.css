@@ -1,8 +1,16 @@
 .album-show-page {
   display: flex;
+  border: 1px solid blue;
 }
 
-
+.album-show-title {
+  font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -.005em;
+    font-weight: bold;
+    /* color: #fff; */
+    text-transform: none;
+}
 
 
 .album-show-left {
@@ -15,3 +23,60 @@
   width: 325px;
   height: 325px;
 }
+
+.album-show-play-button {
+  background-color: #1db954;
+  padding: 11px 44px;
+  color: white;
+  font-size: 12px;
+  border-radius: 500px;
+  transition-property: background-color, border-color, color, box-shadow, filter, -webkit-box-shadow, -webkit-filter;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border: none;
+}
+
+.album-show-info {
+  display: flex;
+  text-align: center;
+  padding-left: 117px;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 15px;
+}
+
+.album-show-title {
+  padding-bottom: 5px;
+}
+
+.album-show-artist {
+  padding-bottom: 20px;
+}
+
+.album-show-year {
+  font-size: 13px;
+}
+
+.albm-show-separator {
+  font-size: 18px;
+}
+
+.album-show-song-number {
+  font-size: 13px;
+}
+
+
+.album-show-songs {
+  display: block;
+  border: 1px solid red;
+  margin-left: 25px;
+}
+
+.flex-music-song {
+  display: flex;
+  padding-bottom: 25px;
+}
+
+.album-music-note {
+  padding-right: 10px;
+}
+

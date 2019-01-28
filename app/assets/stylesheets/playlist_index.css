@@ -1,20 +1,24 @@
 .playlist-page {
-  background-image: linear-gradient(rgb(6, 92, 18), rgb(5, 39, 133));
+  /* background-image: linear-gradient(rgb(6, 92, 18), rgb(5, 39, 133)); */
+  /* padding: 0px; */
+  height: 900px;
 }
 
 .all-playlist-boxes {
   display: flex;
   flex-wrap: wrap;
+  height: 900px;
+  background-image: linear-gradient(rgb(6, 92, 18), rgb(5, 39, 133));
 }
 
 .playlist-index-box {
   display: block;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 10px;
 }
 
 .playlist-index-box:hover {
-  background-color: black;
+  /* background-color: black; */
   cursor: pointer;
 }
 

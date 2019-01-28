@@ -16,14 +16,15 @@ const songsReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
 
-    case RECEIVE_ALL_SONGS:
-      return merge({}, action.songs);
+    // case RECEIVE_ALL_SONGS:
+    //   return merge({}, action.songs);
 
     case RECEIVE_SONG:
       return merge({}, { [action.song.id]: action.song });
 
     //When I go to playlist page, only puts those playlist songs up
     case RECEIVE_PLAYLIST:
+    
       return merge({}, action.data.songs);
     
     case RECEIVE_ALBUM:

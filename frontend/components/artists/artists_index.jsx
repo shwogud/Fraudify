@@ -6,17 +6,15 @@ class ArtistsIndex extends React.Component {
     super(props);
     this.artists = this.props.artists;
     this.currentUser = this.props.currentUser;
-
   }
 
   componentDidMount() {
     this.props.fetchAllArtists();
   }
 
-
-
-  render() {
-    const artists = this.artists.map(artist => {
+  render() {  
+    
+    const artists = this.props.artists.map(artist => {
       return (
         <li className="artist-pic-and-name" key={artist.id}>
           <img className="artist-index-image" src={window.brentURL1} />
@@ -30,31 +28,10 @@ class ArtistsIndex extends React.Component {
         </li>
       )
     })
-    // debugger
+    
     return (
       <div className="artist-index-page">
-        {/* <nav className="artist-index-nav">
-          <Link
-            // className="artist-artist-name"
-            to={`/collection/playlists`}>
-            PLAYLISTS</Link>
-
-          <Link
-            // className="artist-artist-name"
-            to={`/collection/playlists`}>
-            SONGS</Link>
-
-          <Link
-            // className="artist-artist-name"
-            to={`/collection/playlists`}>
-            ALBUMS</Link>
-
-          <Link
-            // className="artist-artist-name"
-            to={`/collection/playlists`}>
-            ARTISTS</Link>
-        </nav> */}
-
+     
         <ul className="artists">
           {artists}
         </ul>

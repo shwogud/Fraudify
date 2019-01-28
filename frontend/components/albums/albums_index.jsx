@@ -6,7 +6,7 @@ class AlbumsIndex extends React.Component {
     super(props);
     this.albums = this.props.albums;
     this.currentUser = this.props.currentUser;
-
+    
   }
 
   componentDidMount() {
@@ -16,7 +16,8 @@ class AlbumsIndex extends React.Component {
 
 
   render() {
-    const albums =  this.albums.map( album => {
+    
+    const albums =  this.props.albums.map( album => {
       // let artist = this.props.fetchArtist(this.props.albums.artist_id);
       return (
         <li className="album-covers" key={album.id}>

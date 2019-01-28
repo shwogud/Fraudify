@@ -9,7 +9,7 @@ const msp = (state, ownProps) => {
   return {
     playlist: state.entities.playlists[ownProps.match.params.playlistId],
     currentUser: state.entities.users[state.session.id],
-    songs: state.entities.songs
+    songs: Object.values(state.entities.songs)
   }
 }
 

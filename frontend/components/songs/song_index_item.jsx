@@ -15,7 +15,7 @@ class SongIndexItem extends React.Component {
     if (!this.props.song) {
       return null;
     }
-    
+    // debugger
     songs = (
       <ul className="all-songs">
         <div className="first-line">
@@ -28,9 +28,9 @@ class SongIndexItem extends React.Component {
             <Link
               className="song-links"
               key={this.props.song.artist.id}
-              to={`/collection/artists/${this.props.song.artist.id}`}>
+              to={`/collection/artists/${this.props.song.artist_id}`}>
               {this.props.song.artist.name}</Link>
-
+              {/* <p>HELLOOOOOOOOOO</p> */}
           </li>
           <li className='song-separator'>·</li>
           <li className="song-album">
