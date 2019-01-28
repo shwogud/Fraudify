@@ -1,0 +1,33 @@
+.album-page {
+  margin-left: 315px;
+  background: rgb(56, 56, 63);
+  height: 900px;
+ 
+}
+
+.each-album {
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.album-image {
+  width: 250px;
+  height: 250px;
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+.album-covers {
+  padding-right: 10px;
+  
+}
+
+.album-album-link {
+  color: white;
+}
+
+.album-artist-name {
+  color: white;
+}

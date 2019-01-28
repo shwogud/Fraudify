@@ -16,18 +16,32 @@ class AlbumShow extends React.Component {
       return null;
     }
     let albumInfo = (
-      <div>
-        <img src={window.brentURL1} />
+      <div className="album-show-left">
+        <img className="album-show-image" src={window.brentURL1} />
+        <p>{this.props.album.title}</p>
         <p>{this.props.album.artist}</p>
+        <button>PLAY</button>
         <p>{this.props.album.release_year}</p>
         <p>{this.props.album.song_ids.length}</p>
-        <p>heart image</p>
+        {/* <p>heart image</p> */}
       </div>
     )
     
+
+    let songs = this.props.album.songs.map( song => {
+      return (
+        <ul key={song.id}>
+          <li>
+            {song.title}
+          </li>
+        </ul>
+      )
+    })
+    
     return (
-      <div>
+      <div className="album-show-page">
         {albumInfo}
+        {songs}
       </div>
     )
   }

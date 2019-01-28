@@ -1,0 +1,17 @@
+.album-show-page {
+  display: flex;
+}
+
+
+
+
+.album-show-left {
+  display: block;
+  border: 1px solid red;
+  text-align: center;
+}
+
+.album-show-image {
+  width: 325px;
+  height: 325px;
+}

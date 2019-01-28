@@ -15,12 +15,14 @@ import SignupFormContainer from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import MainContentContainer from './main_content/main_content_container';
-import PlaylistIndexContainer from './playlists/playlist_index_container';
 import PlaylistShow from './playlists/playlist_show_containers';
-import AlbumsIndexContainer from './albums/albums_index_container';
 import AlbumsShowContainer from './albums/albums_show_container';
-import ArtistsIndexContainer from './artists/artists_index_container';
 import ArtistsShowContainer from './artists/artists_show_container';
+
+import PlaylistIndexContainer from './playlists/playlist_index_container';
+import AlbumsIndexContainer from './albums/albums_index_container';
+import ArtistsIndexContainer from './artists/artists_index_container';
+import SongsIndexContainer from './songs/songs_index_container';
 
 const App = () => (
   <div>
@@ -42,6 +44,13 @@ const App = () => (
       <ProtectedRoute path="/collection/playlists/:playlistId" component={PlaylistShow}/>
       <ProtectedRoute path="/collection/albums/:albumId" component={AlbumsShowContainer} />
       <ProtectedRoute path="/collection/artists/:artistId" component={ArtistsShowContainer} />
+      
+      {/* <ProtectedRoute path="/collection/playlists" component={PlaylistIndexContainer} /> */}
+      <ProtectedRoute path="/collection/albums" component={AlbumsIndexContainer} />
+      <ProtectedRoute path="/collection/artists" component={ArtistsIndexContainer} />
+      <ProtectedRoute path="/collection/songs" component={SongsIndexContainer} />
+
+
       <AuthRoute path="/" component={SplashContainer}/>
     </Switch>
     {/* <ProtectedRoute path="/" component={NavbarContainer} /> */}

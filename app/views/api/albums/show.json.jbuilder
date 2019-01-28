@@ -2,3 +2,5 @@ json.extract! @album, :id, :title, :artist_id, :release_year, :img_url, :song_id
 
 json.artist @album.artist.name
 
+json.songs @album.songs
+
