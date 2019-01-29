@@ -53,14 +53,18 @@ class ArtistShow extends React.Component {
           return (
             <ul key={album.id} className="artist-bottom">
               <div className="each-album">
-                <li><img src={window.brentURL1} className="artist-bottom-pic"/></li>
-                <li className="album-title">{album.title}</li>
-                {/* <Link
-                  className="artist-artist-name"
-                  key={album.artist_id} 
-                  to={`/collection/artists/${album.artist_id}`}>
-                  {this.props.artist.name}</Link> */}
-                <li className="artist-artist-name">{this.props.artist.name}</li>
+                <div>
+                  <li><img src={window.brentURL1} className="artist-bottom-pic"/></li>
+                  {/* <li className="album-title">{album.title}</li> */}
+                  <Link
+                    className="album-title"
+                    key={album.id} 
+                    to={`/collection/albums/${album.id}`}>
+                    {album.title}</Link>
+
+                  <li className="artist-artist-name">{this.props.artist.name}</li>
+
+                </div>
               </div>
             </ul>
           )

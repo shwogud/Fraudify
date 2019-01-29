@@ -995,14 +995,16 @@ function (_React$Component) {
             className: "artist-bottom"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "each-album"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
             src: window.brentURL1,
             className: "artist-bottom-pic"
-          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-            className: "album-title"
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            className: "album-title",
+            key: album.id,
+            to: "/collection/albums/".concat(album.id)
           }, album.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             className: "artist-artist-name"
-          }, _this.props.artist.name)));
+          }, _this.props.artist.name))));
         });
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "test"

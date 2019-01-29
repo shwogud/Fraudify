@@ -41,6 +41,13 @@ Album.create([
   { title: 'Fearless', artist_id: 1, release_year: '2008', img_url: '' },
   { title: 'x', artist_id: 2, release_year: '2014', img_url: '' },
   { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
+  { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
+  { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
+  { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
+  { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
+  { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
+  { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
+  { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
 ])
 
 Song.create([

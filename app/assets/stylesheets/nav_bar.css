@@ -20,17 +20,32 @@
 
 .nav-playlist {
   text-decoration: none;
-  color: #fff;
+  color: rgb(187, 187, 187);
+  transition: color 0.3s ease;
+}
+
+.nav-playlist:hover {
+  color: white;
 }
 
 .nav-artist {
   text-decoration: none;
-  color: #fff;
+  color: rgb(187, 187, 187);
+  transition: color 0.3s ease;
+}
+
+.nav-artist:hover {
+  color: white;
 }
 
 .nav-album {
   text-decoration: none;
-  color: #fff;
+  color: rgb(187, 187, 187);
+  transition: color 0.3s ease;
+}
+
+.nav-album:hover {
+  color: white;
 }
 
 .new-playlist-button {
@@ -40,8 +55,14 @@
   text-align: center;
   border-radius: 500px;
   min-width: 130px;
-  color: white;
+  color: rgba(255, 255, 255, 0.831);
   padding: 8px 30px;
   margin-left: 200px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.new-playlist-button:hover {
+  background-color: rgb(0, 203, 0);
 }

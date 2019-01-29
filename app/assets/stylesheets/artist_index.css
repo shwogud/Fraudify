@@ -26,11 +26,18 @@
   line-height: 20px;
   letter-spacing: .015em;
   font-weight: var(--glue-font-weight-bold);
-  color: #fff;
+  color: rgb(198, 198, 198);
   text-transform: none;
   cursor: pointer;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
+  transition: color 0.3s ease;
+  /* transition: text-decoration 0.3s ease; */
+}
+
+.artists-name-link:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 .artist-pic-and-name {
