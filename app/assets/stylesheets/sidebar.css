@@ -78,31 +78,30 @@
 }
 
 .sidebar-user {
-  /* display: flex; */
   color: white;
-  /* margin-top: 200px; */
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
-  padding-bottom: 50px;
-  /* margin-left: 54px; */
-  /* padding-right: 25px; */
-  /* border: 1px solid red; */
+  padding-bottom: 45px;
+  font-size: 20px;
+
 }
 
 .sidebar-welcome {
   padding: 0px;
   margin-top: 580px;
-  /* margin-left: 45px; */
+
 }
 
 .center-welcome-user {
   /* border: 1px solid blue; */
   text-align: center;
   margin-right: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
 }
 
 .logout-button {
-  background-color: #1db954;
+  background-color: #20a54e;
   padding: 11px 44px;
   color: white;
   font-size: 12px;
@@ -112,6 +111,12 @@
   cursor: pointer;
   border: none;
   position: fixed;
+  transition: background-color 0.3s ease;
+  transition: all .5s ease-in-out;
 }
 
+.logout-button:hover {
+  background-color: rgb(16, 213, 16);
+  transform: scale(1.1);
+}
 

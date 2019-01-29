@@ -2261,7 +2261,9 @@ function (_React$Component) {
         className: "fraudify"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fab fa-spotify"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Fraudify")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "fraudify-auth-top"
+      }, "Fraudify")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "auth-box-".concat(this.props.inputType)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2439,7 +2441,7 @@ function (_React$Component) {
         className: "sidebar-welcome"
       }, "Welcome,"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "sidebar-user"
-      }, this.props.currentUser.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, this.props.currentUser.username, " !")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "logout-button",
         onClick: this.props.logout
       }, "Log Out")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2798,9 +2800,12 @@ function (_React$Component) {
         className: "splashNavBar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "splash-link",
+        to: "/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fab fa-spotify"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Fraudify")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Fraudify"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/signup",

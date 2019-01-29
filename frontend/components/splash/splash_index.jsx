@@ -9,9 +9,10 @@ class SplashIndex extends React.Component {
       <div className="splashAll"> 
         <header className="splashNavBar">
           <div className="nav-right">
-          
-            <i className="fab fa-spotify"></i>
-            <p>Fraudify</p>
+            <Link className= "splash-link" to="/">
+              <i className="fab fa-spotify"></i>
+              <p>Fraudify</p>
+            </Link>
           </div>
 
           <div className="nav-left">

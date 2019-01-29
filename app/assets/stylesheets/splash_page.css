@@ -35,6 +35,7 @@
 .nav-right i {
   font-size: 35px;
   padding-right: 5px;
+  color: #1ecd5b;
 }
 
 .nav-left {
@@ -47,18 +48,24 @@
 .signup, .login {
   color: white;
   text-decoration: none;
+  transition: color 0.3s ease;
+  transition: font-size 0.3s ease;
 }
 
 .signup:hover {
     /* text-decoration: underline; */
-    border-bottom: 2px solid #1fa14d;
-    border-bottom-color: #1fa14d;
+    /* border-bottom: 2px solid #1fa14d;
+    border-bottom-color: #1fa14d; */
+    color: #1ecd5b;
+    font-size: 18px;
 }
 
 .login:hover {
     /* text-decoration: underline; */
-    border-bottom: 2px solid #1fa14d;
-    border-bottom-color: #1fa14d;
+    /* border-bottom: 2px solid #1fa14d;
+    border-bottom-color: #1fa14d; */
+    color: #1ecd5b;
+    font-size: 18px;
 }
 
 .splashNavBar p {
@@ -81,14 +88,15 @@
 
 .body h1 {
   font-size: 50px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   margin: 0;
   padding-bottom: 15px;
+  font-weight: bold;
 }
 
 .body h3 {
   font-size: 15px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   font-weight: normal; 
   margin: 0;
   padding-bottom: 37px;
@@ -104,12 +112,21 @@
   letter-spacing: 2px;
   cursor: pointer;
   border: none;
+  transition: background-color 0.3s ease;
+  transition: all .5s ease-in-out;
 }
 
 .splash-button:hover {
     text-decoration: none;
     background-color: #17bd51;
     text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
-}
+    transform: scale(1.1);
+  }
 
+
+.splash-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
 

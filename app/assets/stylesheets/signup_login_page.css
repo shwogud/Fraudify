@@ -8,6 +8,7 @@
   /* padding-bottom: 10px; */
   font-family: 'Montserrat', sans-serif;
   align-items: center;
+  padding-bottom: 5px;
 }
 
 p {
@@ -60,6 +61,7 @@ p {
   letter-spacing: 1.0px;
   cursor: pointer;
   width: 400px;
+  transition: all .5s ease-in-out;
 }
 
 .demo-button-signup {
@@ -71,18 +73,21 @@ p {
   letter-spacing: 1.0px;
   cursor: pointer;
   width: 325px;
+  transition: all .5s ease-in-out;
 }
 
 .demo-button-login:hover {
     text-decoration: none;
     background-color: #4773d1;
     text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+    transform: scale(1.1);
 }
 
 .demo-button-signup:hover {
     text-decoration: none;
     background-color: #4773d1;
     text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+    transform: scale(1.1);
 }
 
 .auth-box-login p {
@@ -159,6 +164,7 @@ input[type=password-signup] {
   padding: 5px 15px;
   margin: 8px 0;
   width: 325px;
+  height: 25px;
   /* box-sizing: border-box; */
 }
 
@@ -177,6 +183,7 @@ input[type=password-login] {
   padding: 5px 15px;
   margin: 8px 0;
   width: 375px;
+  height: 25px;
   /* box-sizing: border-box; */
 }
 
@@ -192,6 +199,7 @@ input[type=password-login] {
   margin-top: 25px;
   margin-left: 100px;
   width: 95%;
+  transition: all .5s ease-in-out;
 }
 
 .auth-button-signup {
@@ -205,6 +213,7 @@ input[type=password-login] {
   margin-top: 25px;
   /* margin-left: 35px; */
   width: 325px;
+  transition: all .5s ease-in-out;
 }
 
 
@@ -213,13 +222,15 @@ input[type=password-login] {
     text-decoration: none;
     background-color: #17bd51;
     text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
-}
+    transform: scale(1.1);
+  }
 
 .auth-button-signup:hover {
     text-decoration: none;
     background-color: #17bd51;
     text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
-}
+    transform: scale(1.1);
+  }
 
 .error-handle-login {
   display: block;
@@ -280,6 +291,16 @@ input[type=password-login] {
   width: 500px;
   border: 2px solid gray;
   text-decoration: none;
+  transition: all .5s ease-in-out;
+}
+
+.switch-to-signup-button:hover {
+  transform: scale(1.1);
+}
+
+.fraudify-auth-top {
+  margin-left: 10px;
+  font-size: 20px;
 }
 
 

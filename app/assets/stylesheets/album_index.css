@@ -31,6 +31,12 @@
   color: white;
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
+
+}
+
+.album-album-link:hover {
+  text-decoration: underline;
+
 }
 
 .album-links {
@@ -38,11 +44,20 @@
 }
 
 .album-artist-link {
-  color: white;
+  font-size: 14px;
+  color: rgb(152, 152, 152);
   padding-top: 5px;
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
   padding-bottom: 25px;
+  transition: color 0.3s ease;
+  transition: text-decoration 0.3s ease;
+}
+
+.album-artist-link:hover {
+  color: rgb(222, 220, 220);
+  text-decoration: underline;
+  
 }
 
 .album-album-name {
@@ -50,5 +65,5 @@
 }
 
 .sidebar-container-spacer {
-  min-width: 200px;
+  min-width: 235px;
 }

@@ -40,7 +40,7 @@ class Sidebar extends React.Component {
           <div className="sidebar-bottom">
             <div className="center-welcome-user">
               <p className="sidebar-welcome">Welcome,</p>
-            <h1 className="sidebar-user">{this.props.currentUser.username}</h1>
+            <h1 className="sidebar-user">{this.props.currentUser.username} !</h1>
 
             </div>
             <button 

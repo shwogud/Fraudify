@@ -71,7 +71,7 @@ class SessionForm extends React.Component {
       <div className="auth-form-container">
         <div className="fraudify">
           <i className="fab fa-spotify"></i>
-          <h1>Fraudify</h1>
+          <h1 className="fraudify-auth-top">Fraudify</h1>
         </div>
         <form onSubmit={this.handleSubmit} className={`auth-box-${this.props.inputType}`}>
           

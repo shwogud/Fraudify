@@ -21,7 +21,7 @@
 
 .playlist-index-box:hover {
   /* background-color: black; */
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .playlist-index-box p {
@@ -37,13 +37,18 @@
   font-weight: bold;
 }
 
+.playlist-title:hover {
+  border-bottom: 1px solid white;
+  cursor: pointer;
+}
+
 .playlist-username {
 
 }
 
 .playlist-username:hover {
-  border-bottom: 3px solid white;
-  cursor: pointer;
+  /* border-bottom: 3px solid white; */
+  /* cursor: pointer; */
 }
 
 .playlist-index-images {
