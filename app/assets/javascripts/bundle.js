@@ -1578,7 +1578,7 @@ function (_React$Component) {
       this.props.createPlaylist(this.state, this.props.user).then(function (playlist) {
         _this3.props.closeModal();
 
-        _this3.props.history.push("/collection/playlists/".concat(playlist.playlist.id));
+        _this3.props.history.push("/collection/playlists/".concat(playlist.data.playlist.id));
       });
       this.state.title = '';
     }
