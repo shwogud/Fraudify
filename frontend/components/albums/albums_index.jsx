@@ -44,7 +44,7 @@ class AlbumsIndex extends React.Component {
         </li>
       )
     })
-    // debugger
+   
     return (
       <div className="album-page">
         <ul className="each-album">

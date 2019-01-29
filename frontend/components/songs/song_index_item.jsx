@@ -15,7 +15,7 @@ class SongIndexItem extends React.Component {
     if (!this.props.song) {
       return null;
     }
-    // debugger
+   
     songs = (
       <ul className="all-songs">
         <div className="first-line">

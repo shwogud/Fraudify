@@ -810,8 +810,7 @@ function (_React$Component) {
           ,
           to: "/collection/artists/".concat(album.artist_id)
         }, album.artist)))));
-      }); // debugger
-
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -987,8 +986,7 @@ function (_React$Component) {
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             className: "song-title"
           }, song.title));
-        }); // debugger
-
+        });
         var albums = this.props.artist.albums.map(function (album) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
             key: album.id,
@@ -2542,8 +2540,7 @@ function (_React$Component) {
 
       if (!this.props.song) {
         return null;
-      } // debugger
-
+      }
 
       songs = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "all-songs"
@@ -2944,7 +2941,6 @@ var albumsReducer = function albumsReducer() {
     case _actions_artist_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_ARTIST"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, action.artist.album_ids);
     // case RECEIVE_ALL_ARTISTS:
-    // debugger
     //   return merge({}, state, action.artists.album_ids);
 
     default:
@@ -2982,7 +2978,6 @@ var artistsReducer = function artistsReducer() {
 
   switch (action.type) {
     case _actions_artist_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_ARTISTS"]:
-      // debugger
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, action.artists);
 
     case _actions_artist_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ARTIST"]:
@@ -3110,11 +3105,9 @@ var playlistReducer = function playlistReducer() {
 
   switch (action.type) {
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_PLAYLISTS"]:
-      // debugger
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, action.playlists);
 
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PLAYLIST"]:
-      // debugger
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, _defineProperty({}, action.data.playlist.id, action.data.playlist));
     // return action.data.playlist
 
@@ -3127,7 +3120,6 @@ var playlistReducer = function playlistReducer() {
     // case REMOVE_PLAYLIST_SONG:
     //I have NO idea what this is doing
     // case RECEIVE_ALL_SONGS:
-    // debugger
     //   newState = merge({}, state, {[action.songs.id]: action.songs.songs});
     //   return newState;
     //How do I add song ids or titles to my playlist?
@@ -3292,7 +3284,6 @@ var songsReducer = function songsReducer() {
     case _actions_artist_actions__WEBPACK_IMPORTED_MODULE_4__["RECEIVE_ARTIST"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, action.artist.songs);
     // case RECEIVE_ALL_ARTISTS:
-    // debugger
     //   return merge({}, state, action.artists.song_ids);
 
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PLAYLIST_SONG"]:

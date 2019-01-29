@@ -27,7 +27,7 @@ class Api::PlaylistsController < ApplicationController
 
   def destroy
     @playlist = Playlist.find_by(id: params[:id])
-    # debugger
+
     if @playlist 
       playlisty = @playlist.id
       @playlist.destroy 

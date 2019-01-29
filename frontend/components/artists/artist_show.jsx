@@ -48,7 +48,7 @@ class ArtistShow extends React.Component {
             </ul>
           )
         })
-        // debugger
+    
         let albums = this.props.artist.albums.map( album => {
           return (
             <ul key={album.id} className="artist-bottom">

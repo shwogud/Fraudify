@@ -15,7 +15,7 @@ const albumsReducer = (state = {}, action) => {
       return merge({}, state, action.artist.album_ids);
 
     // case RECEIVE_ALL_ARTISTS:
-    // debugger
+
     //   return merge({}, state, action.artists.album_ids);
 
     default:
