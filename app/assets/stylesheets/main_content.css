@@ -11,6 +11,9 @@
   text: white;
   min-width: 200px;
   /* border: 1px solid red; */
-  padding-left: 25px;
-  padding-top: 25px;
+  padding-left: 35px;
+  padding-top: 30px;
+
+  position: fixed;
+  height: 100%;
 }

@@ -7,15 +7,29 @@
   align-items: center;
   background: rgb(26, 23, 23);
   width: 100%;
+  /* position: absolute; */
   
 }
 
 .nav-links {
   display: flex;
-  width: 500px;
+  width: 70%;
   justify-content: space-between;
+  margin-left: 15%;
   /* border: 1px solid  blue; */
   font-family: 'Montserrat', sans-serif;
+}
+
+.nav-links:last-child {
+  align-self: flex-end;
+}
+
+.nav-link-links {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  align-self: center;
+
 }
 
 .nav-playlist {
@@ -57,7 +71,6 @@
   min-width: 130px;
   color: rgba(255, 255, 255, 0.831);
   padding: 8px 30px;
-  margin-left: 200px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   border: none;

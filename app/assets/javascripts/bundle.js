@@ -1441,6 +1441,8 @@ function (_React$Component) {
         className: "nav-all"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "nav-links"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nav-link-links"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "nav-playlist",
         to: "/collection/playlists"
@@ -1450,10 +1452,10 @@ function (_React$Component) {
       }, "ARTISTS")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "nav-album",
         to: "/collection/albums"
-      }, "ALBUMS"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "ALBUMS"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.openModal,
         className: "new-playlist-button"
-      }, "NEW PLAYLIST")));
+      }, "NEW PLAYLIST"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
     }
   }]);
 
@@ -1605,7 +1607,7 @@ function (_React$Component) {
         className: "modal-create-new-playlist"
       }, " Create new playlist"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "total-modal"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Playlist Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "playlist-name-bar",
         placeholder: "Start typing...",
         value: this.state.title,
@@ -2402,7 +2404,7 @@ function (_React$Component) {
   _createClass(Sidebar, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-all"
@@ -2410,8 +2412,9 @@ function (_React$Component) {
         className: "sidebar-logo-name"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fab fa-spotify"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "sidebar-name"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "sidebar-name",
+        to: "/collection/playlists"
       }, "Fraudify")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-pic-name"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2426,15 +2429,24 @@ function (_React$Component) {
         className: "home-name"
       }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "lib-pic-name"
-      }, "\uD83D\uDCD6", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "lib-pic"
+      }, "\uD83D\uDCD6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "lib-name"
       }, "Your Library")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-bottom"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "center-welcome-user"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sidebar-welcome"
+      }, "Welcome,"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "sidebar-user"
-      }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, this.props.currentUser.username)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "logout-button",
         onClick: this.props.logout
-      }, "Log Out"))));
+      }, "Log Out")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sidebar-container-spacer"
+      }));
     }
   }]);
 

@@ -1,6 +1,9 @@
 .sidebar_all{
   color: white;
   padding-left: 25px;
+  /* position: fixed;
+  height: 100%;
+  border: 1px solid red; */
 }
 
 .sidebar-all p {
@@ -20,11 +23,15 @@
 
 .magnifying-glass {
   color: white;
+  padding-left: 10px;
 }
 
 .sidebar-name {
   font-size: 25px;
-  padding-left: 5px;
+  padding-left: 15px;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  color: white;
 }
 
 .search-pic-name {
@@ -33,18 +40,22 @@
 }
 
 .searchh {
-  padding-left: 20px;
+  padding-left: 22px;
 }
 
 .home-pic-name {
   display: flex;
   align-items: center;
+  padding-top: 17px;
   padding-bottom: 15px;
 }
 
 .home-pic {
   font-size: 25px;
-  padding-right: 25px;
+  padding-top: 5px;
+  padding-right: 27px;
+  padding-left: 10px;
+  margin-bottom: 5px;
 }
 
 .lib-pic-name {
@@ -53,6 +64,12 @@
 
 .lib-name {
   padding-left: 20px;
+  padding-top: 15px;
+}
+
+.lib-pic {
+  padding-left: 8px;
+  padding-top: 17px;
 }
 
 
@@ -61,12 +78,40 @@
 }
 
 .sidebar-user {
-  display: flex;
+  /* display: flex; */
   color: white;
-  margin-top: 700px;
+  /* margin-top: 200px; */
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
-  /* text-align: center; */
+  padding-bottom: 50px;
+  /* margin-left: 54px; */
+  /* padding-right: 25px; */
+  /* border: 1px solid red; */
+}
+
+.sidebar-welcome {
+  padding: 0px;
+  margin-top: 580px;
+  /* margin-left: 45px; */
+}
+
+.center-welcome-user {
+  /* border: 1px solid blue; */
+  text-align: center;
+  margin-right: 40px;
+}
+
+.logout-button {
+  background-color: #1db954;
+  padding: 11px 44px;
+  color: white;
+  font-size: 12px;
+  border-radius: 500px;
+  transition-property: background-color, border-color, color, box-shadow, filter, -webkit-box-shadow, -webkit-filter;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border: none;
+  position: fixed;
 }
 
 

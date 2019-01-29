@@ -1,7 +1,7 @@
 .artist-index-page{
   height: 900px;
   background-color: black;
-  /* margin-left: 315px; */
+  overflow: auto;
 }
 
 .artist-index-nav {
@@ -32,6 +32,7 @@
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
   transition: color 0.3s ease;
+  padding-bottom: 25px;
   /* transition: text-decoration 0.3s ease; */
 }
 

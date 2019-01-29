@@ -1,15 +1,17 @@
 .album-page {
-  /* margin-left: 315px; */
+
   background-image: linear-gradient(to bottom right, rgb(60, 60, 60), rgb(7, 7, 7));
   height: 900px;
- 
+  overflow: auto;
 }
 
 .each-album {
-  display: flex;
-  /* flex-wrap: wrap; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  width: 935px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 14px; 
+  
 }
 
 .album-image {
@@ -40,8 +42,13 @@
   padding-top: 5px;
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
+  padding-bottom: 25px;
 }
 
 .album-album-name {
   padding-bottom: 10px;
+}
+
+.sidebar-container-spacer {
+  min-width: 200px;
 }

@@ -1,21 +1,22 @@
 .playlist-page {
   /* background-image: linear-gradient(rgb(6, 92, 18), rgb(5, 39, 133)); */
   /* padding: 0px; */
-  height: 900px;
+  height: 100%;
 }
 
 .all-playlist-boxes {
   display: flex;
   flex-wrap: wrap;
-  height: 900px;
+  height: 100%;
   background-image: linear-gradient(rgb(22, 7, 55), rgb(8, 8, 9));
-      overflow: auto;
+  overflow-x: visible;
 }
 
 .playlist-index-box {
   display: block;
   /* border: 1px solid red; */
-  margin: 10px;
+  margin-left: 75px;
+  margin-top: 50px;
 }
 
 .playlist-index-box:hover {
@@ -48,5 +49,7 @@
 .playlist-index-images {
   width: 215px;
   height: 215px;
+  /* padding-left: 50px;
+  padding-top: 50px; */
   /* height: 500 */
 }

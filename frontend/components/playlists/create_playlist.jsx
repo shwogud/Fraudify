@@ -41,7 +41,6 @@ class CreatePlaylist extends React.Component {
         <div className="modal-X" onClick={() => this.props.closeModal()}>X</div>
         <h1 className="modal-create-new-playlist"> Create new playlist</h1>
         <section className="total-modal">
-          <div>Playlist Name</div>
           <input 
             className="playlist-name-bar"
             placeholder="Start typing..." 
