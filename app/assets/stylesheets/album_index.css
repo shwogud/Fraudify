@@ -31,8 +31,17 @@
   text-decoration: none;
 }
 
+.album-links {
+  margin-left: 50px;
+}
+
 .album-artist-link {
   color: white;
   padding-top: 5px;
   font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+
+.album-album-name {
+  padding-bottom: 10px;
 }

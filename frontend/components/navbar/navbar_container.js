@@ -1,7 +1,8 @@
-
+import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Navbar from './navbar';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
   
@@ -12,7 +13,8 @@ const msp = (state) => {
 
 const mdp = dispatch => {
   return {
-    logout: () => dispatch(logout())
+    closeModal: () => dispatch(closeModal()),
+    openModal: () => dispatch(openModal('createplaylist')),
   };
 };
 

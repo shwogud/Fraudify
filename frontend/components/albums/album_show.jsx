@@ -39,7 +39,7 @@ class AlbumShow extends React.Component {
       return (
         <ul className="flex-music-song" key={song.id}>
           <li className="album-music-note">♪</li>
-          <li>
+          <li className="album-song-title">
             {song.title}
           </li>
         </ul>

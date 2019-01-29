@@ -16,11 +16,11 @@ export const fetchPlaylist = (id) => {
   })
 }
 
-export const createPlaylist = (playlist) => {
+export const createPlaylist = (playlist, user_id) => {
   return $.ajax({
       method: 'POST',
       url: "api/playlists",
-      data: { playlist }
+      data: { playlist, user_id }
   })
 }
 

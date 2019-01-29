@@ -39,10 +39,13 @@ export const requestPlaylist = (id) => dispatch => {
   return APIUtil.fetchPlaylist(id).then(playlist => dispatch(receivePlaylist(playlist)))
 }
 
-export const createPlaylist = (playlist) => dispatch => {
+export const createPlaylist = (playlist, user_id) => dispatch => {
    
-  return APIUtil.createPlaylist(playlist).then(playlist => dispatch(receivePlaylist(playlist)))
-}
+  return APIUtil.createPlaylist(playlist, user_id).then(playlist => dispatch(receivePlaylist(playlist)),
+    err => (
+      dispatch(receiveErrors(err.responseJSON))
+    ));
+};
 
 // export const createPlaylist = (playlist) => {
 //   return dispatch => {
@@ -55,3 +58,4 @@ export const createPlaylist = (playlist) => dispatch => {
 export const deletePlaylist = (id) => dispatch => {
   return APIUtil.destroyPlaylist(id).then(playlist => dispatch(receivePlaylist(playlist)))
 }
+

@@ -23,18 +23,22 @@ class AlbumsIndex extends React.Component {
         <li className="album-covers" key={idx}>
           <section>
             <img className="album-image" src={window.brentURL1} />
-            <Link
-              className="album-album-link"
-              // key={album.id} 
-              to={`/collection/albums/${album.id}`}>
-              {album.title}</Link>
-
-            <Link
-              className="album-artist-link"
-              // key={album.artist_id} 
-              to={`/collection/artists/${album.artist_id}`}>
-              {album.artist}</Link>
-            {/* <p className="album-artist-name">{album.artist}</p> */}
+            <div className="album-links">
+              <div className="album-album-name">
+                <Link
+                  className="album-album-link"
+                  // key={album.id} 
+                  to={`/collection/albums/${album.id}`}>
+                  {album.title}</Link>
+              </div>
+              <div>
+                <Link
+                  className="album-artist-link"
+                  // key={album.artist_id} 
+                  to={`/collection/artists/${album.artist_id}`}>
+                  {album.artist}</Link>
+              </div>
+            </div>
 
           </section>
         </li>

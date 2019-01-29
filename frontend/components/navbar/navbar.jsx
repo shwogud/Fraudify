@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 class Navbar extends React.Component {
   render() {
     
@@ -15,7 +16,7 @@ class Navbar extends React.Component {
         </ul>
 
         <div>
-          <button className="new-playlist-button">NEW PLAYLIST</button>
+          <button onClick={this.props.openModal} className="new-playlist-button">NEW PLAYLIST</button>
           {/* <h1>{this.props.currentUser.username}</h1> */}
           {/* <button onClick={this.props.logout}>Log Out</button> */}
         </div>

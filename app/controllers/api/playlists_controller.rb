@@ -5,7 +5,8 @@ class Api::PlaylistsController < ApplicationController
 
   def create
     @playlist = Playlist.new(playlist_params)
-    
+    debugger
+    @playlist.user_id = params[:user_id]
     if @playlist.save
       render "api/playlists/show"
     else

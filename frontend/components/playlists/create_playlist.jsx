@@ -21,7 +21,7 @@ class CreatePlaylist extends React.Component {
   }
 
   handleCreate() {
-    this.props.createPlaylist(this.state).then((playlist) => {
+    this.props.createPlaylist(this.state, this.props.user).then((playlist) => {
       this.props.closeModal();
       this.props.history.push(`/collection/playlists/${playlist.playlist.id}`);
     });
@@ -35,15 +35,22 @@ class CreatePlaylist extends React.Component {
     }
 
     return (
-      <div>
-        <div onClick={() => this.props.closeModal()}>X</div>
-        <h1> Create new playlist</h1>
-        <section>
+      <div className="total-screen">
+        <div className="modal-X" onClick={() => this.props.closeModal()}>X</div>
+        <h1 className="modal-create-new-playlist"> Create new playlist</h1>
+        <section className="total-modal">
           <div>Playlist Name</div>
-          <input placeholder="Start typing..." value={this.state.title} onChange={this.update('title')} />
+          <input 
+            className="playlist-name-bar"
+            placeholder="Start typing..." 
+            value={this.state.title} 
+            onChange={this.update('title')} />
         </section>
-        <button onClick={() => this.props.closeModal()}>CANCEL</button>
-        <button onClick={() => this.handleCreate()}>CREATE</button>
+        <div className="modal-buttons">
+          <button className="modal-cancel" onClick={() => this.props.closeModal()}>CANCEL</button>
+          <button className="modal-create" onClick={() => this.handleCreate()}>CREATE</button>
+
+        </div>
 
       </div>
     )
@@ -51,8 +58,10 @@ class CreatePlaylist extends React.Component {
 }
 
 const mapStateToProps = state => {
+  
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    user: Object.values(state.entities.users)[0]
   };
 };
 
