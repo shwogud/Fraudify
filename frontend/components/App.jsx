@@ -25,6 +25,7 @@ import ArtistsIndexContainer from './artists/artists_index_container';
 import SongsIndexContainer from './songs/songs_index_container';
 import NavBarContainer from './navbar/navbar_container';
 import SideBarContainer from './sidebar/sidebar_container';
+import Modal from './modal/modal';
 
 const App = () => (
   <div>
@@ -39,6 +40,8 @@ const App = () => (
     {/* AuthRoute: when logged in, cannot reach login/signup page 
     ProtectedRoute: can only reach route when logged in */}
     {/* <Route path="" /> */}
+
+    <Route path="/" component={Modal} />
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />

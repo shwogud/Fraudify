@@ -40,8 +40,17 @@ export const requestPlaylist = (id) => dispatch => {
 }
 
 export const createPlaylist = (playlist) => dispatch => {
+   
   return APIUtil.createPlaylist(playlist).then(playlist => dispatch(receivePlaylist(playlist)))
 }
+
+// export const createPlaylist = (playlist) => {
+//   return dispatch => {
+//     return APIUtil.createPlaylist(playlist).then(playlist => {
+//       return dispatch(receivePlaylist(playlist));
+//     }
+//   }
+// }
 
 export const deletePlaylist = (id) => dispatch => {
   return APIUtil.destroyPlaylist(id).then(playlist => dispatch(receivePlaylist(playlist)))

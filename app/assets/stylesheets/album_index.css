@@ -1,6 +1,6 @@
 .album-page {
   /* margin-left: 315px; */
-  background: rgb(56, 56, 63);
+  background-image: linear-gradient(to bottom right, rgb(60, 60, 60), rgb(7, 7, 7));
   height: 900px;
  
 }
@@ -17,6 +17,7 @@
   height: 250px;
   padding-top: 50px;
   padding-left: 50px;
+  padding-bottom: 10px;
 }
 
 .album-covers {
@@ -26,8 +27,12 @@
 
 .album-album-link {
   color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
 }
 
-.album-artist-name {
+.album-artist-link {
   color: white;
+  padding-top: 5px;
+  font-family: 'Montserrat', sans-serif;
 }

@@ -16,19 +16,25 @@ class AlbumsIndex extends React.Component {
 
 
   render() {
-    
-    const albums =  this.props.albums.map( album => {
+     
+    const albums =  this.props.albums.map( (album, idx) => {
       // let artist = this.props.fetchArtist(this.props.albums.artist_id);
       return (
-        <li className="album-covers" key={album.id}>
+        <li className="album-covers" key={idx}>
           <section>
             <img className="album-image" src={window.brentURL1} />
             <Link
               className="album-album-link"
-              key={album.id} 
+              // key={album.id} 
               to={`/collection/albums/${album.id}`}>
               {album.title}</Link>
-            <p className="album-artist-name">{album.artist}</p>
+
+            <Link
+              className="album-artist-link"
+              // key={album.artist_id} 
+              to={`/collection/artists/${album.artist_id}`}>
+              {album.artist}</Link>
+            {/* <p className="album-artist-name">{album.artist}</p> */}
 
           </section>
         </li>
