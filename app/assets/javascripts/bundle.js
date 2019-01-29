@@ -291,7 +291,7 @@ var createPlaylist = function createPlaylist(playlist, user_id) {
 var deletePlaylist = function deletePlaylist(id) {
   return function (dispatch) {
     return _util_playlist_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyPlaylist"](id).then(function (playlist) {
-      return dispatch(receivePlaylist(playlist));
+      return dispatch(removePlaylist(playlist));
     });
   };
 };
@@ -575,26 +575,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
+    exact: true,
     path: "/",
-    component: _modal_modal__WEBPACK_IMPORTED_MODULE_18__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
+    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
     path: "/login",
     component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
     path: "/signup",
     component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: "/",
+    component: _modal_modal__WEBPACK_IMPORTED_MODULE_18__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "containers"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
-    path: "/collection",
+    path: "/",
     component: _sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_17__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "bigggy"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
-    path: "/collection",
+    path: "/",
     component: _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_16__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
     path: "/collection/playlists/:playlistId",
@@ -617,10 +621,7 @@ var App = function App() {
     exact: true,
     path: "/collection/artists",
     component: _artists_artists_index_container__WEBPACK_IMPORTED_MODULE_14__["default"]
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
-    path: "/",
-    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-  })));
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -1814,17 +1815,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
+ // import { deletePlaylist } from '../../actions/playlist_actions';
 
 var PlaylistShow =
 /*#__PURE__*/
@@ -1832,15 +1833,31 @@ function (_React$Component) {
   _inherits(PlaylistShow, _React$Component);
 
   function PlaylistShow(props) {
+    var _this;
+
     _classCallCheck(this, PlaylistShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(PlaylistShow).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PlaylistShow).call(this, props));
+    _this.state = _this.props.playlist;
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
   }
 
   _createClass(PlaylistShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchPlaylist(this.props.match.params.playlistId); // this.props.fetchAllSongs();
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      var playlist = Object.assign({}, this.state);
+      this.props.deletePlaylist(playlist).then(function () {
+        return _this2.props.history.push("/collection/playlists");
+      });
     }
   }, {
     key: "playlistSongs",
@@ -1876,6 +1893,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       if (!this.props.playlist) {
         return null;
       }
@@ -1900,7 +1919,14 @@ function (_React$Component) {
           className: "play-button"
         }, "Play"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "playlist-show-length"
-        }, this.props.playlist.song_ids.length, " Songs"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, this.props.playlist.song_ids.length, " Songs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: this.handleSubmit
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "delete-button",
+          onClick: function onClick(e) {
+            return _this3.props.deletePlaylist(_this3.props.playlist.id);
+          }
+        }, "Delete Playlist ?")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "playlist-show-songs"
         }, this.playlistSongs()));
       } else {
@@ -2179,7 +2205,7 @@ function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user).then(function () {
-        return _this3.props.history.push("/feed");
+        return _this3.props.history.push("/collection/playlists");
       });
     }
   }, {
@@ -2193,7 +2219,7 @@ function (_React$Component) {
         password: 'password'
       };
       this.props.login(demo).then(function () {
-        return _this4.props.history.push("/feed");
+        return _this4.props.history.push("/collection/playlists");
       });
     }
   }, {
@@ -3076,6 +3102,7 @@ var playlistReducer = function playlistReducer() {
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PLAYLIST"]:
       // debugger
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, _defineProperty({}, action.data.playlist.id, action.data.playlist));
+    // return action.data.playlist
 
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_PLAYLIST"]:
       newState = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state);
@@ -3516,7 +3543,7 @@ var Auth = function Auth(_ref) {
     exact: exact,
     render: function render(props) {
       return !loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/feed"
+        to: "/collection/playlists"
       });
     }
   });
@@ -3532,7 +3559,7 @@ var Protected = function Protected(_ref2) {
     exact: exact,
     render: function render(props) {
       return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/login"
+        to: "/"
       });
     }
   });

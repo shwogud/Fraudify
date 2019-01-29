@@ -56,6 +56,7 @@ export const createPlaylist = (playlist, user_id) => dispatch => {
 // }
 
 export const deletePlaylist = (id) => dispatch => {
-  return APIUtil.destroyPlaylist(id).then(playlist => dispatch(receivePlaylist(playlist)))
+  
+  return APIUtil.destroyPlaylist(id).then(playlist => dispatch(removePlaylist(playlist)));
 }
 

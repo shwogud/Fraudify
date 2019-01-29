@@ -41,15 +41,19 @@ const App = () => (
     ProtectedRoute: can only reach route when logged in */}
     {/* <Route path="" /> */}
 
-    <Route path="/" component={Modal} />
     <Switch>
+      <AuthRoute exact path="/" component={SplashContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
+    </Switch>
+
+    <Route path="/" component={Modal} />
+
       <div className="main-content">
         <div className="containers">
-          <ProtectedRoute path="/collection" component={SideBarContainer} />
+          <ProtectedRoute path="/" component={SideBarContainer} />
           <div className="bigggy">
-            <ProtectedRoute path="/collection" component={NavBarContainer} />
+            <ProtectedRoute path="/" component={NavBarContainer} />
 
             <ProtectedRoute path="/collection/playlists/:playlistId" component={PlaylistShow}/>
             <ProtectedRoute path="/collection/albums/:albumId" component={AlbumsShowContainer} />
@@ -64,9 +68,8 @@ const App = () => (
         </div>
       </div>
 
-      <AuthRoute path="/" component={SplashContainer}/>
-    </Switch>
-    {/* <ProtectedRoute path="/" component={NavbarContainer} /> */}
+      {/* <AuthRoute path="/" component={SplashContainer}/> */}
+    
   </div>
 );
 

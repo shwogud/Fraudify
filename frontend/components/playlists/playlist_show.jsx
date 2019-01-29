@@ -1,16 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PlaylistShowSongInfo from './playlist_show_song_info';
+// import { deletePlaylist } from '../../actions/playlist_actions';
 
 class PlaylistShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this.props.playlist;
+    this.handleSubmit = this.handleSubmit.bind(this);
     
   }
   
   componentDidMount() {
     this.props.fetchPlaylist(this.props.match.params.playlistId);
     // this.props.fetchAllSongs();
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const playlist = Object.assign({}, this.state);
+    this.props.deletePlaylist(playlist)
+      .then(() => this.props.history.push("/collection/playlists"));
   }
 
   playlistSongs() {
@@ -72,6 +82,13 @@ class PlaylistShow extends React.Component {
               <li className="playlist-show-username">{this.props.currentUser.username}</li>
               <button className="play-button">Play</button>
               <li className="playlist-show-length">{this.props.playlist.song_ids.length} Songs</li>
+
+              <form onSubmit={this.handleSubmit}>
+                < button 
+                  className="delete-button" 
+                  onClick={(e) => this.props.deletePlaylist(this.props.playlist.id)} > 
+                  Delete Playlist ?</button >
+              </form>
             </ul> 
           </div>
           <div className="playlist-show-songs">
@@ -79,7 +96,7 @@ class PlaylistShow extends React.Component {
           </div>
         </div>
       )
-      
+        
     }
      
     else {

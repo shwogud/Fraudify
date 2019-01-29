@@ -20,18 +20,18 @@ class SessionForm extends React.Component {
     });
   }
 
-  handleSubmit(e) {
+  handleSubmit(e) { 
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
-      .then(() => this.props.history.push("/feed"));
+      .then(() => this.props.history.push("/collection/playlists"));
   }
 
   
   demoUserSignIn(e) {
     e.preventDefault();
     const demo = {username: 'demo', password: 'password'};
-    this.props.login(demo).then(() => this.props.history.push("/feed"));
+    this.props.login(demo).then(() => this.props.history.push("/collection/playlists"));
   }
 
   renderErrors() {

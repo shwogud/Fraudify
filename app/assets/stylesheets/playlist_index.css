@@ -9,6 +9,7 @@
   flex-wrap: wrap;
   height: 900px;
   background-image: linear-gradient(rgb(22, 7, 55), rgb(8, 8, 9));
+      overflow: auto;
 }
 
 .playlist-index-box {

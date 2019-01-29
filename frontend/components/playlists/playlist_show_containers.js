@@ -6,6 +6,7 @@ import { requestAllSongs } from '../../actions/song_actions';
 
 
 const msp = (state, ownProps) => {
+  
   return {
     playlist: state.entities.playlists[ownProps.match.params.playlistId],
     currentUser: state.entities.users[state.session.id],
