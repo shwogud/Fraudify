@@ -44,9 +44,11 @@ class PlaylistShow extends React.Component {
           
           return (
             <div key={song.id}>
-              <p>{song.title}</p>
-              <p>{song.artist}</p>
-              <p>{song.album}</p>
+              <p className="playlist-show-song-title">{song.title}</p>
+              <div classname="playlist-show-song-artist-album">
+                <p className="playlist-show-song-artist">{song.artist}</p>
+                <p className="playlist-show-song-album">{song.album}</p>
+              </div>
             </div>
           )
           

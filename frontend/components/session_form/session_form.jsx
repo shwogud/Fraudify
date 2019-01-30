@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Typed from 'typed.js';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoUserSignIn = this.demoUserSignIn.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   componentWillUnmount() {
@@ -32,6 +34,34 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const demo = {username: 'demo', password: 'password'};
     this.props.login(demo).then(() => this.props.history.push("/collection/playlists"));
+  }
+
+  demoLogin() {
+    const username = {
+      strings: ["demo"],
+      typeSpeed: 50,
+    };
+
+    const password = {
+      strings: ["password"],
+      typeSpeed: 50,
+    };
+
+    this.setState({
+      username: '',
+      password: ''
+    });
+
+    new Typed(".username", username);
+
+    setTimeout(() => {
+      new Typed(".password", password);
+    }, 1500);
+
+    setTimeout(() => {
+      this.props.processForm({ username: "demo", password: "password" });
+    }, 3000);
+
   }
 
   renderErrors() {
@@ -78,7 +108,7 @@ class SessionForm extends React.Component {
           <br />
           <button
             className={`demo-button-${this.props.inputType}`}       
-            onClick={(e) => this.demoUserSignIn(e)}>LOG IN AS DEMO USER 
+            onClick={this.demoLogin}>LOG IN AS DEMO USER 
           </button>
 
           <p> - or - </p>
@@ -86,21 +116,24 @@ class SessionForm extends React.Component {
           <div className={`auth-form-${this.props.inputType}`}>
             <br />
             <label>
-              <input required type={`text-${this.props.inputType}`}
+              <input required
+                type={`text-${this.props.inputType}`}
                 value={this.state.username}
                 placeholder="Username"
                 onChange={this.update('username')}
-                className={`auth-input-username-${this.props.inputType}`}
+                className={`auth-input-username-${this.props.inputType} username`}
               />
             </label>
             <br />
             {/* {signupInfo} */}
             <label>
-              <input required type={`password-${this.props.inputType}`}
+              <input required
+                id={`password-${this.props.inputType}`}
+                type="password"
                 value={this.state.password}
                 placeholder="Password"
                 onChange={this.update('password')}
-                className="auth-input-password"
+                className="auth-input-password password"
               />
             </label>
             <br />
