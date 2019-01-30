@@ -2127,6 +2127,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     processForm: function processForm(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     },
+    demoSignup: function demoSignup(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
+    },
     login: function login(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     },
@@ -2258,7 +2261,7 @@ function (_React$Component) {
         new typed_js__WEBPACK_IMPORTED_MODULE_2___default.a(".password", password);
       }, 1500);
       setTimeout(function () {
-        _this5.props.processForm({
+        _this5.props.demoSignup({
           username: "demo",
           password: "password"
         });
@@ -2380,6 +2383,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["signup"])(user));
+    },
+    demoSignup: function demoSignup(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     },
     login: function login(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));

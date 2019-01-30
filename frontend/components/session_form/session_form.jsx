@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
     }, 1500);
 
     setTimeout(() => {
-      this.props.processForm({ username: "demo", password: "password" });
+      this.props.demoSignup({ username: "demo", password: "password" });
     }, 3000);
 
   }
