@@ -20,7 +20,7 @@
 }
 
 .play-button {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: .16em;
   background-color: #1db954;
@@ -29,6 +29,12 @@
   cursor: pointer;
   color: white;
   border: none;
+  transition: all .3s ease-in-out;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .playlist-show-info {
@@ -40,7 +46,8 @@
 .playlist-show-title {
   font-size: 25px;
   font-weight: bold;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .playlist-show-username {
@@ -58,14 +65,14 @@ padding-bottom: 25px;
 .playlist-show-songs {
   margin-top: 60px;
   margin-left: 100px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   list-style-type: none;
   color: white;
   width: 300px;
 }
 
 .delete-button {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: .16em;
   background-color: #1db954;
@@ -73,14 +80,53 @@ padding-bottom: 25px;
   border-radius: 500px;
   cursor: pointer;
   border: none;
+  transition: all .3s ease-in-out;
 }
 
+.delete-button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+.playlist-show-each-song {
+  /* border: 1px solid blue; */
+  margin-bottom: 25px;
+  display: flex;
+}
 
 .playlist-show-song-title {
   font-size: 18px;
   margin-bottom: 5px;
+  letter-spacing: 0.03em;
 }
 
 .playlist-show-song-artist-album {
   display: flex;
+  align-items: center;
+
+}
+
+.playlist-show-song-artist {
+  color: rgb(172, 172, 172);
+  padding-right: 5px;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+}
+
+.playlist-show-song-separator {
+  color: white;
+  font-size: 18px;
+}
+
+.playlist-show-song-album {
+  color: rgb(172, 172, 172);
+  padding-left: 5px;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+.playlist-music-note {
+  padding-right: 15px;
 }

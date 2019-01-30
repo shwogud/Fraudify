@@ -38,6 +38,12 @@
   letter-spacing: 2px;
   cursor: pointer;
   border: none;
+  transition: all .3s ease-in-out;
+}
+
+.album-show-play-button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .album-show-info {

@@ -1879,20 +1879,28 @@ function (_React$Component) {
 
         for (var i = 0; i < this.props.playlist.song_ids.length; i++) {
           playlistSongs.push(this.props.songs[i]);
-        }
+        } // debugger
+
 
         songs = playlistSongs.map(function (song) {
+          // debugger
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "playlist-show-each-song",
             key: song.id
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            className: "playlist-music-note"
+          }, "\u266A")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "playlist-show-song-title"
           }, song.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            classname: "playlist-show-song-artist-album"
+            className: "playlist-show-song-artist-album"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "playlist-show-song-artist"
           }, song.artist), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-            className: "playlist-show-song-album"
-          }, song.album)));
+            className: "playlist-show-song-separator"
+          }, "\xB7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            className: "playlist-show-song-album",
+            to: "/collection/albums/".concat(song.album_id)
+          }, song.album))));
         });
       } else {
         songs = null;

@@ -38,16 +38,26 @@ class PlaylistShow extends React.Component {
         
         playlistSongs.push(this.props.songs[i]);
       }
-      
+      // debugger
       songs = (
         playlistSongs.map( song => {
-          
+          // debugger
           return (
-            <div key={song.id}>
-              <p className="playlist-show-song-title">{song.title}</p>
-              <div classname="playlist-show-song-artist-album">
-                <p className="playlist-show-song-artist">{song.artist}</p>
-                <p className="playlist-show-song-album">{song.album}</p>
+            <div className="playlist-show-each-song" key={song.id}>
+              <div>
+                <p className="playlist-music-note">♪</p>
+              </div>
+              <div>
+                <p className="playlist-show-song-title">{song.title}</p>
+                <div className="playlist-show-song-artist-album">
+                  <p className="playlist-show-song-artist">{song.artist}</p>
+                  <p className="playlist-show-song-separator">·</p>
+                  <Link
+                    className="playlist-show-song-album"
+                    to={`/collection/albums/${song.album_id}`}
+                    >{song.album}</Link>
+                  {/* <p className="playlist-show-song-album">{song.album}</p> */}
+                </div>
               </div>
             </div>
           )
