@@ -691,7 +691,7 @@ function (_React$Component) {
         className: "album-show-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "album-show-image",
-        src: window.brentURL1
+        src: this.props.album.photo
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "album-show-title"
       }, this.props.album.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -796,7 +796,7 @@ function (_React$Component) {
           key: idx
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "album-image",
-          src: window.brentURL1
+          src: album.photo
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "album-links"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -967,7 +967,10 @@ function (_React$Component) {
       } else {
         var artistInfo = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "artist-top"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "artist-top-pic",
+          src: this.props.artist.photo
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "artist-name"
         }, this.props.artist.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flex-play-button"
@@ -981,7 +984,7 @@ function (_React$Component) {
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             className: "artist-music-note"
           }, "\u266A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: window.brentURL1,
+            src: _this.props.artist.photo,
             className: "artist-middle-pic"
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             className: "song-title"
@@ -994,7 +997,7 @@ function (_React$Component) {
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "each-album"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: window.brentURL1,
+            src: _this.props.artist.photo,
             className: "artist-bottom-pic"
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             className: "album-title",
@@ -1087,7 +1090,7 @@ function (_React$Component) {
           key: artist.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "artist-index-image",
-          src: window.brentURL1
+          src: artist.photo
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           className: "artists-name-link",
           key: artist.id,
@@ -1727,7 +1730,7 @@ function (_React$Component) {
               key: playlist.id
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
               className: "playlist-index-images",
-              src: window.brentURL1
+              src: playlist.photo
             }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
               to: "/collection/playlists/".concat(playlist.id)
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1879,11 +1882,9 @@ function (_React$Component) {
 
         for (var i = 0; i < this.props.playlist.song_ids.length; i++) {
           playlistSongs.push(this.props.songs[i]);
-        } // debugger
-
+        }
 
         songs = playlistSongs.map(function (song) {
-          // debugger
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "playlist-show-each-song",
             key: song.id
@@ -1926,7 +1927,7 @@ function (_React$Component) {
           className: "playlist-show-left"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "playlist-show-images",
-          src: window.brentURL1
+          src: this.props.playlist.photo
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "playlist-show-info"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {

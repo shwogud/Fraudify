@@ -21,7 +21,7 @@ class AlbumShow extends React.Component {
 
     let albumInfo = (
       <div className="album-show-left">
-        <img className="album-show-image" src={window.brentURL1} />
+        <img className="album-show-image" src={this.props.album.photo} />
         <p className="album-show-title">{this.props.album.title}</p>
         <p className="album-show-artist">{this.props.album.artist}</p>
         <button className="album-show-play-button">PLAY</button>

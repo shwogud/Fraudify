@@ -29,11 +29,12 @@ class PlaylistIndex extends React.Component {
     if (this.props.playlists) {
        
       playlists = this.props.playlists.map( playlist => {
+        
         if (playlist.user_id === this.currentUser.id) {
           
           return (
             <li className="playlist-index-box" key={playlist.id}>
-              <img className="playlist-index-images" src={window.brentURL1} />
+              <img className="playlist-index-images" src={playlist.photo} />
               <Link to={`/collection/playlists/${playlist.id}`}><p className="playlist-title">{playlist.title}</p></Link>
               <p className="playlist-username">{playlist.username}</p>
               

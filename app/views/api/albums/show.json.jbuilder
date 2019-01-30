@@ -4,3 +4,6 @@ json.artist @album.artist.name
 
 json.songs @album.songs
 
+if @album.photo.attached?
+  json.photo url_for(@album.photo)
+end

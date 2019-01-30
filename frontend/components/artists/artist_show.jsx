@@ -30,7 +30,7 @@ class ArtistShow extends React.Component {
     else {
        let artistInfo = (
         <div className="artist-top">
-          {/* <img className="artist-top-pic" src={window.brentURL1} /> */}
+           <img className="artist-top-pic" src={this.props.artist.photo} />
           <p className="artist-name">{this.props.artist.name}</p>
           <div className="flex-play-button">
             <button className="artist-play-button">PLAY</button>
@@ -39,10 +39,11 @@ class ArtistShow extends React.Component {
         )
         
         let songs = this.props.artist.songs.map( song => {
+          
           return (
             <ul key={song.id} className="artist-middle">
               <li className="artist-music-note">♪</li>
-              <li><img src={window.brentURL1} className="artist-middle-pic"/></li>
+              <li><img src={this.props.artist.photo} className="artist-middle-pic"/></li>
               
               <li className="song-title">{song.title}</li>
             </ul>
@@ -54,7 +55,7 @@ class ArtistShow extends React.Component {
             <ul key={album.id} className="artist-bottom">
               <div className="each-album">
                 <div>
-                  <li><img src={window.brentURL1} className="artist-bottom-pic"/></li>
+                  <li><img src={this.props.artist.photo} className="artist-bottom-pic"/></li>
                   {/* <li className="album-title">{album.title}</li> */}
                   <Link
                     className="album-title"

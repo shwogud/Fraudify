@@ -38,10 +38,10 @@ class PlaylistShow extends React.Component {
         
         playlistSongs.push(this.props.songs[i]);
       }
-      // debugger
+    
       songs = (
         playlistSongs.map( song => {
-          // debugger
+     
           return (
             <div className="playlist-show-each-song" key={song.id}>
               <div>
@@ -88,7 +88,7 @@ class PlaylistShow extends React.Component {
       playlist = (
         <div className="playlist-show-page">
           <div className="playlist-show-left">
-              <img className="playlist-show-images" src={window.brentURL1} />
+              <img className="playlist-show-images" src={this.props.playlist.photo} />
             <ul className="playlist-show-info">
               <li className="playlist-show-title">{this.props.playlist.title}</li>
               <li className="playlist-show-username">{this.props.currentUser.username}</li>

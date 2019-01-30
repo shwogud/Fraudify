@@ -10,6 +10,7 @@
   height: 100%;
   background-image: linear-gradient(rgb(22, 7, 55), rgb(8, 8, 9));
   overflow-x: visible;
+  min-height: 80vh;
 }
 
 .playlist-index-box {

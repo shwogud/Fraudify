@@ -7,12 +7,23 @@
   /* margin-left: 315px; */
   /* border: 1px solid red; */
   height: 415px;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
                   rgba(20, 20, 20, .5),
                   rgba(20, 20, 20, .5)),
-                  url('taylor_image.jpg');
-  background-repeat: round;
+                  url('taylor_image.jpg'); */
+  background-repeat: round;  
 }
+
+.artist-top-pic {
+  position: relative;
+  overflow: hidden;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  height: 415px;
+  width: 100%;
+  /* position: fixed; */
+}
+
 
 .artist-name {
   text-align: center;
@@ -128,13 +139,6 @@
     text-transform: none;
 }
 
-.artist-top-pic {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  /* border-radius: 50%; */
-}
 
 .artist-middle-pic {
   width: 50px;

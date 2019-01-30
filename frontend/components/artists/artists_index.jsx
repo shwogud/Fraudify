@@ -17,7 +17,7 @@ class ArtistsIndex extends React.Component {
     const artists = this.props.artists.map(artist => {
       return (
         <li className="artist-pic-and-name" key={artist.id}>
-          <img className="artist-index-image" src={window.brentURL1} />
+          <img className="artist-index-image" src={artist.photo} />
           <section>
             <Link 
               className="artists-name-link"

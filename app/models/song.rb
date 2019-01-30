@@ -16,6 +16,8 @@ class Song < ApplicationRecord
 
   has_one :artist, through: :album
 
+  has_one_attached :mp3_file
+
   has_many :playlist_songs
   has_many :playlists, through: :playlist_songs
   

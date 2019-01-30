@@ -13,7 +13,7 @@ const playlistReducer = (state = {}, action) => {
       return merge({}, action.playlists);
 
     case RECEIVE_PLAYLIST:
-   
+      
       return merge({}, state, {[action.data.playlist.id]: action.data.playlist});
       // return action.data.playlist
     case REMOVE_PLAYLIST:
