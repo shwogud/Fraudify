@@ -26,16 +26,12 @@ import SongsIndexContainer from './songs/songs_index_container';
 import NavBarContainer from './navbar/navbar_container';
 import SideBarContainer from './sidebar/sidebar_container';
 import Modal from './modal/modal';
+import MusicBar from './music_bar/music_bar_container.js';
 
 const App = () => (
   <div>
-    {/* <header>
-      <h1>Everyone sees this</h1>
 
-    </header> */}
-    {/* <SplashContainer /> */}
-
-
+    {/* <MusicBar /> */}
 
     {/* AuthRoute: when logged in, cannot reach login/signup page 
     ProtectedRoute: can only reach route when logged in */}
@@ -48,7 +44,8 @@ const App = () => (
     </Switch>
 
     <Route path="/" component={Modal} />
-
+    <Route path="/" component={MusicBar} />
+    
       <div className="main-content">
         <div className="containers">
           <ProtectedRoute path="/" component={SideBarContainer} />

@@ -15,6 +15,7 @@ class AlbumShow extends React.Component {
     if (!this.props.album) {
       return null;
     }
+
     if (!this.props.album.songs) {
       return null;
     }
