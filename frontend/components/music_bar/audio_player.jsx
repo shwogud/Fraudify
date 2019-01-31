@@ -27,7 +27,7 @@ class AudioPlayer extends React.Component {
     else this.audioRef.current.pause();
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
     clearInterval(this.timeInterval);
   }
 
@@ -61,12 +61,12 @@ class AudioPlayer extends React.Component {
     let { currentTime, length } = this.state;
     
     const togglePlay = currentSong.isPlaying ? (
-      <i className="fal fa-pause" onClick={() => this.props.toggleSong()}></i> ) : ( // pause button
-      <i className="fal fa-play" onClick={() => this.props.toggleSong()}></i>)          //play button
+      <i className="fal fa-pause toggle-button" onClick={() => this.props.toggleSong()}></i> ) : ( // pause button
+      <i className="fal fa-play toggle-button" onClick={() => this.props.toggleSong()}></i>)          //play button
       
 
     return (
-      <div>
+      <div className="music-barrrr">
         { togglePlay }
         <div className="music-time">
           <p >{this.formatTime(currentTime)}</p>
@@ -76,7 +76,8 @@ class AudioPlayer extends React.Component {
               className="music-progress-bar" 
               min="0" 
               max={length} 
-              step="0.25" 
+              step="1"
+              // value={100 * (currentTime / length)}
               onChange={this.setTime} />
 
             <div className="outer-music-bar">

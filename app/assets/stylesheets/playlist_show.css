@@ -30,6 +30,7 @@
   color: white;
   border: none;
   transition: all .3s ease-in-out;
+  outline: 0;
 }
 
 .play-button:hover {
@@ -81,6 +82,7 @@ padding-bottom: 25px;
   cursor: pointer;
   border: none;
   transition: all .3s ease-in-out;
+  outline: 0;
 }
 
 .delete-button:hover {
@@ -99,6 +101,7 @@ padding-bottom: 25px;
   font-size: 18px;
   margin-bottom: 5px;
   letter-spacing: 0.03em;
+  cursor: pointer;
 }
 
 .playlist-show-song-artist-album {
@@ -112,6 +115,7 @@ padding-bottom: 25px;
   padding-right: 5px;
   font-size: 14px;
   letter-spacing: 0.03em;
+  
 }
 
 .playlist-show-song-separator {

@@ -27,7 +27,9 @@ class PlaylistShow extends React.Component {
     
     let songs;
     if (!this.props.songs) {
-      return null;
+      return (
+        <div className="album-backgrounddd"></div>
+      )
     }
     if (this.props.songs.length < 1) { return null; }
     
@@ -48,7 +50,11 @@ class PlaylistShow extends React.Component {
                 <p className="playlist-music-note">♪</p>
               </div>
               <div>
-                <p className="playlist-show-song-title">{song.title}</p>
+                <p 
+                  onClick={() => {
+                    this.props.fetchPlayingSong(song.id)
+                  }}
+                  className="playlist-show-song-title">{song.title}</p>
                 <div className="playlist-show-song-artist-album">
                   <p className="playlist-show-song-artist">{song.artist}</p>
                   <p className="playlist-show-song-separator">·</p>
@@ -81,6 +87,10 @@ class PlaylistShow extends React.Component {
     }
 
     let playlist;
+
+    if (!this.props.playlist.photo) {
+      this.props.playlist.photo = window.brentURL2;
+    }
 
     
     if (this.props.playlist) {

@@ -12,18 +12,18 @@ class MusicBar extends React.Component {
     let { currentSong } = this.props;
     if (!currentSong) return null;
 
-
+    
     return (
       <footer className="music-bar">
         <div className="music-bar-content">
           
           <div className="music-bar-song-info">
-            <p>Song Title</p>
-            <div className="music-bar-text">
-              <p>Album Title (Link?)</p>
-              <p>Artist Name (Link?)</p>
-            </div>
-          </div>
+            <p className="music-bar-song-title">{currentSong.title}</p>
+            {/* <div className="music-bar-text">
+              <p>{currentSong.album}</p>
+              <p>{currentSong.artist}</p>
+            </div> */}
+          </div >
           < AudioPlayer source={currentSong.mp3} />
           <audio src={currentSong.mp3} preloaded="metadata" id="audio" type="audio/mp3"></audio>
         </div>

@@ -24,7 +24,9 @@ class ArtistShow extends React.Component {
     }
 
     if (!this.props.artist.songs) {
-      return null;
+      return (
+        <div className="album-backgrounddd"></div>
+      )
     }
    
     else {
@@ -43,9 +45,18 @@ class ArtistShow extends React.Component {
           return (
             <ul key={song.id} className="artist-middle">
               <li className="artist-music-note">♪</li>
-              <li><img src={this.props.artist.photo} className="artist-middle-pic"/></li>
+              <li><img 
+                onClick={() => {
+                  this.props.fetchPlayingSong(song.id)
+                }}
+                src={this.props.artist.photo} 
+                className="artist-middle-pic"/></li>
               
-              <li className="song-title">{song.title}</li>
+              <li 
+                onClick={() => {
+                  this.props.fetchPlayingSong(song.id)
+                }}
+                className="song-title">{song.title}</li>
             </ul>
           )
         })

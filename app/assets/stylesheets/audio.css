@@ -1,0 +1,66 @@
+.music-barrrr {
+  margin-left: 45%;
+}
+
+.progress-bar {
+
+}
+
+.music-progress-bar {
+  width: 650px;
+  position: absolute;
+  cursor: pointer;
+  background-color: transparent;
+  color: transparent; 
+  height: 50px;
+  top: 60%;
+  -webkit-appearance: none;
+  z-index: 5;
+  height: 2px;
+  outline: 0;
+}
+
+.music-progress-bar::-webkit-slider-thumb {
+  visibility: hidden;
+}
+
+.outer-music-bar {
+    width: 650px;
+    background-color: rgb(204, 204, 204);
+    height: 2px;
+    position: relative;
+    /* border: 1px solid pink; */
+}
+
+.progress-bar:hover .progress-ball {
+    opacity: 1;
+}
+
+.inner-music-bar {
+  background-color: rgb(22, 246, 2);
+  height: 2px;
+}
+
+.progress-ball{
+  width: 9px;
+  height: 9px;
+  background-color: rgb(208, 218, 208);
+  position: absolute;
+  border-radius: 50%;
+  top: -3px;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.music-time {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.toggle-button {
+  font-size: 25px;
+  margin-left: 50%;
+}

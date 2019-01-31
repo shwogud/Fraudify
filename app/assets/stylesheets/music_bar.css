@@ -1,6 +1,6 @@
 
 footer {
-  background-color: #F2F2F2;
+  background-color: rgb(91, 89, 89);
   border-top: 1px solid rgb(206, 206, 206);
   height: 100px;
   position: fixed;
@@ -10,13 +10,28 @@ footer {
 }
 
 .music_bar {
-  border: 2px solid blue;
+  
   height: 100px;
   position: fixed;
 }
 
 .music-bar-content {
-  margin-left: 600px;
+  margin-left: 0px;
+  width: 55%;
   height: 100px;
+  display: flex;
+  border: 2px solid blue;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.music-bar-song-info {
+  padding: 50px;
+}
+
+.music-bar-song-title {
+  color: white;
+  padding-bottom: 5px;
+}
+
 

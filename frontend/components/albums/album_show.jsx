@@ -15,11 +15,15 @@ class AlbumShow extends React.Component {
 
   render() {
     if (!this.props.album) {
-      return null;
+      return (
+        <div className="album-backgrounddd"></div>
+      )
     }
 
     if (!this.props.album.songs) {
-      return null;
+      return (
+        <div className="album-backgrounddd"></div>
+      )
     }
 
     let albumInfo = (
@@ -43,7 +47,10 @@ class AlbumShow extends React.Component {
         <ul className="flex-music-song" key={song.id}>
           <li className="album-music-note">♪</li>
           <li 
-            onClick={() => this.props.fetchPlayingSong(song.id)} 
+            onClick={() => {
+              this.props.fetchPlayingSong(song.id)}
+                // .then(() => document.querySelector(".flex-wrap-albums").style.paddingBottom = "100px")} 
+            }
             className="album-song-title">
             {song.title}
           </li>

@@ -23,7 +23,9 @@ class PlaylistIndex extends React.Component {
 
     if (!this.props.playlists[0]) {
        
-      return null;
+      return (
+        <div className="album-backgrounddd"></div>
+      )
     }
     
     if (this.props.playlists) {
@@ -31,6 +33,9 @@ class PlaylistIndex extends React.Component {
       playlists = this.props.playlists.map( playlist => {
         
         if (playlist.user_id === this.currentUser.id) {
+          if (!playlist.photo) {
+            playlist.photo = window.brentURL2;
+          }
           
           return (
             <li className="playlist-index-box" key={playlist.id}>

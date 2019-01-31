@@ -81,6 +81,7 @@
   transition: background-color 0.3s ease;
   transition: all .5s ease-in-out;
   border: none;
+  outline: 0;
 }
 
 .new-playlist-button:hover {
