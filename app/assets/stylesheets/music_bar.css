@@ -1,6 +1,6 @@
 
 footer {
-  background-color: rgb(91, 89, 89);
+  background-color: rgb(31, 31, 31);
   border-top: 1px solid rgb(206, 206, 206);
   height: 100px;
   position: fixed;
@@ -20,7 +20,7 @@ footer {
   width: 55%;
   height: 100px;
   display: flex;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   justify-content: space-between;
   align-items: center;
 }
