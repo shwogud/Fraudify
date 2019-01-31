@@ -101,6 +101,11 @@
   padding-left: 5px;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.song-title:hover {
+  color: rgb(3, 193, 3);
 }
 
 .artist-bottom {

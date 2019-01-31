@@ -102,6 +102,12 @@ padding-bottom: 25px;
   margin-bottom: 5px;
   letter-spacing: 0.03em;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.playlist-show-song-title:hover {
+  color: rgb(12, 196, 12);
+  
 }
 
 .playlist-show-song-artist-album {
@@ -129,6 +135,11 @@ padding-bottom: 25px;
   font-size: 14px;
   letter-spacing: 0.03em;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.playlist-show-song-album:hover {
+  color: rgb(12, 196, 12);
 }
 
 .playlist-music-note {

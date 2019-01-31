@@ -32,6 +32,17 @@ footer {
 .music-bar-song-title {
   color: white;
   padding-bottom: 5px;
+  width: 100px;
+  font-size: 18px;
 }
 
+.music-bar-time-left {
+  color: white;
+  margin-right: 10px;
+}
+
+.music-bar-time-right {
+  color: white;
+  margin-left: 10px;
+}
 

@@ -105,6 +105,11 @@
 .album-song-title {
   color: white;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.album-song-title:hover {
+  color: rgb(3, 193, 3);
 }
 
 .album-backgrounddd {

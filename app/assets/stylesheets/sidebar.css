@@ -32,6 +32,11 @@
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
   color: white;
+  transition: color 0.3s ease;
+}
+
+.sidebar-name:hover {
+  color: rgb(3, 193, 3);
 }
 
 .search-pic-name {

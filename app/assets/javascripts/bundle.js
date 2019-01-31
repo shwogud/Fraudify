@@ -1585,7 +1585,9 @@ function (_React$Component) {
         className: "music-barrrr"
       }, togglePlay, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "music-time"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.formatTime(currentTime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "music-bar-time-left"
+      }, this.formatTime(currentTime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "progress-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "range",
@@ -1607,7 +1609,9 @@ function (_React$Component) {
         style: {
           left: "".concat(100 * (currentTime / length) || 1, "%")
         }
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.formatTime(length))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "music-bar-time-right"
+      }, this.formatTime(length))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
         src: this.props.source,
         ref: this.audioRef
       }));

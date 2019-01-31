@@ -69,7 +69,8 @@ class AudioPlayer extends React.Component {
       <div className="music-barrrr">
         { togglePlay }
         <div className="music-time">
-          <p >{this.formatTime(currentTime)}</p>
+          <p className="music-bar-time-left">{this.formatTime(currentTime)}</p>
+
           <div className="progress-bar">
             <input 
               type="range" 
@@ -85,7 +86,8 @@ class AudioPlayer extends React.Component {
               <div className="progress-ball" style={{ left: `${100 * (currentTime / length) || 1}%` }}></div>
             </div>
           </div>
-          <p>{this.formatTime(length)}</p>
+
+          <p className="music-bar-time-right">{this.formatTime(length)}</p>
 
         </div>
         <audio src={this.props.source} ref={this.audioRef}></audio>

@@ -19,6 +19,7 @@ class MusicBar extends React.Component {
           
           <div className="music-bar-song-info">
             <p className="music-bar-song-title">{currentSong.title}</p>
+          
             {/* <div className="music-bar-text">
               <p>{currentSong.album}</p>
               <p>{currentSong.artist}</p>
