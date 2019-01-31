@@ -1429,13 +1429,48 @@ var Navbar =
 function (_React$Component) {
   _inherits(Navbar, _React$Component);
 
-  function Navbar() {
+  function Navbar(props) {
+    var _this;
+
     _classCallCheck(this, Navbar);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Navbar).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
+    _this.state = {
+      currentViewPlaylists: '',
+      currentViewArtists: '',
+      currentViewAlbums: ''
+    };
+    return _this;
   }
 
   _createClass(Navbar, [{
+    key: "changeCurrentView",
+    value: function changeCurrentView(newView) {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.setState({
+          currentViewPlaylists: '',
+          currentViewArtists: '',
+          currentViewAlbums: ''
+        });
+
+        if (newView === 'playlists') {
+          _this2.setState({
+            currentViewPlaylists: 'current-view'
+          });
+        } else if (newView === 'artists') {
+          _this2.setState({
+            currentViewArtists: 'current-view'
+          });
+        } else if (newView === 'albums') {
+          _this2.setState({
+            currentViewAlbums: 'current-view'
+          });
+        }
+      };
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1445,13 +1480,16 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-link-links"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "nav-playlist",
+        className: "nav-playlist ".concat(this.state.currentViewPlaylists),
+        onClick: this.changeCurrentView('playlists'),
         to: "/collection/playlists"
       }, "PLAYLISTS")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "nav-artist",
+        className: "nav-artist ".concat(this.state.currentViewArtists),
+        onClick: this.changeCurrentView('artists'),
         to: "/collection/artists"
       }, "ARTISTS")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "nav-album",
+        className: "nav-album ".concat(this.state.currentViewAlbums),
+        onClick: this.changeCurrentView('albums'),
         to: "/collection/albums"
       }, "ALBUMS"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.openModal,

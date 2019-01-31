@@ -87,3 +87,7 @@
   background-color: rgb(0, 186, 0);
   transform: scale(1.1);
 }
+
+.current-view {
+  border-bottom: 1px solid rgb(14, 205, 14);
+}
