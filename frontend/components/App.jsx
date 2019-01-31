@@ -44,7 +44,7 @@ const App = () => (
     </Switch>
 
     <Route path="/" component={Modal} />
-    <Route path="/" component={MusicBar} />
+    {/* <Route path="/" component={MusicBar} /> */}
     
       <div className="main-content">
         <div className="containers">
@@ -65,8 +65,8 @@ const App = () => (
         </div>
       </div>
 
-      {/* <AuthRoute path="/" component={SplashContainer}/> */}
-    
+    <Route path="/" component={MusicBar} />
+
   </div>
 );
 

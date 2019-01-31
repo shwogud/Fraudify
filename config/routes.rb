@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :songs, only: [:index, :show]
     resources :playlist_songs, only: [:show, :create, :destroy]
 
+    get '/whole_song/:id', to: 'songs#whole_song_show'
+
   end
 
   root "static_pages#root"

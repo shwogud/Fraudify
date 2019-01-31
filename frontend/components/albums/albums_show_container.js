@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import AlbumShow from './album_show';
 import { requestAlbum } from '../../actions/album_actions';
 import { requestAllSongs } from '../../actions/song_actions';
+import { fetchPlayingSong } from '../../actions/current_song_actions';
 
 const msp = (state, ownProps) => {
   
@@ -14,7 +15,8 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return {
     fetchAlbum: (id) => dispatch(requestAlbum(id)),
-    fetchAllSongs: () => dispatch(requestAllSongs())
+    fetchAllSongs: () => dispatch(requestAllSongs()),
+    fetchPlayingSong: (id) => dispatch(fetchPlayingSong(id)),
   };
 };
 

@@ -1,0 +1,22 @@
+
+footer {
+  background-color: #F2F2F2;
+  border-top: 1px solid rgb(206, 206, 206);
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.music_bar {
+  border: 2px solid blue;
+  height: 100px;
+  position: fixed;
+}
+
+.music-bar-content {
+  margin-left: 600px;
+  height: 100px;
+}
+

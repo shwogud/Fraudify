@@ -1,8 +1,10 @@
 import React from 'react';
+// import AudioPlayerContainer
 
 class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   componentDidMount() {
@@ -40,7 +42,9 @@ class AlbumShow extends React.Component {
       return (
         <ul className="flex-music-song" key={song.id}>
           <li className="album-music-note">♪</li>
-          <li className="album-song-title">
+          <li 
+            onClick={() => this.props.fetchPlayingSong(song.id)} 
+            className="album-song-title">
             {song.title}
           </li>
         </ul>

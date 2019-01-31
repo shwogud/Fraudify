@@ -16,9 +16,12 @@ export const toggleSong = () => {
 };
 
 export const fetchPlayingSong = (id) => {
+  
   return (dispatch) => {
-    return SongAPI.fetchSong(id).then((info) => {
-      dispatch(receivePlayingSong(info.song));
-    })
+    return SongAPI.fetchCompleteSong(id).then((song) => {
+      dispatch(receivePlayingSong(song));
+    });
   };
 };
+
+

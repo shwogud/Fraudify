@@ -12,5 +12,16 @@ class Api::SongsController < ApplicationController
     end
   end
 
+  def whole_song_show
+    
+    @song = Song.find_by(id: params[:id])
+    
+    if @song 
+      render :whole_song 
+    else
+      render json: ["Song does not exist!"]
+    end
+  end
+
   
 end

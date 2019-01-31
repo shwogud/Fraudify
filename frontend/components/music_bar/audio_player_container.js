@@ -6,6 +6,7 @@ import {
 } from '../../actions/current_song_actions';
 
 const msp = (state) => {
+  
   return {
     currentSong: state.ui.currentSong,
   };

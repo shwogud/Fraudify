@@ -35,3 +35,12 @@ export const removePlaylistSong = (playlistId, songId) => {
     }
   });
 };
+
+
+export const fetchCompleteSong = (id) => {
+  
+  return $.ajax({
+    method: "GET",
+    url: `api/whole_song/${id}`,
+  });
+};

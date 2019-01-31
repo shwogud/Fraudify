@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AudioPlayer from './audio_player';
+import AudioPlayer from './audio_player_container';
 
 class MusicBar extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class MusicBar extends React.Component {
     return (
       <footer className="music-bar">
         <div className="music-bar-content">
-          < AudioPlayer source={currentSong.mp3} />
+          
           <div className="music-bar-song-info">
             <p>Song Title</p>
             <div className="music-bar-text">
@@ -24,6 +24,7 @@ class MusicBar extends React.Component {
               <p>Artist Name (Link?)</p>
             </div>
           </div>
+          < AudioPlayer source={currentSong.mp3} />
           <audio src={currentSong.mp3} preloaded="metadata" id="audio" type="audio/mp3"></audio>
         </div>
       </footer>
