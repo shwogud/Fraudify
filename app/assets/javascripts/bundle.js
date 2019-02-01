@@ -2322,7 +2322,9 @@ function (_React$Component) {
         var playlistSongs = [];
 
         if (this.props.playlist.song_ids.length != this.props.songs.length) {
-          return null;
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "album-backgrounddd"
+          });
         }
 
         for (var i = 0; i < this.props.playlist.song_ids.length; i++) {

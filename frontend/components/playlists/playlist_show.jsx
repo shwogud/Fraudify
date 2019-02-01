@@ -38,7 +38,9 @@ class PlaylistShow extends React.Component {
       let playlistSongs = [];
 
       if (this.props.playlist.song_ids.length != this.props.songs.length) {
-        return null;
+        return (
+          <div className="album-backgrounddd"></div>
+        )
       }
 
       for(let i = 0; i < this.props.playlist.song_ids.length; i++) {
