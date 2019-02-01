@@ -275,29 +275,29 @@ pSong9.save!
 pSong10 = PlaylistSong.new({playlist: p2, song: s13})
 pSong10.save!
 
-#playlist3
+#playlist4
 
-pSong11 = PlaylistSong.new({playlist: p3, song: s12})
+pSong11 = PlaylistSong.new({playlist: p4, song: s12})
 pSong11.save!
-pSong12 = PlaylistSong.new({playlist: p3, song: s5})
+pSong12 = PlaylistSong.new({playlist: p4, song: s5})
 pSong12.save!
-pSong13 = PlaylistSong.new({playlist: p3, song: s8})
+pSong13 = PlaylistSong.new({playlist: p4, song: s8})
 pSong13.save!
-pSong14 = PlaylistSong.new({playlist: p3, song: s11})
+pSong14 = PlaylistSong.new({playlist: p4, song: s11})
 pSong14.save!
-pSong15 = PlaylistSong.new({playlist: p3, song: s4})
+pSong15 = PlaylistSong.new({playlist: p4, song: s4})
 pSong15.save!
 
-#playlist4
-pSong16 = PlaylistSong.new({playlist: p4, song: s1})
+#playlist3
+pSong16 = PlaylistSong.new({playlist: p3, song: s1})
 pSong16.save!
-pSong17 = PlaylistSong.new({playlist: p4, song: s2})
+pSong17 = PlaylistSong.new({playlist: p3, song: s2})
 pSong17.save!
-pSong18 = PlaylistSong.new({playlist: p4, song: s3})
+pSong18 = PlaylistSong.new({playlist: p3, song: s3})
 pSong18.save!
-pSong19 = PlaylistSong.new({playlist: p4, song: s6})
+pSong19 = PlaylistSong.new({playlist: p3, song: s6})
 pSong19.save!
-pSong20 = PlaylistSong.new({playlist: p4, song: s7})
+pSong20 = PlaylistSong.new({playlist: p3, song: s7})
 pSong20.save!
 
 #playlist5
