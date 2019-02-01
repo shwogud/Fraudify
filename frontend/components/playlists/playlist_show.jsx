@@ -24,7 +24,7 @@ class PlaylistShow extends React.Component {
   }
 
   playlistSongs() {
-    
+    debugger
     let songs;
     if (!this.props.songs) {
       return (
@@ -35,7 +35,7 @@ class PlaylistShow extends React.Component {
     
     if (this.props.playlist.song_ids) {
       let playlistSongs = [];
-
+      
       for(let i = 0; i < this.props.playlist.song_ids.length; i++) {
         
         playlistSongs.push(this.props.songs[i]);

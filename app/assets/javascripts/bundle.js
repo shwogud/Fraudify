@@ -2304,6 +2304,7 @@ function (_React$Component) {
     value: function playlistSongs() {
       var _this3 = this;
 
+      debugger;
       var songs;
 
       if (!this.props.songs) {
