@@ -137,6 +137,7 @@
   position: fixed;
   transition: background-color 0.3s ease;
   transition: all .5s ease-in-out;
+  outline:0;
 }
 
 .logout-button:hover {

@@ -78,13 +78,19 @@ file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/billy-joe
 a6.photo.attach(io: file, filename: 'billy-joel-net-worth-mst.jpg')
 a6.save!
 
-# Artist.create([
-#   { name: 'Taylor Swift', img_url: '' },
-#   { name: 'Jason Mraz', img_url: '' },
-#   { name: 'Avici', img_url: '' },
-#   { name: 'Justin Bieber', img_url: '' },
-#   { name: 'TWICE', img_url: '' },
-# ])
+a7 = Artist.new(name: 'Michael Jackson')
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/1-37.jpg')
+a7.photo.attach(io: file, filename: '1-37.jpg')
+a7.save!
+
+a8 = Artist.new(name: 'Galantis')
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/galantiss.jpg')
+a8.photo.attach(io: file, filename: 'galantiss.jpg')
+a8.save!
+
+
+
+
 
 alb1 = Album.new({title: 'Fearless', artist_id: a1.id, release_year: 2008})
 file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/tswift1989.png')
@@ -115,6 +121,16 @@ alb6 = Album.new({title: 'The Stranger', artist_id: a6.id, release_year: 1977})
 file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/220px-Thestranger1977.jpg')
 alb6.photo.attach(io: file, filename: '220px-Thestranger1977.jpg')
 alb6.save!
+
+alb7 = Album.new({title: 'Destiny', artist_id: a7.id, release_year: 1978})
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/mjalbum.jpg')
+alb7.photo.attach(io: file, filename: 'mjalbum.jpg')
+alb7.save!
+
+alb8 = Album.new({title: 'The Aviary', artist_id: a8.id, release_year: 2017})
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/galantisalbum.jpg')
+alb8.photo.attach(io: file, filename: 'galantisalbum.jpg')
+alb8.save!
 
 
 
@@ -207,6 +223,16 @@ song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Billy+Joe
 s15.mp3_file.attach(io: song, filename: "Billy Joel - Uptown Girl.mp3")
 s15.save!
 
+s19 = Song.new({title: "I Want You Back", album: alb7})
+song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/7.+Jackson+5+-+I+Want+You+Back.mp3")
+s19.mp3_file.attach(io: song, filename: "7. Jackson 5 - I Want You Back.mp3")
+s19.save!
+
+s20 = Song.new({title: "Runaway", album: alb8})
+song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Galantis+-+Runaway+(U++I)+(Official+Video).mp3")
+s20.mp3_file.attach(io: song, filename: "Galantis - Runaway (U  I) (Official Video).mp3")
+s20.save!
+
 
 
 
@@ -258,6 +284,9 @@ pSong4.save!
 pSong5 = PlaylistSong.new({playlist: p1, song: s11})
 pSong5.save!
 
+pSong30 = PlaylistSong.new({playlist: p1, song: s20})
+pSong30.save!
+
 #playlist 2
 
 pSong6 = PlaylistSong.new({playlist: p2, song: s9})
@@ -287,6 +316,9 @@ pSong14 = PlaylistSong.new({playlist: p4, song: s11})
 pSong14.save!
 pSong15 = PlaylistSong.new({playlist: p4, song: s4})
 pSong15.save!
+
+pSong31 = PlaylistSong.new({playlist: p4, song: s19})
+pSong31.save!
 
 #playlist3
 pSong16 = PlaylistSong.new({playlist: p3, song: s1})
