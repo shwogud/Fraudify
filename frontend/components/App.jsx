@@ -65,7 +65,7 @@ const App = () => (
         </div>
       </div>
 
-    <Route path="/" component={MusicBar} />
+    <ProtectedRoute path="/" component={MusicBar} />
 
   </div>
 );

@@ -28,12 +28,20 @@ class Sidebar extends React.Component {
 
           <div className="home-pic-name">
             <p className="home-pic">⌂</p>
-            <p className="home-name">Home</p>
+            <Link
+              className="home-name"
+              to="/collection/playlists">
+              Home</Link>
+            {/* <p className="home-name">Home</p> */}
           </div>
           
           <div className="lib-pic-name">
               <p className="lib-pic">&#128214;</p>
-            <p className="lib-name">Your Library</p>
+              <Link
+                className="lib-name"
+                to="/collection/playlists">
+                Your Library</Link>
+            {/* <p className="lib-name">Your Library</p> */}
           </div>
 
 

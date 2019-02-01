@@ -21,7 +21,7 @@
   filter: alpha(opacity=50);
   height: 415px;
   width: 100%;
-  /* position: fixed; */
+  object-fit: cover;
 }
 
 
@@ -35,6 +35,9 @@
   text-transform: none;
   margin-bottom: 15px;
   font-weight: bold;
+  position: absolute;
+  top: 135px;
+  left: 735px;
 }
 
 .flex-play-button{
@@ -53,6 +56,9 @@
   border: none;
   transition: all .3s ease-in-out;
   outline: 0;
+  position: absolute;
+  top: 228px;
+  left: 873px;
 }
 
 .artist-play-button:hover {
@@ -115,8 +121,9 @@
   /* margin-left: 315px; */
   /* border: 1px solid red; */
   list-style-type: none;
-  padding-bottom: 15px;
+  /* padding-bottom: 15px; */
   width: 275px;
+  margin-bottom: 115px;
 }
 
 .Songs {

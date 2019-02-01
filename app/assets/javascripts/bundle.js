@@ -662,7 +662,7 @@ var App = function App() {
     exact: true,
     path: "/collection/artists",
     component: _artists_artists_index_container__WEBPACK_IMPORTED_MODULE_14__["default"]
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
     path: "/",
     component: _music_bar_music_bar_container_js__WEBPACK_IMPORTED_MODULE_19__["default"]
   }));
@@ -1567,19 +1567,22 @@ function (_React$Component) {
       var currentSong = this.props.currentSong;
       var _this$state = this.state,
           currentTime = _this$state.currentTime,
-          length = _this$state.length;
+          length = _this$state.length; // const togglePlay = currentSong.isPlaying ? (
+      //   <i className="fal fa-pause toggle-button" onClick={() => this.props.toggleSong()}></i> ) : ( // pause button
+      //   <i className="fal fa-play toggle-button" onClick={() => this.props.toggleSong()}></i>)          //play button
+
       var togglePlay = currentSong.isPlaying ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fal fa-pause toggle-button",
+        className: "material-icons toggle-button",
         onClick: function onClick() {
           return _this2.props.toggleSong();
         }
-      }) : // pause button
+      }, "pause") : // pause button
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fal fa-play toggle-button",
+        className: "material-icons toggle-button",
         onClick: function onClick() {
           return _this2.props.toggleSong();
         }
-      }); //play button
+      }, "play_arrow"); //play button
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "music-barrrr"
@@ -2159,16 +2162,16 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
               className: "playlist-index-box",
               key: playlist.id
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+              to: "/collection/playlists/".concat(playlist.id)
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
               className: "playlist-index-images",
               src: playlist.photo
-            }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
               to: "/collection/playlists/".concat(playlist.id)
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "playlist-title"
-            }, playlist.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-              className: "playlist-username"
-            }, playlist.username));
+            }, playlist.title)));
           }
         });
       } else {
@@ -2924,14 +2927,16 @@ function (_React$Component) {
         className: "home-pic-name"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "home-pic"
-      }, "\u2302"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "home-name"
+      }, "\u2302"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "home-name",
+        to: "/collection/playlists"
       }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "lib-pic-name"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "lib-pic"
-      }, "\uD83D\uDCD6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "lib-name"
+      }, "\uD83D\uDCD6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "lib-name",
+        to: "/collection/playlists"
       }, "Your Library")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-bottom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

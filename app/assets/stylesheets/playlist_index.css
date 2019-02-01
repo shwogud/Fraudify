@@ -18,6 +18,7 @@
   /* border: 1px solid red; */
   margin-left: 75px;
   margin-top: 50px;
+  margin-bottom: 105px;
 }
 
 .playlist-index-box:hover {
@@ -27,8 +28,9 @@
 
 .playlist-index-box p {
   margin: 0px;
+  margin-top: 15px;
   padding: 5px;
-  font-size: 13px;
+  font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   color: white;
@@ -36,10 +38,11 @@
 
 .playlist-title {
   font-weight: bold;
+  /* transition: border-bottom 0.3s ease; */
 }
 
 .playlist-title:hover {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(3, 192, 3);
   cursor: pointer;
 }
 
@@ -53,9 +56,16 @@
 }
 
 .playlist-index-images {
-  width: 215px;
-  height: 215px;
-  /* padding-left: 50px;
-  padding-top: 50px; */
-  /* height: 500 */
+  width: 275px;
+  height: 275px;
+  transition: width 1s ease;
+  transition: height 1s ease;
+  -webkit-transition: color .25s linear;
+}
+
+.playlist-index-images:hover {
+  width: 285px;
+  height: 285px;
+  border: 1px solid rgb(3, 203, 3);
+
 }

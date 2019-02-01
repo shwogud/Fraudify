@@ -49,8 +49,8 @@ u5.save!
 
 
 a1 = Artist.new(name: 'Taylor Swift')
-file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/taylor_image.jpg')
-a1.photo.attach(io: file, filename: 'taylor_image.jpg')
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/tswiftagron.jpg')
+a1.photo.attach(io: file, filename: 'tswiftagron.jpg')
 a1.save!
 
 a2 = Artist.new(name: 'Jason Mraz')
@@ -64,14 +64,19 @@ a3.photo.attach(io: file, filename: 'jb.jpg')
 a3.save!
 
 a4 = Artist.new(name: 'Avici')
-file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/avicii.jpg')
-a4.photo.attach(io: file, filename: 'avicii.jpg')
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/avicibigggg.jpeg')
+a4.photo.attach(io: file, filename: 'avicibigggg.jpeg')
 a4.save!
 
 a5 = Artist.new(name: 'TWICE')
 file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/TWICE8.jpg')
 a5.photo.attach(io: file, filename: 'TWICE8.jpg')
 a5.save!
+
+a6 = Artist.new(name: 'Billy Joel')
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/billy-joel-net-worth-mst.jpg')
+a6.photo.attach(io: file, filename: 'billy-joel-net-worth-mst.jpg')
+a6.save!
 
 # Artist.create([
 #   { name: 'Taylor Swift', img_url: '' },
@@ -106,19 +111,12 @@ file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/Twice-Sta
 alb5.photo.attach(io: file, filename: 'Twice-Standard_edition_(album_cover).jpg')
 alb5.save!
 
+alb6 = Album.new({title: 'The Stranger', artist_id: a6.id, release_year: 1977})
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/220px-Thestranger1977.jpg')
+alb6.photo.attach(io: file, filename: '220px-Thestranger1977.jpg')
+alb6.save!
 
-# Album.create([
-#   { title: 'Fearless', artist_id: 1, release_year: '2008', img_url: '' },
-#   { title: 'Sing, Dance, Steal', artist_id: 2, release_year: '2014', img_url: '' },
-#   { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
-#   { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
-#   { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
-#   { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
-#   { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
-#   { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
-#   { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
-#   { title: 'Let Go', artist_id: 3, release_year: '2002', img_url: '' },
-# ])
+
 
 
 s1 = Song.new({title: "Love Story", album: alb1})
@@ -146,7 +144,6 @@ song = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/Taylor+Sw
 s5.mp3_file.attach(io: song, filename: 'Taylor Swift - 22.mp3')
 s5.save!
 
-
 s6 = Song.new({title: "I'm Yours", album: alb2})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Jason+Mraz+-+I'm+Yours+(Official+Video).mp3")
 s6.mp3_file.attach(io: song, filename: "Jason Mraz - I'm Yours (Official Video).mp3")
@@ -168,10 +165,10 @@ song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Justin+Bi
 s9.mp3_file.attach(io: song, filename: "Justin Bieber - What Do You Mean.mp3")
 s9.save!
 
-s9 = Song.new({title: "Love Yourself", album: alb3})
-song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Justin+Bieber+-+What+Do+You+Mean.mp3")
-s9.mp3_file.attach(io: song, filename: "Justin Bieber - Love Yourself  (PURPOSE  The Movement).mp3")
-s9.save!
+s16 = Song.new({title: "Love Yourself", album: alb3})
+song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Justin+Bieber+-+Love+Yourself++(PURPOSE++The+Movement).mp3")
+s16.mp3_file.attach(io: song, filename: "Justin Bieber - Love Yourself  (PURPOSE  The Movement).mp3")
+s16.save!
 
 
 s10 = Song.new({title: "Broken Arrows", album: alb4})
@@ -195,25 +192,23 @@ song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/TWICE+LIK
 s13.mp3_file.attach(io: song, filename: "TWICE LIKEY MV.mp3")
 s13.save!
 
+s17 = Song.new({title: "Sandstorm", album: alb5})
+song = EzDownload.open("https://s3.amazonaws.com/notefloat-dev/sandstorm.mp3")
+s17.mp3_file.attach(io: song, filename: "sandstorm.mp3")
+s17.save!
 
-# Song.create([
-#   { title: 'Love Story', album_id: 1 },
-#   { title: 'White Horse', album_id: 1 },
-#   { title: 'You Belong with Me', album_id: 1 },
-#   { title: 'Sing', album_id: 2 },
-#   { title: 'Photograph', album_id: 2 },
-#   { title: 'Thinking Out Loud', album_id: 2 },
-#   { title: 'Complicated', album_id: 3 },
-#   { title: 'Sk8er Boi', album_id: 3 },
-#   { title: 'Losing Grip', album_id: 3 },
-# ])
+s14 = Song.new({title: "Piano Man", album: alb6})
+song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Piano+Man.mp3")
+s14.mp3_file.attach(io: song, filename: "Piano Man.mp3")
+s14.save!
 
-# Playlist.create([
-#   { title: 'Everyday We Lit Bro', user: u1 },
-#   { title: 'Shower Vibes', user: u1 },
-#   { title: 'Workout Vibes', user: u1 },
-#   { title: 'playlist1', user: u1 },
-# ])
+s15 = Song.new({title: "Uptown Girl", album: alb6})
+song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Billy+Joel+-+Uptown+Girl.mp3")
+s15.mp3_file.attach(io: song, filename: "Billy Joel - Uptown Girl.mp3")
+s15.save!
+
+
+
 
 p1 = Playlist.new({title: 'Everyday We Lit Bro', user: u1})
 file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/Party.jpg')
@@ -225,39 +220,105 @@ file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/shower.jp
 p2.photo.attach(io: file, filename: 'shower.jpeg')
 p2.save!
 
+p3 = Playlist.new({title: 'Love at First Sight', user: u1})
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/love.jpg')
+p3.photo.attach(io: file, filename: 'love.jpg')
+p3.save!
 
-# PlaylistSong.create([
-#   { playlist 1, song_id: 1 },
-#   { playlist: 1, song_id: 3 },
+p4 = Playlist.new({title: 'No Pain No Gainzzz', user: u1})
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/HIIT-Workout-Lose-Belly-Fat.jpg')
+p4.photo.attach(io: file, filename: 'HIIT-Workout-Lose-Belly-Fat.jpg')
+p4.save!
 
-# ])
+p5 = Playlist.new({title: 'Sleep is for the Weak', user: u1})
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/bedtime.jpg')
+p5.photo.attach(io: file, filename: 'bedtime.jpg')
+p5.save!
 
-pSong1 = PlaylistSong.new({playlist: p1, song: s1})
+p6 = Playlist.new({title: 'Live. Laugh. Camp.', user: u1})
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/camp.jpg')
+p6.photo.attach(io: file, filename: 'camp.jpg')
+p6.save!
+
+
+
+#playlist 1
+pSong1 = PlaylistSong.new({playlist: p1, song: s4})
 pSong1.save!
 
-pSong2 = PlaylistSong.new({playlist: p1, song: s2})
+pSong2 = PlaylistSong.new({playlist: p1, song: s5})
 pSong2.save!
 
 pSong3 = PlaylistSong.new({playlist: p1, song: s8})
 pSong3.save!
 
-pSong4 = PlaylistSong.new({playlist: p1, song: s4})
+pSong4 = PlaylistSong.new({playlist: p1, song: s10})
 pSong4.save!
 
-pSong5 = PlaylistSong.new({playlist: p1, song: s13})
+pSong5 = PlaylistSong.new({playlist: p1, song: s11})
 pSong5.save!
 
-pSong6 = PlaylistSong.new({playlist: p2, song: s12})
+#playlist 2
+
+pSong6 = PlaylistSong.new({playlist: p2, song: s9})
 pSong6.save!
 
-pSong7 = PlaylistSong.new({playlist: p2, song: s5})
+pSong7 = PlaylistSong.new({playlist: p2, song: s16})
 pSong7.save!
 
-pSong8 = PlaylistSong.new({playlist: p2, song: s6})
+pSong8 = PlaylistSong.new({playlist: p2, song: s14})
 pSong8.save!
 
-pSong9 = PlaylistSong.new({playlist: p2, song: s10})
+pSong9 = PlaylistSong.new({playlist: p2, song: s15})
 pSong9.save!
 
-pSong10 = PlaylistSong.new({playlist: p2, song: s9})
+pSong10 = PlaylistSong.new({playlist: p2, song: s13})
 pSong10.save!
+
+#playlist3
+
+pSong11 = PlaylistSong.new({playlist: p3, song: s12})
+pSong11.save!
+pSong12 = PlaylistSong.new({playlist: p3, song: s5})
+pSong12.save!
+pSong13 = PlaylistSong.new({playlist: p3, song: s8})
+pSong13.save!
+pSong14 = PlaylistSong.new({playlist: p3, song: s11})
+pSong14.save!
+pSong15 = PlaylistSong.new({playlist: p3, song: s4})
+pSong15.save!
+
+#playlist4
+pSong16 = PlaylistSong.new({playlist: p4, song: s1})
+pSong16.save!
+pSong17 = PlaylistSong.new({playlist: p4, song: s2})
+pSong17.save!
+pSong18 = PlaylistSong.new({playlist: p4, song: s3})
+pSong18.save!
+pSong19 = PlaylistSong.new({playlist: p4, song: s6})
+pSong19.save!
+pSong20 = PlaylistSong.new({playlist: p4, song: s7})
+pSong20.save!
+
+#playlist5
+pSong21 = PlaylistSong.new({playlist: p5, song: s5})
+pSong21.save!
+pSong22 = PlaylistSong.new({playlist: p5, song: s7})
+pSong22.save!
+pSong23 = PlaylistSong.new({playlist: p5, song: s16})
+pSong23.save!
+pSong24 = PlaylistSong.new({playlist: p5, song: s14})
+pSong24.save!
+
+#playlist6
+pSong25 = PlaylistSong.new({playlist: p6, song: s6})
+pSong25.save!
+pSong26 = PlaylistSong.new({playlist: p6, song: s8})
+pSong26.save!
+pSong27 = PlaylistSong.new({playlist: p6, song: s11})
+pSong27.save!
+pSong28 = PlaylistSong.new({playlist: p6, song: s17})
+pSong28.save!
+pSong29 = PlaylistSong.new({playlist: p6, song: s15})
+pSong29.save!
+

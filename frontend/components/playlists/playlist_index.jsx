@@ -39,9 +39,12 @@ class PlaylistIndex extends React.Component {
           
           return (
             <li className="playlist-index-box" key={playlist.id}>
-              <img className="playlist-index-images" src={playlist.photo} />
+              <Link to={`/collection/playlists/${playlist.id}`}>
+                <img className="playlist-index-images" src={playlist.photo} />
+              </Link>
+              {/* <img className="playlist-index-images" src={playlist.photo} /> */}
               <Link to={`/collection/playlists/${playlist.id}`}><p className="playlist-title">{playlist.title}</p></Link>
-              <p className="playlist-username">{playlist.username}</p>
+              {/* <p className="playlist-username">{playlist.username}</p> */}
               
             </li>
           )

@@ -50,6 +50,7 @@
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
   padding-bottom: 25px;
+  margin-bottom: 105px;
   transition: color 0.3s ease;
   transition: text-decoration 0.3s ease;
 }

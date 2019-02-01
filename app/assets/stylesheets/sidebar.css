@@ -55,6 +55,17 @@
   padding-bottom: 15px;
 }
 
+.home-name {
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.home-name:hover {
+  color: rgb(7, 187, 7);
+}
+
 .home-pic {
   font-size: 25px;
   padding-top: 5px;
@@ -68,8 +79,16 @@
 }
 
 .lib-name {
+  font-family: 'Montserrat', sans-serif;
   padding-left: 20px;
   padding-top: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  color: white;
+}
+
+.lib-name:hover {
+  color: rgb(7, 187, 7);
 }
 
 .lib-pic {
@@ -93,7 +112,7 @@
 
 .sidebar-welcome {
   padding: 0px;
-  margin-top: 480px;
+  margin-top: 405px;
 
 }
 

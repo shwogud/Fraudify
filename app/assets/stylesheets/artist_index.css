@@ -15,14 +15,15 @@
 
 .artist-index-image {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   overflow: hidden;
   border-radius: 50%;
+  padding-bottom: 10px;
 }
 
 .artists-name-link {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   letter-spacing: .015em;
   font-weight: var(--glue-font-weight-bold);
