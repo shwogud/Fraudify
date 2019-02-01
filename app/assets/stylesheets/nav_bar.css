@@ -1,15 +1,12 @@
 .nav-all {
-  /* margin-left: 150px; */
+  
   height: 100px;
-  /* border: 1px solid red; */
+  
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgb(26, 23, 23);
   width: 100%;
-  border-bottom: 
-  /* position: absolute; */
-  
 }
 
 .nav-links {
@@ -17,7 +14,7 @@
   width: 70%;
   justify-content: space-between;
   margin-left: 15%;
-  /* border: 1px solid  blue; */
+
   font-family: 'Montserrat', sans-serif;
 }
 

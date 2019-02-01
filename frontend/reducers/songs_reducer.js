@@ -12,7 +12,7 @@ import { RECEIVE_ALL_ARTISTS } from '../actions/song_actions';
 import { RECEIVE_ARTIST } from '../actions/artist_actions';
 
 const songsReducer = (state = {}, action) => {
-  debugger
+
   Object.freeze(state);
   let newState;
   switch (action.type) {

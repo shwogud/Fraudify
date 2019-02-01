@@ -1,6 +1,4 @@
 .playlist-page {
-  /* background-image: linear-gradient(rgb(6, 92, 18), rgb(5, 39, 133)); */
-  /* padding: 0px; */
   height: 100%;
 }
 
@@ -15,10 +13,8 @@
 
 .playlist-index-box {
   display: block;
-  /* border: 1px solid red; */
   margin-left: 75px;
   margin-top: 50px;
-  /* padding-bottom: 100px; */
   width: 275px;
   height: 275px;
 
@@ -26,11 +22,6 @@
 
 .playlist-index-box:last-child {
   padding-bottom: 110px;
-}
-
-.playlist-index-box:hover {
-  /* background-color: black; */
-  /* cursor: pointer; */
 }
 
 .playlist-index-box p {
@@ -45,21 +36,11 @@
 
 .playlist-title {
   font-weight: bold;
-  /* transition: border-bottom 0.3s ease; */
 }
 
 .playlist-title:hover {
   border-bottom: 1px solid rgb(3, 192, 3);
   cursor: pointer;
-}
-
-.playlist-username {
-
-}
-
-.playlist-username:hover {
-  /* border-bottom: 3px solid white; */
-  /* cursor: pointer; */
 }
 
 .playlist-index-images {

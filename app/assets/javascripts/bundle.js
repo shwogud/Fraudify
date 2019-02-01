@@ -2329,8 +2329,7 @@ function (_React$Component) {
 
         for (var i = 0; i < this.props.playlist.song_ids.length; i++) {
           playlistSongs.push(this.props.songs[i]);
-        } // console.log(playlistSongs);
-
+        }
 
         songs = playlistSongs.map(function (song) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3669,7 +3668,6 @@ var playlistReducer = function playlistReducer() {
 
   switch (action.type) {
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_PLAYLISTS"]:
-      // debugger
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, action.playlists);
 
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PLAYLIST"]:
@@ -3830,7 +3828,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var songsReducer = function songsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  debugger;
   Object.freeze(state);
   var newState;
 

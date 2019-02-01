@@ -48,7 +48,7 @@ class PlaylistShow extends React.Component {
         playlistSongs.push(this.props.songs[i]);
       }
     
-      // console.log(playlistSongs);
+    
       songs = (
         playlistSongs.map( song => {
           
