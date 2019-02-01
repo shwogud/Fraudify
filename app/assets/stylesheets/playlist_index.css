@@ -18,7 +18,14 @@
   /* border: 1px solid red; */
   margin-left: 75px;
   margin-top: 50px;
-  margin-bottom: 95px;
+  /* padding-bottom: 100px; */
+  width: 275px;
+  height: 275px;
+
+}
+
+.playlist-index-box:last-child {
+  padding-bottom: 110px;
 }
 
 .playlist-index-box:hover {

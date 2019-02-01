@@ -17,9 +17,7 @@ class ArtistShow extends React.Component {
     
     if (this.props.artist === undefined) {
       return (
-        <div>
-          <p>asdf</p>
-        </div>
+        <div className="album-backgrounddd"></div>
       )
     }
 

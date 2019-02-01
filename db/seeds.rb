@@ -284,8 +284,8 @@ pSong4.save!
 pSong5 = PlaylistSong.new({playlist: p1, song: s11})
 pSong5.save!
 
-pSong30 = PlaylistSong.new({playlist: p1, song: s20})
-pSong30.save!
+# pSong30 = PlaylistSong.new({playlist: p1, song: s20})
+# pSong30.save!
 
 #playlist 2
 
@@ -317,8 +317,7 @@ pSong14.save!
 pSong15 = PlaylistSong.new({playlist: p4, song: s4})
 pSong15.save!
 
-pSong31 = PlaylistSong.new({playlist: p4, song: s19})
-pSong31.save!
+
 
 #playlist3
 pSong16 = PlaylistSong.new({playlist: p3, song: s1})
@@ -341,6 +340,8 @@ pSong23 = PlaylistSong.new({playlist: p5, song: s16})
 pSong23.save!
 pSong24 = PlaylistSong.new({playlist: p5, song: s14})
 pSong24.save!
+pSong31 = PlaylistSong.new({playlist: p5, song: s19})
+pSong31.save!
 
 #playlist6
 pSong25 = PlaylistSong.new({playlist: p6, song: s6})

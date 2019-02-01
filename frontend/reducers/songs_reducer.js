@@ -12,6 +12,7 @@ import { RECEIVE_ALL_ARTISTS } from '../actions/song_actions';
 import { RECEIVE_ARTIST } from '../actions/artist_actions';
 
 const songsReducer = (state = {}, action) => {
+  debugger
   Object.freeze(state);
   let newState;
   switch (action.type) {
@@ -24,11 +25,14 @@ const songsReducer = (state = {}, action) => {
 
     //When I go to playlist page, only puts those playlist songs up
     case RECEIVE_PLAYLIST:
-    
       return merge({}, action.data.songs);
     
     case RECEIVE_ALBUM:
-      return merge({}, action.album.song_ids);
+      const newObj = {};
+      for(let i = 0; i < action.album.songs.length; i++) {
+        newObj[action.album.songs[i].id] = action.album.songs[i];
+      }
+      return merge({}, newObj);
     
     case RECEIVE_ARTIST:
       return merge({}, state, action.artist.songs);
@@ -40,7 +44,7 @@ const songsReducer = (state = {}, action) => {
 
       
     case RECEIVE_PLAYLIST_SONG:
-    
+      
       newState = merge({}, state, action.song);
       return newState;
 

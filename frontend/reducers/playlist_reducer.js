@@ -9,7 +9,7 @@ const playlistReducer = (state = {}, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_ALL_PLAYLISTS:
-    
+    // debugger
       return merge({}, action.playlists);
 
     case RECEIVE_PLAYLIST:

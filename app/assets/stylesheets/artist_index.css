@@ -47,3 +47,7 @@
   padding: 30px;
   text-align: center;
 }
+
+.artist-pic-and-name:last-child {
+  padding-bottom: 120px;
+}

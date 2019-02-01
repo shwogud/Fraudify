@@ -1018,7 +1018,9 @@ function (_React$Component) {
       var _this = this;
 
       if (this.props.artist === undefined) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "asdf"));
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "album-backgrounddd"
+        });
       }
 
       if (!this.props.artist.songs) {
@@ -2304,7 +2306,6 @@ function (_React$Component) {
     value: function playlistSongs() {
       var _this3 = this;
 
-      debugger;
       var songs;
 
       if (!this.props.songs) {
@@ -2320,9 +2321,14 @@ function (_React$Component) {
       if (this.props.playlist.song_ids) {
         var playlistSongs = [];
 
+        if (this.props.playlist.song_ids.length != this.props.songs.length) {
+          return null;
+        }
+
         for (var i = 0; i < this.props.playlist.song_ids.length; i++) {
           playlistSongs.push(this.props.songs[i]);
-        }
+        } // console.log(playlistSongs);
+
 
         songs = playlistSongs.map(function (song) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3661,6 +3667,7 @@ var playlistReducer = function playlistReducer() {
 
   switch (action.type) {
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_PLAYLISTS"]:
+      // debugger
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, action.playlists);
 
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PLAYLIST"]:
@@ -3821,6 +3828,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var songsReducer = function songsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
+  debugger;
   Object.freeze(state);
   var newState;
 
@@ -3835,7 +3843,13 @@ var songsReducer = function songsReducer() {
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, action.data.songs);
 
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["RECEIVE_ALBUM"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, action.album.song_ids);
+      var newObj = {};
+
+      for (var i = 0; i < action.album.songs.length; i++) {
+        newObj[action.album.songs[i].id] = action.album.songs[i];
+      }
+
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, newObj);
 
     case _actions_artist_actions__WEBPACK_IMPORTED_MODULE_4__["RECEIVE_ARTIST"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, action.artist.songs);

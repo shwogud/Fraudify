@@ -24,7 +24,7 @@ class PlaylistShow extends React.Component {
   }
 
   playlistSongs() {
-    debugger
+    
     let songs;
     if (!this.props.songs) {
       return (
@@ -34,16 +34,22 @@ class PlaylistShow extends React.Component {
     if (this.props.songs.length < 1) { return null; }
     
     if (this.props.playlist.song_ids) {
-      let playlistSongs = [];
       
+      let playlistSongs = [];
+
+      if (this.props.playlist.song_ids.length != this.props.songs.length) {
+        return null;
+      }
+
       for(let i = 0; i < this.props.playlist.song_ids.length; i++) {
         
         playlistSongs.push(this.props.songs[i]);
       }
     
+      // console.log(playlistSongs);
       songs = (
         playlistSongs.map( song => {
-     
+          
           return (
             <div className="playlist-show-each-song" key={song.id}>
               <div>
