@@ -69,3 +69,7 @@
   border: 1px solid rgb(3, 203, 3);
 
 }
+
+.playlist-title-link {
+  text-decoration: none;
+}

@@ -2168,6 +2168,7 @@ function (_React$Component) {
               className: "playlist-index-images",
               src: playlist.photo
             })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+              className: "playlist-title-link",
               to: "/collection/playlists/".concat(playlist.id)
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
               className: "playlist-title"

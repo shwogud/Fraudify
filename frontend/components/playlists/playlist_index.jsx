@@ -43,7 +43,10 @@ class PlaylistIndex extends React.Component {
                 <img className="playlist-index-images" src={playlist.photo} />
               </Link>
               {/* <img className="playlist-index-images" src={playlist.photo} /> */}
-              <Link to={`/collection/playlists/${playlist.id}`}><p className="playlist-title">{playlist.title}</p></Link>
+              <Link 
+                className="playlist-title-link"
+                to={`/collection/playlists/${playlist.id}`}>
+                <p className="playlist-title">{playlist.title}</p></Link>
               {/* <p className="playlist-username">{playlist.username}</p> */}
               
             </li>
