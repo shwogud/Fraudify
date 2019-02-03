@@ -1,15 +1,23 @@
 import React from 'react';
 // import AudioPlayerContainer
+import AlbumSongContainer from './album_songs_container';
 
 class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      hamburgerClicked: false
+    }
+    this.handleDropdown = this.handleDropdown.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchAlbum(this.props.match.params.albumId);
     this.props.fetchAllSongs();
+  }
+
+  handleDropdown() {
+    this.setState({ hamburgerClicked: !this.state.hamburgerClicked});
   }
 
 
@@ -41,21 +49,13 @@ class AlbumShow extends React.Component {
         {/* <p>heart image</p> */}
       </div>
     )
+
+    // let albumInfo = (
+    //   <AlbumInfo />
+    // )
     
-    let songs = this.props.album.songs.map( song => {
-      return (
-        <ul className="flex-music-song" key={song.id}>
-          <li className="album-music-note">♪</li>
-          <li 
-            onClick={() => {
-              this.props.fetchPlayingSong(song.id)}
-                // .then(() => document.querySelector(".flex-wrap-albums").style.paddingBottom = "100px")} 
-            }
-            className="album-song-title">
-            {song.title}
-          </li>
-        </ul>
-      )
+    const songs = this.props.album.songs.map( song => {
+      return <AlbumSongContainer key={song.id} song={song} />
     })
     
     return (
@@ -63,9 +63,9 @@ class AlbumShow extends React.Component {
         <div>
           {albumInfo}
         </div>
-        <div className="album-show-songs">
+        <ul className="album-show-songs">
           {songs}
-        </div>
+        </ul>
       </div>
     )
   }

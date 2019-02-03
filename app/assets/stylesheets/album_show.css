@@ -93,9 +93,17 @@
 
 .flex-music-song {
   display: flex;
-  padding-bottom: 25px;
+  padding: 15px;
   font-family: 'Montserrat', sans-serif;
+  width: 400px;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.flex-music-song:hover {
+  background-color: gray;
+}
+
 
 .album-music-note {
   padding-right: 10px;
@@ -118,3 +126,66 @@
   background-image: linear-gradient(to bottom right, rgb(60, 60, 60), rgb(7, 7, 7));
 }
 
+.album-show-hamburger {
+  color: white;
+  cursor: pointer;
+}
+
+.album-show-hamburger:hover {
+  color: rgb(41, 214, 18);
+
+}
+
+
+.album-show-music-note-song-title {
+  display: flex;
+}
+
+
+.drop-down-menu {
+  background-color: rgb(41, 214, 18);
+    width: 185px;
+    height: 100px;
+    position: fixed;
+    visibility: hidden;
+    height: 35px;
+    margin-left: 191px;
+}
+
+.active-dropdown {
+  visibility: visible;
+}
+
+.album-show-hamburger:hover .drop-down-menu {
+  display: block;
+  width: 100px;
+  height: 100px;
+
+}
+/* 
+.drop-down-menu > li {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+}
+
+.drop-down-menu:hover { 
+  display: block;
+  z-index: 100;
+  position: fixed;
+  background-color: dark-grey;
+  color: light-transparent;
+  padding: 5px 0;
+  font-size: 14px;
+  font-weight: 300;
+ } */
+
+.drop-down-actions li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.drop-down-actions li:hover {
+  color: white;
+}
