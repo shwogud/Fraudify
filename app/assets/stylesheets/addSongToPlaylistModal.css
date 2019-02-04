@@ -1,0 +1,23 @@
+.playlist-song-modal-images {
+  width: 200px;
+  height: 200px;
+}
+
+
+.all-playlists-for-song {
+  /* display: flex; */
+  width: 250px;
+}
+
+.playlist-modal {
+  /* display: flex; */
+}
+
+.modal-child > div {
+  display: flex;
+  justify-content: center;
+}
+
+.playlist-song-modal-title {
+  color: white;
+}

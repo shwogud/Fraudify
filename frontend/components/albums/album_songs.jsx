@@ -17,6 +17,7 @@ class AlbumSong extends React.Component {
 
 
     render() {
+        
         const { song } = this.props
         const klass = this.state.hamburgerClicked ? "active-dropdown" : "";
         return (
@@ -40,7 +41,21 @@ class AlbumSong extends React.Component {
 
                     <div className={`drop-down-menu ${klass}`}>
                         <ul className="drop-down-actions">
-                            <li>Add to Playlist</li>
+                            <li
+                                // onClick={this.props.openModal}
+                                onClick={() => this.props.openModal("addplaylistsong", 
+                                {
+                                    chosenSong: song
+                                })}
+                                >Add to Playlist</li>
+{/* 
+                            onClick={() => this.props.openModal('article-popup-page',
+                                {
+                                    article: this.props.article, index: this.props.index,
+                                    saved: this.props.saved
+                                })}> */}
+                
+                
                         </ul>
                     </div>
 

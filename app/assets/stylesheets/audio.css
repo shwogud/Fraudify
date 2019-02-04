@@ -44,9 +44,9 @@
 .progress-ball{
   width: 9px;
   height: 9px;
-  background-color: rgb(208, 218, 208);
-  position: absolute;
   border-radius: 50%;
+  background-color: rgb(189, 241, 189);
+  position: absolute;
   top: -3px;
   opacity: 0;
   transition: opacity .2s;

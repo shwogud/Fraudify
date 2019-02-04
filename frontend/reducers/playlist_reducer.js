@@ -1,7 +1,7 @@
 import { merge } from 'lodash';
 import { RECEIVE_ALL_PLAYLISTS, RECEIVE_PLAYLIST, REMOVE_PLAYLIST } from '../actions/playlist_actions'
 import { RECEIVE_ALL_SONGS } from '../actions/song_actions';
-
+import { RECEIVE_ALBUM } from '../actions/album_actions';
 // import { RECEIVE_PLAYLIST_SONG, REMOVE_PLAYLIST_SONG } from '../actions/playlist_song_actions'
 
 const playlistReducer = (state = {}, action) => {
@@ -21,6 +21,10 @@ const playlistReducer = (state = {}, action) => {
       newState = merge({}, state);
       delete newState[action.playlistId];
       return newState;
+    
+    // case RECEIVE_ALBUM:
+    // debugger
+    //   return merge({}, action.album);
 
 
     //This is not where I add/remove songs from my playlist, right?

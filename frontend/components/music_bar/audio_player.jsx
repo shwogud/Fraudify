@@ -1,7 +1,4 @@
 import React from 'react';
-import { receivePlayingSong, 
-        toggleSong } from '../../actions/current_song_actions';
-
 
 
 class AudioPlayer extends React.Component {
@@ -12,26 +9,35 @@ class AudioPlayer extends React.Component {
       length: 0,
       currentTime: 0
     };
-    this.handleTimeUpdate = this.handleTimeUpdate.bind(this);
+    this.handleMusicBarUpdate = this.handleMusicBarUpdate.bind(this);
     this.setTime = this.setTime.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.currentSong.isPlaying) this.audioRef.current.play();
-    else this.audioRef.current.pause();
-    this.timeInterval = setInterval(this.handleTimeUpdate, 400);
+    if (this.props.currentSong.isPlaying) {
+      this.audioRef.current.play();
+    }
+    else {
+      this.audioRef.current.pause();
+    }
+
+    this.timeInterval = setInterval(this.handleMusicBarUpdate, 400);
   }
 
   componentDidUpdate() {
-    if (this.props.currentSong.isPlaying) this.audioRef.current.play();
-    else this.audioRef.current.pause();
+    if (this.props.currentSong.isPlaying) {
+      this.audioRef.current.play();
+    } 
+    else {
+      this.audioRef.current.pause();
+    } 
   }
 
   componentWillUnmount() {
     clearInterval(this.timeInterval);
   }
 
-  handleTimeUpdate() {
+  handleMusicBarUpdate() {
     this.setState({
       length: this.audioRef.current.duration,
       currentTime: this.audioRef.current.currentTime,
@@ -44,10 +50,10 @@ class AudioPlayer extends React.Component {
   }
 
 
-  formatTime(secs) {
-    let minutes = Math.floor(secs / 60);
+  formatTime(sec) {
+    let minutes = Math.floor(sec / 60);
     let finalMinutes = minutes < 60 ? minutes : 0;
-    const seconds = Math.floor(secs) % 60;
+    const seconds = Math.floor(sec) % 60;
     const finalSeconds = seconds < 10 ? `:0${seconds}` : `:${seconds}`;
 
     if (finalMinutes < 10) finalMinutes = `0${finalMinutes}`;
@@ -60,10 +66,6 @@ class AudioPlayer extends React.Component {
     let { currentSong } = this.props;
     let { currentTime, length } = this.state;
     
-    // const togglePlay = currentSong.isPlaying ? (
-    //   <i className="fal fa-pause toggle-button" onClick={() => this.props.toggleSong()}></i> ) : ( // pause button
-    //   <i className="fal fa-play toggle-button" onClick={() => this.props.toggleSong()}></i>)          //play button
-      
     const togglePlay = currentSong.isPlaying ? (
       <i className="material-icons toggle-button" onClick={() => this.props.toggleSong()}>pause</i> ) : ( // pause button
         <i className="material-icons toggle-button" onClick={() => this.props.toggleSong()}>play_arrow</i>)          //play button

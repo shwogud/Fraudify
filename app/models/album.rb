@@ -20,5 +20,7 @@ class Album < ApplicationRecord
 
   has_many :songs
 
+  has_many :playlists, through: :songs 
+
   has_one_attached :photo
 end

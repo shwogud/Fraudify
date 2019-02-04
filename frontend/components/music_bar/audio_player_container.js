@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import AudioPlayer from './audio_player';
 import {
-  receivePlayingSong,
   toggleSong
 } from '../../actions/current_song_actions';
 

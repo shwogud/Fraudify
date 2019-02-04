@@ -5,9 +5,12 @@ import { closeModal } from '../../actions/modal_actions';
 
 import CreatePlaylist from '../playlists/create_playlist';
 
+import AddPlaylistSong from '../songs/add_playlist_song';
 
 
-function Modal({ modal, closeModal }) {
+
+function Modal({ modal, optional_props, closeModal }) {
+  
   if (!modal) {
     return null;
   }
@@ -18,6 +21,10 @@ function Modal({ modal, closeModal }) {
       break;
     case 'deleteplaylist':
       component = <DeletePlaylist />;
+      break;
+    
+    case 'addplaylistsong':
+      component = <AddPlaylistSong song={optional_props.chosenSong}/>
       break;
 
     default:
@@ -37,7 +44,8 @@ function Modal({ modal, closeModal }) {
 
 const msp = state => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    optional_props: state.ui.optional_props,
   };
 };
 

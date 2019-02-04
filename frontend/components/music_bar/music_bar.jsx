@@ -20,10 +20,6 @@ class MusicBar extends React.Component {
           <div className="music-bar-song-info">
             <p className="music-bar-song-title">{currentSong.title}</p>
           
-            {/* <div className="music-bar-text">
-              <p>{currentSong.album}</p>
-              <p>{currentSong.artist}</p>
-            </div> */}
           </div >
           < AudioPlayer source={currentSong.mp3} />
           <audio src={currentSong.mp3} preloaded="metadata" id="audio" type="audio/mp3"></audio>
