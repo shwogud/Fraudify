@@ -4,7 +4,7 @@ import PlaylistShow from './playlist_show';
 import { requestPlaylist, createPlaylist, deletePlaylist } from '../../actions/playlist_actions';
 import { requestAllSongs } from '../../actions/song_actions';
 import { fetchPlayingSong } from '../../actions/current_song_actions';
-
+import { removePlaylistSong } from '../../actions/song_actions';
 
 const msp = (state, ownProps) => {
   
@@ -22,6 +22,7 @@ const mdp = (dispatch) => {
     deletePlaylist: (id) => dispatch(deletePlaylist(id)),
     fetchAllSongs: () => dispatch(requestAllSongs()),
     fetchPlayingSong: (id) => dispatch(fetchPlayingSong(id)),
+    deletePlaylistSong: (playlistId, songId) => dispatch(removePlaylistSong(playlistId, songId)),
   };
 };
 

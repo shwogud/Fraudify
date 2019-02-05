@@ -145,3 +145,35 @@ padding-bottom: 25px;
 .playlist-music-note {
   padding-right: 15px;
 }
+
+
+
+.hamburger-icon-flex {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.drop-down-menuu {
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(41, 214, 18);
+    width: 185px;
+    height: 100px;
+    position: fixed;
+    visibility: hidden;
+    height: 35px;
+ 
+}
+
+.active-dropdownn {
+  visibility: visible;
+  /* width: 100px; */
+
+}
+
+.drop-down-actionss {
+  margin-right: 50px;
+}
+
