@@ -1,6 +1,8 @@
 .playlist-song-modal-images {
   width: 200px;
   height: 200px;
+  margin: 15px;
+  padding: 15px;
 }
 
 
@@ -10,14 +12,28 @@
 }
 
 .playlist-modal {
-  /* display: flex; */
+  text-align: center;
 }
 
 .modal-child > div {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
+.playlist-modal-image-title {
+  cursor: pointer;
+}
+
 .playlist-song-modal-title {
-  color: white;
+  color: rgb(3, 210, 3);
+
+}
+
+.playlist-song-image-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }

@@ -3,6 +3,7 @@ import AlbumShow from './album_show';
 import { requestAlbum } from '../../actions/album_actions';
 import { requestAllSongs } from '../../actions/song_actions';
 import { fetchPlayingSong } from '../../actions/current_song_actions';
+import { requestAllPlaylists } from '../../actions/playlist_actions';
 
 const msp = (state, ownProps) => {
   
@@ -17,6 +18,7 @@ const mdp = (dispatch) => {
     fetchAlbum: (id) => dispatch(requestAlbum(id)),
     fetchAllSongs: () => dispatch(requestAllSongs()),
     fetchPlayingSong: (id) => dispatch(fetchPlayingSong(id)),
+    fetchPlaylists: () => dispatch(requestAllPlaylists()),
   };
 };
 

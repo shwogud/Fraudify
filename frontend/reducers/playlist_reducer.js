@@ -9,8 +9,8 @@ const playlistReducer = (state = {}, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_ALL_PLAYLISTS:
-
-      return merge({}, action.playlists);
+      
+      return merge({}, state, action.playlists);
 
     case RECEIVE_PLAYLIST:
       

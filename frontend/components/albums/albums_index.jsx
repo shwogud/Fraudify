@@ -28,7 +28,6 @@ class AlbumsIndex extends React.Component {
               <div className="album-album-name">
                 <Link
                   className="album-album-link"
-                  // key={album.id} 
                   to={`/collection/albums/${album.id}`}>
                   {album.title}</Link>
               </div>
