@@ -9,6 +9,7 @@ class Search extends React.Component {
 
     this.state = {
       searchVal: '',
+      searchValOrNot: "no-value"
     }
     this.handleInput = this.handleInput.bind(this);
   }
@@ -21,8 +22,19 @@ class Search extends React.Component {
   }
 
   handleInput(e) {
-    // debugger
-    this.setState({ searchVal: e.currentTarget.value });
+    this.setState({ 
+      searchVal: e.currentTarget.value 
+    });
+    if (!this.state.searchVal) {
+      this.setState({
+        searchValOrNot: "yes-value"
+      })
+    }
+    else {
+      this.setState({
+        searchValOrNot: "no-value"
+      })
+    }
   }
 
   titleMatches(sliceOfState) {
@@ -115,16 +127,21 @@ class Search extends React.Component {
       artists = this.artistMatches();
       albums = this.albumMatches();
     }
+
     return (
       <div className="asdf">
         <div className="search-page">
           <div>
-            {/* <p className="search-modal">Search for a Playlist, Artist, Album, or Song</p> */}
             <input
               className="search-input"
               type="text"
               onChange={this.handleInput}
               placeholder="Start Typing..."/>
+            <div className={this.state.searchValOrNot}>
+              <p className="search-SearchSpotify">Search Spotify</p>
+              <p className="search-words">Find your favorite playlists, artists, and albums.</p>
+
+            </div>
           </div>
 
           {playlists}
@@ -136,9 +153,6 @@ class Search extends React.Component {
       </div>
     )
   }
-
-
-
 }
 
 export default Search;

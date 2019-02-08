@@ -100,3 +100,26 @@ input[type="text"].search-input::-webkit-input-placeholder {
   flex-wrap: wrap;
 }
 
+.no-value {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.yes-value {
+  display: none;
+}
+
+.search-SearchSpotify {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.search-words {
+  color: rgb(207, 207, 207);
+  
+}
+
+
+

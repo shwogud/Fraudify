@@ -2919,7 +2919,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, props));
     _this.state = {
-      searchVal: ''
+      searchVal: '',
+      searchValOrNot: "no-value"
     };
     _this.handleInput = _this.handleInput.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
@@ -2935,10 +2936,19 @@ function (_React$Component) {
   }, {
     key: "handleInput",
     value: function handleInput(e) {
-      // debugger
       this.setState({
         searchVal: e.currentTarget.value
       });
+
+      if (!this.state.searchVal) {
+        this.setState({
+          searchValOrNot: "yes-value"
+        });
+      } else {
+        this.setState({
+          searchValOrNot: "no-value"
+        });
+      }
     }
   }, {
     key: "titleMatches",
@@ -3053,7 +3063,13 @@ function (_React$Component) {
         type: "text",
         onChange: this.handleInput,
         placeholder: "Start Typing..."
-      })), playlists, artists, albums));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.searchValOrNot
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "search-SearchSpotify"
+      }, "Search Spotify"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "search-words"
+      }, "Find your favorite playlists, artists, and albums."))), playlists, artists, albums));
     }
   }]);
 
