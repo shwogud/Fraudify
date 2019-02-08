@@ -22,15 +22,15 @@ class SearchPlaylists extends React.Component {
           }
 
           return (
-            <li className="playlist-index-box" key={playlist.id}>
+            <li className="search-playlist-index-box" key={playlist.id}>
               <Link to={`/collection/playlists/${playlist.id}`}>
-                <img className="playlist-index-images" src={playlist.photo} />
+                <img className="search-images-rect" src={playlist.photo} />
               </Link>
               {/* <img className="playlist-index-images" src={playlist.photo} /> */}
               <Link
                 className="playlist-title-link"
                 to={`/collection/playlists/${playlist.id}`}>
-                <p className="playlist-title">{playlist.title}</p></Link>
+                <p className="search-type-labels">{playlist.title}</p></Link>
               {/* <p className="playlist-username">{playlist.username}</p> */}
 
             </li>
@@ -45,7 +45,7 @@ class SearchPlaylists extends React.Component {
 
     return (
       <div>
-        <ul>
+        <ul className="search-possible-types">
           {playlists}
         </ul>
       </div>

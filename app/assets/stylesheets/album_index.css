@@ -11,7 +11,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 14px; 
-  
+  transition: color 0.3s ease;
 }
 
 .album-image {
@@ -20,6 +20,7 @@
   padding-top: 75px;
   padding-left: 50px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .album-covers {

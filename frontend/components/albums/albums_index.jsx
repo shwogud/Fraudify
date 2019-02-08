@@ -24,7 +24,9 @@ class AlbumsIndex extends React.Component {
       return (
         <li className="album-covers" key={idx}>
           <section>
-            <img className="album-image" src={album.photo} />
+            <Link to={`/collection/albums/${album.id}`}>
+              <img className="album-image" src={album.photo} />
+            </Link>
             <div className="album-links">
               <div className="album-album-name">
                 <Link

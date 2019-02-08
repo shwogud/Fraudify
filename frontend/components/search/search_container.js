@@ -10,8 +10,8 @@ import { requestAllSongs } from '../../actions/song_actions';
 const msp = state => {
   return {
     playlists: Object.values(state.entities.playlists),
-    // artists: Object.values(state.entities.artists),
-    // albums: Object.values(state.entities.albums),
+    artists: Object.values(state.entities.artists),
+    albums: Object.values(state.entities.albums),
     // songs: Object.values(state.entities.songs)
   }
 }
@@ -20,7 +20,7 @@ const mdp = dispatch => {
     fetchPlaylists: () => dispatch(requestAllPlaylists()),
     fetchArtists: () => dispatch(requestAllArtists()),
     fetchAlbums: () => dispatch(requestAllAlbums()),
-    fetchSongs: () => dispatch(requestAllSongs())
+    // fetchSongs: () => dispatch(requestAllSongs())
   }
 }
 

@@ -1,0 +1,94 @@
+body {
+  /* background-image: linear-gradient(to bottom right, rgb(48, 80, 150), rgb(7, 7, 7)); */
+background: rgb(48, 80, 150);}
+.search-page {
+  background-image: linear-gradient(to bottom right, rgb(48, 80, 150), rgb(7, 7, 7));
+}
+
+
+.search-input {
+  margin: 0px;
+  background-color: rgb(70, 69, 69);
+  height: 100px;
+  width: 100%;
+  color: rgb(0, 221, 29);
+  outline: none;
+  padding-left: 100px;
+  font-weight: bold;
+  font-size: 30px;
+  border: none;
+  /* position: fixed; */
+}
+
+input[type="text"].search-input::-webkit-input-placeholder {
+  color: rgb(0, 221, 29);
+  font-weight: bold;
+  font-size: 30px;
+  /* padding-left: 50px; */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.search-type-title {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 25px;
+  padding: 25px;
+}
+
+.search-images-rect {
+  width: 200px;
+  height: 200px;
+}
+
+.search-images-circ {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.search-type-labels {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 15px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.search-type-labels:hover {
+  color: rgb(26, 240, 26);
+}
+
+.search-playlist-index-box {
+  width: 200px;
+  text-align: center;
+  /* padding-bottom: 25px; */
+  padding: 25px;
+  padding-top: 0px;
+}
+
+.search-artist-pic-and-name {
+  text-align: center;
+  padding: 25px;
+  padding-top: 0px;
+}
+
+.search-album-index-box {
+  width: 200px;
+  text-align: center;
+}
+
+.search-album-covers {
+  padding: 25px;
+  padding-top: 0px;
+}
+
+.search-album-covers:last-child {
+  padding-bottom: 120px;
+}
+
+.search-possible-types {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+

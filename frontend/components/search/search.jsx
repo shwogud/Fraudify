@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchPlaylists from '../../components/search/search_playlists';
-
+import SearchArtists from '../../components/search/search_artists';
+import SearchAlbums from '../../components/search/search_albums';
 
 class Search extends React.Component {
   constructor(props) {
@@ -14,6 +15,9 @@ class Search extends React.Component {
 
   componentDidMount() {
     this.props.fetchPlaylists();
+    this.props.fetchArtists();
+    this.props.fetchAlbums();
+    // this.props.fetchSongs();
   }
 
   handleInput(e) {
@@ -54,7 +58,7 @@ class Search extends React.Component {
         
         possiblePlaylistsList = (
           <div>
-            <p>Playlists</p>
+            <p className="search-type-title">Playlists</p>
             <SearchPlaylists playlists={possiblePlaylists} fetchPlaylists={this.props.fetchPlaylists}/>
           </div>
         )
@@ -66,25 +70,68 @@ class Search extends React.Component {
     return possiblePlaylistsList;
   }
 
+  artistMatches() {
+    let possibleArtists;
+    let possibleArtistsList;
+    if (this.props.artists) {
+      possibleArtists = this.nameMatches(this.props.artists);
+      if(possibleArtists.length > 0) {
+        possibleArtistsList = (
+          <div>
+            <p className="search-type-title">Artists</p>
+            <SearchArtists artists={possibleArtists} fetchArtists={this.props.fetchArtists}/>
+          </div>
+        )
+      }
+    }
+    return possibleArtistsList;
+  }
+
+  albumMatches() {
+    let possibleAlbums;
+    let possibleAlbumsList;
+    if (this.props.albums) {
+      possibleAlbums = this.titleMatches(this.props.albums);
+      if(possibleAlbums.length > 0) {
+        possibleAlbumsList = (
+          <div>
+            <p className="search-type-title">Albums</p>
+            <SearchAlbums albums={possibleAlbums} fetchAlbums={this.props.fetchAlbums}/>
+          </div>
+        )
+      }
+    }
+    return possibleAlbumsList;
+  }
+
 
   render() {
     let playlists;
+    let artists;
+    let albums;
     
     if (this.state.searchVal) {
       playlists = this.playlistMatches();
+      artists = this.artistMatches();
+      albums = this.albumMatches();
     }
     return (
-      <div>
-        <div>
-          <p className="search-modal">Search for a Playlist, Artist, Album, or Song</p>
-          <input 
-            type="text"
-            onChange={this.handleInput}
-            placeholder="Start Typing..."/>
-        </div>
+      <div className="asdf">
+        <div className="search-page">
+          <div>
+            {/* <p className="search-modal">Search for a Playlist, Artist, Album, or Song</p> */}
+            <input
+              className="search-input"
+              type="text"
+              onChange={this.handleInput}
+              placeholder="Start Typing..."/>
+          </div>
 
-        {playlists}
-        
+          {playlists}
+          {artists}
+          {albums}
+
+        </div>
 
       </div>
     )

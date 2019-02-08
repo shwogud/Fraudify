@@ -23,8 +23,8 @@ class Sidebar extends React.Component {
             <div className="magnifying-glass">
               &#x1f50d;
             </div>
-            <Link to="/search">
-              <p className="search">Search</p>
+            <Link className="search-linkk" to="/search">
+              <p className="search-color">Search</p>
             </Link>
           </div>
 
