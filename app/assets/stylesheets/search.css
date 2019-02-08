@@ -1,8 +1,16 @@
 body {
   /* background-image: linear-gradient(to bottom right, rgb(48, 80, 150), rgb(7, 7, 7)); */
-background: rgb(48, 80, 150);}
+/* background: rgb(48, 80, 150); */
+}
+
+.asdf {
+  background: rgb(48, 80, 150);
+
+}
+
 .search-page {
   background-image: linear-gradient(to bottom right, rgb(48, 80, 150), rgb(7, 7, 7));
+  min-height: 100vh;
 }
 
 

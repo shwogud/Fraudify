@@ -11,7 +11,10 @@ class Sidebar extends React.Component {
           <div className="sidebar-all">
           
           <div className="sidebar-logo-name">
-            <i className="fab fa-spotify"></i>
+            <Link to={`/collection/playlists`}>
+              <i className="fab fa-spotify"></i>
+            
+            </Link>
             {/* <p className="sidebar-name">Fraudify</p> */}
             <Link
               className="sidebar-name"

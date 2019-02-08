@@ -1,5 +1,5 @@
 .artist-index-page{
-  height: 900px;
+  min-height: 100vh;
   background-color: black;
   overflow: auto;
 }
