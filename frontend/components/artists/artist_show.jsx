@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBarContainer from '../../components/navbar/navbar_container';
+
 
 class ArtistShow extends React.Component {
   constructor(props) {
@@ -84,15 +86,19 @@ class ArtistShow extends React.Component {
 
         
       return (
-        <div className="test">
-        
-          {artistInfo}
-          <p className="Songs">Songs</p>
-          {songs}
-          <p className="Albums">Albums</p>
-          <div className="flex-wrap-albums">
-            {albums}
+        <div>
+          <NavBarContainer />
+          <div className="test">
+          
+            {artistInfo}
+            <p className="Songs">Songs</p>
+            {songs}
+            <p className="Albums">Albums</p>
+            <div className="flex-wrap-albums">
+              {albums}
+            </div>
           </div>
+
         </div>
       )  
     }

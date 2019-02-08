@@ -1,6 +1,7 @@
 import React from 'react';
 // import AudioPlayerContainer
 import AlbumSongContainer from './album_songs_container';
+import NavBarContainer from '../../components/navbar/navbar_container';
 
 class AlbumShow extends React.Component {
   constructor(props) {
@@ -59,13 +60,17 @@ class AlbumShow extends React.Component {
     })
     
     return (
-      <div className="album-show-page">
-        <div>
-          {albumInfo}
+      <div>
+        <NavBarContainer />
+        <div className="album-show-page">
+          <div>
+            {albumInfo}
+          </div>
+          <ul className="album-show-songs">
+            {songs}
+          </ul>
         </div>
-        <ul className="album-show-songs">
-          {songs}
-        </ul>
+
       </div>
     )
   }

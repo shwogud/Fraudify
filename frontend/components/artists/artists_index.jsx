@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBarContainer from '../../components/navbar/navbar_container';
 
 class ArtistsIndex extends React.Component {
   constructor(props) {
@@ -17,7 +18,9 @@ class ArtistsIndex extends React.Component {
     const artists = this.props.artists.map(artist => {
       return (
         <li className="artist-pic-and-name" key={artist.id}>
-          <img className="artist-index-image" src={artist.photo} />
+          <Link to={`/collection/artists/${artist.id}`}>>
+            <img className="artist-index-image" src={artist.photo} />
+          </Link>
           <section>
             <Link 
               className="artists-name-link"
@@ -31,7 +34,7 @@ class ArtistsIndex extends React.Component {
     
     return (
       <div className="artist-index-page">
-     
+        <NavBarContainer />
         <ul className="artists">
           {artists}
         </ul>

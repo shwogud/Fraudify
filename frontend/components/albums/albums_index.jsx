@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBarContainer from '../../components/navbar/navbar_container';
 
 class AlbumsIndex extends React.Component {
   constructor(props) {
@@ -47,6 +48,7 @@ class AlbumsIndex extends React.Component {
    
     return (
       <div className="album-page">
+        <NavBarContainer />
         <ul className="each-album">
           {albums}
         </ul>

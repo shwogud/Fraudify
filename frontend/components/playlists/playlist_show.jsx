@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PlaylistShowSongInfo from './playlist_show_song_info';
 // import { deletePlaylist } from '../../actions/playlist_actions';
 import PlaylistSongContainer from './playlist_song_container';
+import NavBarContainer from '../../components/navbar/navbar_container';
 
 class PlaylistShow extends React.Component {
   constructor(props) {
@@ -56,7 +57,9 @@ class PlaylistShow extends React.Component {
     }
     
     return (
+      
       <div>
+        <NavBarContainer />
         <div className="playlist-show-page">
           <div className="playlist-show-left">
             <img className="playlist-show-images" src={this.props.playlist.photo} />

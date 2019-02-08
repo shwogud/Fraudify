@@ -30,40 +30,20 @@
 
 }
 
-.nav-playlist {
+.nav-link {
   text-decoration: none;
   color: rgb(187, 187, 187);
   transition: color 0.3s ease;
   transition: font-size 0.3s ease;
 }
 
-.nav-playlist:hover {
+.nav-link:hover {
   color: white;
   font-size: 17px;
 }
 
-.nav-artist {
-  text-decoration: none;
-  color: rgb(187, 187, 187);
-  transition: color 0.3s ease;
-  transition: font-size 0.3s ease;
-}
-
-.nav-artist:hover {
-  color: white;
-  font-size: 17px;
-}
-
-.nav-album {
-  text-decoration: none;
-  color: rgb(187, 187, 187);
-  transition: color 0.3s ease;
-  transition: font-size 0.3s ease;
-}
-
-.nav-album:hover {
-  color: white;
-  font-size: 17px;
+.nav-link.active {
+  border-bottom: 1px solid rgb(14, 205, 14);
 }
 
 .new-playlist-button {
@@ -85,8 +65,4 @@
 .new-playlist-button:hover {
   background-color: rgb(0, 186, 0);
   transform: scale(1.1);
-}
-
-.current-view {
-  border-bottom: 1px solid rgb(14, 205, 14);
 }

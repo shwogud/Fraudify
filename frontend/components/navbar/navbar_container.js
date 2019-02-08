@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Navbar from './navbar';
 import { openModal, closeModal } from '../../actions/modal_actions';
-
+import { withRouter } from 'react-router-dom';
 const msp = (state) => {
   
   return {
@@ -19,7 +19,7 @@ const mdp = dispatch => {
 };
 
 
-export default connect(msp, mdp)(Navbar);
+export default withRouter(connect(msp, mdp)(Navbar));
 
 
 // 6768347a

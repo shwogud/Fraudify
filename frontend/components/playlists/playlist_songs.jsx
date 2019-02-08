@@ -17,10 +17,10 @@ class PlaylistSong extends React.Component {
 
 
   render() {
-    debugger
+    
     const { song } = this.props;
     const klass = this.state.hamburgerClicked ? "active-dropdownn" : "";
-    debugger
+    
     return (
       <div className="playlist-show-each-song" key={song.id}>
         <div>

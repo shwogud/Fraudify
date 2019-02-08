@@ -27,6 +27,7 @@ import NavBarContainer from './navbar/navbar_container';
 import SideBarContainer from './sidebar/sidebar_container';
 import Modal from './modal/modal';
 import MusicBar from './music_bar/music_bar_container.js';
+import SearchContainer from './search/search_container';
 
 const App = () => (
   <div>
@@ -44,13 +45,17 @@ const App = () => (
     </Switch>
 
     <Route path="/" component={Modal} />
-    {/* <Route path="/" component={MusicBar} /> */}
+
+   
     
       <div className="main-content">
         <div className="containers">
           <ProtectedRoute path="/" component={SideBarContainer} />
           <div className="bigggy">
-            <ProtectedRoute path="/" component={NavBarContainer} />
+            {/* <ProtectedRoute path="/" component={NavBarContainer} /> */}
+            {/* <NavBarContainer /> */}
+          <ProtectedRoute path="/search" component={SearchContainer} />
+
 
             <ProtectedRoute path="/collection/playlists/:playlistId" component={PlaylistShow}/>
             <ProtectedRoute path="/collection/albums/:albumId" component={AlbumsShowContainer} />
