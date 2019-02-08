@@ -241,7 +241,6 @@ var OPEN_MODAL = "OPEN_MODAL";
 var CLOSE_MODAL = "CLOSE_MODAL";
 var openModal = function openModal(modal) {
   var optional_props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-  // debugger //we are hitting this and modal not opening
   return {
     type: OPEN_MODAL,
     modal: modal,
@@ -2012,7 +2011,6 @@ function (_React$Component) {
   _createClass(Navbar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // debugger
       this.changeCurrentView(this.props.match.path);
     }
   }, {
@@ -2474,8 +2472,7 @@ function (_React$Component) {
       hamburgerClicked: false
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleDropdown = _this.handleDropdown.bind(_assertThisInitialized(_assertThisInitialized(_this))); // debugger
-
+    _this.handleDropdown = _this.handleDropdown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -4049,7 +4046,6 @@ function (_React$Component) {
     value: function handleClick(e) {
       var _this2 = this;
 
-      // debugger
       this.props.addPlaylistSong(this.props.playlist.id, this.props.chosenSong.id).then(function () {
         _this2.props.closeModal();
       });
@@ -4068,10 +4064,10 @@ function (_React$Component) {
     // }
     // playlistInfo() {
     //   const allPlaylists = this.props.playlists;
-    //   debugger
+    //   
     //   if (allPlaylists) {
     //     allPlaylists.map( playlist => {
-    //       debugger
+    //       
     //       return (
     //         <li key={playlist.id} className="playlist-modal" onClick={this.handleClick}>
     //           <img className="playlist-song-modal-images" src={playlist.photo} />
@@ -4092,7 +4088,7 @@ function (_React$Component) {
     //       </li>
     //     )
     //   });
-    //   // debugger
+    //   // 
     //   return (
     //     <ul className="all-playlists-for-song">
     //       {allPlaylistsInfo}
@@ -4604,7 +4600,7 @@ var albumsReducer = function albumsReducer() {
     case _actions_artist_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_ARTIST"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, action.artist.album_ids);
     // case RECEIVE_ALL_PLAYLISTS: 
-    // debugger
+    // 
     //   return merge({}, state, action.data);
     // case RECEIVE_ALL_ARTISTS:
     //   return merge({}, state, action.artists.album_ids);
@@ -4861,7 +4857,7 @@ var playlistReducer = function playlistReducer() {
       delete newState[action.playlistId];
       return newState;
     // case RECEIVE_ALBUM:
-    // debugger
+    // 
     //   return merge({}, action.album);
     //This is not where I add/remove songs from my playlist, right?
     // case RECEIVE_PLAYLIST_SONG:

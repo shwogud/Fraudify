@@ -13,7 +13,6 @@ class AddSongToPlaylistModal extends React.Component {
 
 
   handleClick(e) {
-    // debugger
     this.props.addPlaylistSong(this.props.playlist.id, this.props.chosenSong.id).then(() => {
       this.props.closeModal();
     })
@@ -38,10 +37,10 @@ class AddSongToPlaylistModal extends React.Component {
   // playlistInfo() {
     
   //   const allPlaylists = this.props.playlists;
-  //   debugger
+  //   
   //   if (allPlaylists) {
   //     allPlaylists.map( playlist => {
-  //       debugger
+  //       
   //       return (
   //         <li key={playlist.id} className="playlist-modal" onClick={this.handleClick}>
   //           <img className="playlist-song-modal-images" src={playlist.photo} />
@@ -64,7 +63,7 @@ class AddSongToPlaylistModal extends React.Component {
   //       </li>
   //     )
   //   });
-  //   // debugger
+  //   // 
 
   //   return (
   //     <ul className="all-playlists-for-song">

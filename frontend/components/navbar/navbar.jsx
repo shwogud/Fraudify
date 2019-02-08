@@ -8,7 +8,6 @@ class Navbar extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     this.changeCurrentView(this.props.match.path);
   }
 

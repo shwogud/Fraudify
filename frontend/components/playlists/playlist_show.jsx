@@ -14,7 +14,6 @@ class PlaylistShow extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
-    // debugger
   }
   
   componentDidMount() {
