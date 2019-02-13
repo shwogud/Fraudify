@@ -1,5 +1,5 @@
 .playlist-page {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .all-playlist-boxes {
@@ -9,6 +9,10 @@
   background-image: linear-gradient(rgb(22, 7, 55), rgb(8, 8, 9));
   overflow-x: visible;
   min-height: 80vh;
+}
+
+.all-playlist-boxes:last-child {
+  padding-bottom: 50px;
 }
 
 .playlist-index-box {

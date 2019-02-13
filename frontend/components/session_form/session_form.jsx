@@ -103,13 +103,14 @@ class SessionForm extends React.Component {
           <i className="fab fa-spotify"></i>
           <h1 className="fraudify-auth-top">Fraudify</h1>
         </div>
+
+        <br />
+        <button
+          className={`demo-button-${this.props.inputType}`}       
+          onClick={this.demoLogin}>LOG IN AS DEMO USER 
+        </button>
         <form onSubmit={this.handleSubmit} className={`auth-box-${this.props.inputType}`}>
           
-          <br />
-          <button
-            className={`demo-button-${this.props.inputType}`}       
-            onClick={this.demoLogin}>LOG IN AS DEMO USER 
-          </button>
 
           <p> - or - </p>
           {this.renderErrors()}

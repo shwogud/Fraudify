@@ -329,9 +329,9 @@ var createPlaylist = function createPlaylist(playlist, user_id) {
 //   }
 // }
 
-var deletePlaylist = function deletePlaylist(id) {
+var deletePlaylist = function deletePlaylist(playlist) {
   return function (dispatch) {
-    return _util_playlist_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyPlaylist"](id).then(function (playlist) {
+    return _util_playlist_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyPlaylist"](playlist).then(function () {
       return dispatch(removePlaylist(playlist));
     });
   };
@@ -1003,7 +1003,7 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "album-covers",
           key: idx
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/collection/albums/".concat(album.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "album-image",
@@ -1019,12 +1019,12 @@ function (_React$Component) {
           className: "album-artist-link" // key={album.artist_id} 
           ,
           to: "/collection/artists/".concat(album.artist_id)
-        }, album.artist)))));
+        }, album.artist))));
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "each-album"
+        className: "each-albumm"
       }, albums));
     }
   }]);
@@ -2549,7 +2549,7 @@ function (_React$Component) {
         className: "play-button"
       }, "Play"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "playlist-show-length"
-      }, this.props.playlist.song_ids.length, " Songs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, this.props.songs.length, " Songs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "delete-button",
@@ -2769,6 +2769,7 @@ function (_React$Component) {
     _this.state = {
       hamburgerClicked: false
     };
+    _this.klass = "";
     _this.handleDropdown = _this.handleDropdown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
@@ -2779,6 +2780,21 @@ function (_React$Component) {
       this.setState({
         hamburgerClicked: !this.state.hamburgerClicked
       });
+      document.addEventListener("click", function (e) {
+        // e.stopPropagation();
+        var container = document.getElementById("joeIsAwesome");
+        debugger; // this.klass = ""
+        // if the target of the click isn't the container nor a descendant of the container
+        // if (!container.__reactInternalInstance$kyhqsdhsydd.stateNode === e.target) {
+        //   debugger
+        //   this.klass = ""
+        // }
+        // if (!container.contains(event.target)) { // or use: event.target.closest(selector) === null
+        //   element.style.display = 'none'
+        //   removeClickListener()
+        //   this.klass = ""
+        // }
+      });
     }
   }, {
     key: "render",
@@ -2786,7 +2802,7 @@ function (_React$Component) {
       var _this2 = this;
 
       var song = this.props.song;
-      var klass = this.state.hamburgerClicked ? "active-dropdownn" : "";
+      this.klass = this.state.hamburgerClicked ? "active-dropdownn" : "";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "playlist-show-each-song",
         key: song.id
@@ -2810,12 +2826,14 @@ function (_React$Component) {
         to: "/collection/albums/".concat(song.album_id)
       }, song.album))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.handleDropdown,
+        id: "joeIsAwesome",
         className: "material-icons album-show-hamburger"
       }, "view_headline"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "drop-down-menuu ".concat(klass)
+        className: "drop-down-menuu ".concat(this.klass)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "drop-down-actionss"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "delete-song-text",
         onClick: function onClick() {
           return _this2.props.deletePlaylistSong(_this2.props.playlistId, song.id);
         } // .then(
@@ -3631,13 +3649,13 @@ function (_React$Component) {
         className: "fab fa-spotify"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "fraudify-auth-top"
-      }, "Fraudify")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit,
-        className: "auth-box-".concat(this.props.inputType)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Fraudify")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "demo-button-".concat(this.props.inputType),
         onClick: this.demoLogin
-      }, "LOG IN AS DEMO USER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " - or - "), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "LOG IN AS DEMO USER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit,
+        className: "auth-box-".concat(this.props.inputType)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " - or - "), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "auth-form-".concat(this.props.inputType)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         required: true,
@@ -4853,6 +4871,7 @@ var playlistReducer = function playlistReducer() {
     // return action.data.playlist
 
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_PLAYLIST"]:
+      debugger;
       newState = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state);
       delete newState[action.playlistId];
       return newState;

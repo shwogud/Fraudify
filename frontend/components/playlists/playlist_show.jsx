@@ -56,7 +56,6 @@ class PlaylistShow extends React.Component {
     }
     
     return (
-      
       <div>
         <NavBarContainer />
         <div className="playlist-show-page">
@@ -66,7 +65,7 @@ class PlaylistShow extends React.Component {
               <li className="playlist-show-title">{this.props.playlist.title}</li>
               <li className="playlist-show-username">{this.props.currentUser.username}</li>
               <button className="play-button">Play</button>
-              <li className="playlist-show-length">{this.props.playlist.song_ids.length} Songs</li>
+              <li className="playlist-show-length">{this.props.songs.length} Songs</li>
 
               <form onSubmit={this.handleSubmit}>
                 < button

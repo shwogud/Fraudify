@@ -95,7 +95,7 @@
   display: flex;
   padding: 15px;
   font-family: 'Montserrat', sans-serif;
-  width: 400px;
+  width: 750px;
   align-items: center;
   justify-content: space-between;
 }
@@ -143,13 +143,14 @@
 
 
 .drop-down-menu {
-  background-color: rgb(41, 214, 18);
+  background-color: rgb(60, 60, 60);
     width: 185px;
     height: 100px;
     position: fixed;
     visibility: hidden;
     height: 35px;
-    margin-left: 191px;
+    margin-left: 525px;
+    border: 1px solid white;
 }
 
 .active-dropdown {
@@ -184,6 +185,7 @@
 .drop-down-actions li {
   padding: 10px;
   cursor: pointer;
+  color: rgb(197, 194, 194);
 }
 
 .drop-down-actions li:hover {

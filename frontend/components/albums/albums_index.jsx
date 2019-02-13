@@ -23,7 +23,7 @@ class AlbumsIndex extends React.Component {
       
       return (
         <li className="album-covers" key={idx}>
-          <section>
+          {/* <div className="album-box-all"> */}
             <Link to={`/collection/albums/${album.id}`}>
               <img className="album-image" src={album.photo} />
             </Link>
@@ -43,7 +43,7 @@ class AlbumsIndex extends React.Component {
               </div>
             </div>
 
-          </section>
+          {/* </div> */}
         </li>
       )
     })
@@ -51,7 +51,7 @@ class AlbumsIndex extends React.Component {
     return (
       <div className="album-page">
         <NavBarContainer />
-        <ul className="each-album">
+        <ul className="each-albumm">
           {albums}
         </ul>
       </div>

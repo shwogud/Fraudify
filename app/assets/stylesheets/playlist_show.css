@@ -69,7 +69,7 @@ padding-bottom: 25px;
   /* border: 1px solid red; */
   list-style-type: none;
   color: white;
-  width: 300px;
+  width: 650px;
 }
 
 .delete-button {
@@ -96,6 +96,7 @@ padding-bottom: 25px;
   margin-bottom: 25px;
   display: flex;
 }
+
 
 .playlist-show-song-title {
   font-size: 18px;
@@ -158,12 +159,13 @@ padding-bottom: 25px;
 .drop-down-menuu {
   margin: 0px;
   padding: 0px;
-  background-color: rgb(41, 214, 18);
+  /* background-color: rgb(41, 214, 18); */
     width: 185px;
     height: 100px;
     position: fixed;
     visibility: hidden;
     height: 35px;
+  margin-left: 400px;
  
 }
 
@@ -175,5 +177,21 @@ padding-bottom: 25px;
 
 .drop-down-actionss {
   margin-right: 50px;
+  cursor: pointer;
+  /* background-color: rgb(143, 148, 143); */
+  /* color: black; */
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  border: 1px solid white;
+  color: rgb(196, 189, 189);
+}
+
+.drop-down-actionss:hover {
+  color: rgb(255, 249, 249);
+
+}
+
+.delete-song-text {
+  padding: 2px;
 }
 
