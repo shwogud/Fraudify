@@ -746,11 +746,15 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       if (!this.props.album) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "album-backgrounddd"
         });
       }
+
+      debugger;
 
       if (!this.props.album.songs) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -768,6 +772,9 @@ function (_React$Component) {
       }, this.props.album.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "album-show-artist"
       }, this.props.album.artist), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          _this2.props.fetchPlayingSong(_this2.props.album.songs[0].id);
+        },
         className: "album-show-play-button"
       }, "PLAY"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-show-info"
@@ -1186,6 +1193,8 @@ function (_React$Component) {
         });
       }
 
+      debugger;
+
       if (!this.props.artist.songs) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "album-backgrounddd"
@@ -1201,6 +1210,9 @@ function (_React$Component) {
         }, this.props.artist.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flex-play-button"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            _this.props.fetchPlayingSong(_this.props.artist.songs[0].id);
+          },
           className: "artist-play-button"
         }, "PLAY")));
         var songs = this.props.artist.songs.map(function (song) {
@@ -2469,10 +2481,11 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PlaylistShow).call(this, props));
     _this.playlist = _this.props.playlist;
     _this.state = {
-      hamburgerClicked: false
+      hamburgerClicked: false,
+      loading: true
     };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleDropdown = _this.handleDropdown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this.handleDropdown = this.handleDropdown.bind(this);
+
     return _this;
   }
 
@@ -2491,14 +2504,10 @@ function (_React$Component) {
       this.props.deletePlaylist(playlist).then(function () {
         return _this2.props.history.push("/collection/playlists");
       });
-    }
-  }, {
-    key: "handleDropdown",
-    value: function handleDropdown() {
-      this.setState({
-        hamburgerClicked: !this.state.hamburgerClicked
-      });
-    }
+    } // handleDropdown() {
+    //   this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
+    // }
+
   }, {
     key: "playlistSongs",
     value: function playlistSongs() {
@@ -2526,12 +2535,21 @@ function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
+      // debugger
+      if (this.state.loading) {
+        // debugger
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "loader"
+        });
+      }
+
       if (!this.props.playlist) return null;
 
       if (!this.props.playlist.photo) {
         this.props.playlist.photo = window.brentURL2;
       }
 
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "playlist-show-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2546,6 +2564,9 @@ function (_React$Component) {
       }, this.props.playlist.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "playlist-show-username"
       }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          _this4.props.fetchPlayingSong(_this4.props.songs[0].id);
+        },
         className: "play-button"
       }, "Play"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "playlist-show-length"
@@ -2779,11 +2800,21 @@ function (_React$Component) {
     value: function handleDropdown() {
       this.setState({
         hamburgerClicked: !this.state.hamburgerClicked
-      });
+      }); // const box = document.getElementById("joeIsAwesome");
+
+      var box = document.querySelector("#joeIsAwesome");
       document.addEventListener("click", function (e) {
+        debugger;
+
+        if (e.target.closest("#joeIsAwesome")) {
+          return;
+        } else {
+          box.classList.add("js-is-hidden");
+        } // If user clicks outside the element, hide it!
         // e.stopPropagation();
-        var container = document.getElementById("joeIsAwesome");
-        debugger; // this.klass = ""
+        // const container = document.getElementById("joeIsAwesome")
+        // debugger
+        // this.klass = ""
         // if the target of the click isn't the container nor a descendant of the container
         // if (!container.__reactInternalInstance$kyhqsdhsydd.stateNode === e.target) {
         //   debugger
@@ -2794,6 +2825,7 @@ function (_React$Component) {
         //   removeClickListener()
         //   this.klass = ""
         // }
+
       });
     }
   }, {

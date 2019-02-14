@@ -10,10 +10,11 @@ class PlaylistShow extends React.Component {
     super(props);
     this.playlist = this.props.playlist;
     this.state = {
-      hamburgerClicked: false
+      hamburgerClicked: false,
+      loading: true
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDropdown = this.handleDropdown.bind(this);
+    // this.handleDropdown = this.handleDropdown.bind(this);
   }
   
   componentDidMount() {
@@ -28,9 +29,9 @@ class PlaylistShow extends React.Component {
       .then(() => this.props.history.push("/collection/playlists"));
   }
 
-  handleDropdown() {
-    this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
-  }
+  // handleDropdown() {
+  //   this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
+  // }
 
   playlistSongs() {
     // if (!this.props.songs) {
@@ -49,12 +50,18 @@ class PlaylistShow extends React.Component {
   };
   
   render() {
+    // debugger
+    if (this.state.loading) {
+      // debugger
+      <div className="loader"></div>
+    }
+
     if (!this.props.playlist) return null;
 
     if (!this.props.playlist.photo) {
       this.props.playlist.photo = window.brentURL2;
     }
-    
+    debugger
     return (
       <div>
         <NavBarContainer />
@@ -64,7 +71,11 @@ class PlaylistShow extends React.Component {
             <ul className="playlist-show-info">
               <li className="playlist-show-title">{this.props.playlist.title}</li>
               <li className="playlist-show-username">{this.props.currentUser.username}</li>
-              <button className="play-button">Play</button>
+              <button 
+                onClick={() => {
+                  this.props.fetchPlayingSong(this.props.songs[0].id)
+                }}
+                className="play-button">Play</button>
               <li className="playlist-show-length">{this.props.songs.length} Songs</li>
 
               <form onSubmit={this.handleSubmit}>

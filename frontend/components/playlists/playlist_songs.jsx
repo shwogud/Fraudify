@@ -9,6 +9,7 @@ class PlaylistSong extends React.Component {
       hamburgerClicked: false,
       
     }
+
     this.klass = "";
     this.handleDropdown = this.handleDropdown.bind(this);
   }
@@ -16,10 +17,28 @@ class PlaylistSong extends React.Component {
   handleDropdown() {
     this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
 
+    // const box = document.getElementById("joeIsAwesome");
+    var box = document.querySelector("#joeIsAwesome");
+
     document.addEventListener("click", (e) => {
-      // e.stopPropagation();
-      const container = document.getElementById("joeIsAwesome")
       debugger
+
+      if (e.target.closest("#joeIsAwesome")) {
+        return;
+      }
+      else {
+        box.classList.add("js-is-hidden");
+      }
+
+
+      // If user clicks outside the element, hide it!
+      
+
+
+      // e.stopPropagation();
+      // const container = document.getElementById("joeIsAwesome")
+      // debugger
+
       // this.klass = ""
 
 
@@ -34,7 +53,6 @@ class PlaylistSong extends React.Component {
       //   removeClickListener()
       //   this.klass = ""
       // }
-
 
 
     })

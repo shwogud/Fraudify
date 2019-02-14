@@ -28,7 +28,7 @@ class AlbumShow extends React.Component {
         <div className="album-backgrounddd"></div>
       )
     }
-
+    debugger
     if (!this.props.album.songs) {
       return (
         <div className="album-backgrounddd"></div>
@@ -40,7 +40,11 @@ class AlbumShow extends React.Component {
         <img className="album-show-image" src={this.props.album.photo} />
         <p className="album-show-title">{this.props.album.title}</p>
         <p className="album-show-artist">{this.props.album.artist}</p>
-        <button className="album-show-play-button">PLAY</button>
+        <button
+          onClick={() => {
+            this.props.fetchPlayingSong(this.props.album.songs[0].id)
+          }} 
+          className="album-show-play-button">PLAY</button>
 
         <div className="album-show-info">
           <p className="album-show-year">{this.props.album.release_year}</p>

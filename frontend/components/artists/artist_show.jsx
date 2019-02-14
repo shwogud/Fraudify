@@ -22,20 +22,24 @@ class ArtistShow extends React.Component {
         <div className="album-backgrounddd"></div>
       )
     }
-
+    debugger
     if (!this.props.artist.songs) {
       return (
         <div className="album-backgrounddd"></div>
       )
     }
-   
+    
     else {
        let artistInfo = (
         <div className="artist-top">
            <img className="artist-top-pic" src={this.props.artist.photo} />
           <p className="artist-name">{this.props.artist.name}</p>
           <div className="flex-play-button">
-            <button className="artist-play-button">PLAY</button>
+            <button
+               onClick={() => {
+                 this.props.fetchPlayingSong(this.props.artist.songs[0].id)
+               }}
+              className="artist-play-button">PLAY</button>
           </div>
         </div>
         )
