@@ -90,8 +90,16 @@ input[type="text"].search-input::-webkit-input-placeholder {
   padding-top: 0px;
 }
 
-.search-album-covers:last-child {
+.search-playlist-index-box {
+  padding-bottom: 40px;
+}
+
+.search-artist-pic-and-name:last-child {
   padding-bottom: 120px;
+}
+
+.search-album-covers:last-child {
+    padding-bottom: 120px;
 }
 
 .search-possible-types {

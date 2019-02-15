@@ -15,5 +15,6 @@
   padding-top: 30px;
 
   position: fixed;
-  height: 100%;
-}
+  height: calc(100vh - 30px);
+  
+} 

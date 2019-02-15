@@ -83,6 +83,7 @@ padding-bottom: 25px;
   border: none;
   transition: all .3s ease-in-out;
   outline: 0;
+  color: rgb(230, 224, 224);
 }
 
 .delete-button:hover {

@@ -28,7 +28,7 @@ class AlbumShow extends React.Component {
         <div className="album-backgrounddd"></div>
       )
     }
-    debugger
+    
     if (!this.props.album.songs) {
       return (
         <div className="album-backgrounddd"></div>

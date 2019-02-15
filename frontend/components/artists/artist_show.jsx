@@ -22,7 +22,7 @@ class ArtistShow extends React.Component {
         <div className="album-backgrounddd"></div>
       )
     }
-    debugger
+    
     if (!this.props.artist.songs) {
       return (
         <div className="album-backgrounddd"></div>

@@ -20,7 +20,7 @@ class PlaylistSong extends React.Component {
     var box = document.querySelector(`.delete-song-text${this.props.song.id}`);
     if (hamburger && hamburger.contains(e.target)) {
       this.flag = false;
-      debugger
+
     }
     if (!box.contains(e.target)) {
       this.setState({ hamburgerClicked: !this.state.hamburgerClicked });

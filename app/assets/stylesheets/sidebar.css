@@ -21,9 +21,23 @@
   padding-bottom: 35px;
 }
 
+.search-mag-glass-link {
+  text-decoration: none;
+}
+
+.search-mag-glass-link:hover {
+  color: rgb(3, 193, 3);
+}
+
 .magnifying-glass {
   color: white;
   padding-left: 10px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.magnifying-glass:hover {
+  color: rgb(3, 193, 3);
 }
 
 .sidebar-name {
@@ -53,7 +67,9 @@
   transition: color 0.3s ease;
 }
 
-.search-color:hover {
+.search-color {
+  margin-top: 4px;
+  margin-left: 8px;
   transition: color 0.3s ease;
 }
 
@@ -73,10 +89,15 @@
   text-decoration: none;
   color: white;
   transition: color 0.3s ease;
+  margin-top: 5px;
 }
 
 .home-name:hover {
   color: rgb(7, 187, 7);
+}
+
+.search-home-pic-link{
+  text-decoration: none;
 }
 
 .home-pic {
@@ -85,6 +106,13 @@
   padding-right: 27px;
   padding-left: 10px;
   margin-bottom: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.home-pic:hover {
+  color: rgb(7, 187, 7);
+
 }
 
 .lib-pic-name {
@@ -112,6 +140,10 @@
 
 .sidebar-bottom {
   /* border: 1px solid red; */
+  /* border: 1px solid red; */
+    position: fixed;
+    bottom: 150px;
+    left: 75px;
 }
 
 .sidebar-user {
@@ -125,7 +157,7 @@
 
 .sidebar-welcome {
   padding: 0px;
-  margin-top: 405px;
+  /* margin-top: 405px; */
 
 }
 
@@ -149,12 +181,13 @@
   border: none;
   position: fixed;
   transition: background-color 0.3s ease;
-  transition: all .5s ease-in-out;
+  transition: all .3s ease-in-out;
   outline:0;
+  left: 45px;
 }
 
 .logout-button:hover {
-  background-color: rgb(16, 213, 16);
+  background-color: #24d462;
   transform: scale(1.1);
 }
 

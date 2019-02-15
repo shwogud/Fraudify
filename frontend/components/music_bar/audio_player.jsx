@@ -55,11 +55,17 @@ class AudioPlayer extends React.Component {
     let finalMinutes = minutes < 60 ? minutes : 0;
     const seconds = Math.floor(sec) % 60;
     const finalSeconds = seconds < 10 ? `:0${seconds}` : `:${seconds}`;
+    
+    if ((finalMinutes && finalSeconds) || finalSeconds !== ":NaN") {
+      if (finalMinutes < 10) finalMinutes = `0${finalMinutes}`;
+      else finalMinutes = `${finalMinutes}`;
+  
+      return finalMinutes + finalSeconds;
+    }
+    else {
+      return null;
+    }
 
-    if (finalMinutes < 10) finalMinutes = `0${finalMinutes}`;
-    else finalMinutes = `${finalMinutes}`;
-
-    return finalMinutes + finalSeconds;
   }
 
   render() {
@@ -82,9 +88,8 @@ class AudioPlayer extends React.Component {
               type="range" 
               className="music-progress-bar" 
               min="0" 
-              max={length} 
+              // max={length} 
               step="1"
-              // value={100 * (currentTime / length)}
               onChange={this.setTime} />
 
             <div className="outer-music-bar">

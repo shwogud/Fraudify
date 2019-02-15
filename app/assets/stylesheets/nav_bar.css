@@ -13,7 +13,7 @@
   display: flex;
   width: 70%;
   justify-content: space-between;
-  margin-left: 15%;
+  margin-left: 25%;
 
   font-family: 'Montserrat', sans-serif;
 }
@@ -57,12 +57,12 @@
   padding: 8px 30px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  transition: all .5s ease-in-out;
+  transition: all .3s ease-in-out;
   border: none;
   outline: 0;
 }
 
 .new-playlist-button:hover {
-  background-color: rgb(0, 186, 0);
+  background-color: #28d866;
   transform: scale(1.1);
 }

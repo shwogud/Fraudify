@@ -41,11 +41,13 @@ class CreatePlaylist extends React.Component {
         <div className="modal-X" onClick={() => this.props.closeModal()}>X</div>
         <h1 className="modal-create-new-playlist"> Create new playlist</h1>
         <section className="total-modal">
-          <input 
-            className="playlist-name-bar"
-            placeholder="Start typing..." 
-            value={this.state.title} 
-            onChange={this.update('title')} />
+          <form onSubmit={() => this.handleCreate()}>
+            <input 
+              className="playlist-name-bar"
+              placeholder="Start typing..." 
+              value={this.state.title} 
+              onChange={this.update('title')} />
+          </form>
         </section>
         <div className="modal-buttons">
           <button className="modal-cancel" onClick={() => this.props.closeModal()}>CANCEL</button>

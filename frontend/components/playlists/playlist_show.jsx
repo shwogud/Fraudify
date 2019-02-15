@@ -50,9 +50,9 @@ class PlaylistShow extends React.Component {
   };
   
   render() {
-    // debugger
+    
     if (this.state.loading) {
-      // debugger
+
       <div className="loader"></div>
     }
 
@@ -61,7 +61,7 @@ class PlaylistShow extends React.Component {
     if (!this.props.playlist.photo) {
       this.props.playlist.photo = window.brentURL2;
     }
-    debugger
+    
     return (
       <div>
         <NavBarContainer />

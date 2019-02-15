@@ -7,12 +7,34 @@ class AlbumSong extends React.Component {
     this.state = {
         hamburgerClicked: false
     }
+    this.flag = true;
     this.handleDropdown = this.handleDropdown.bind(this);
+    this.handleMousedown = this.handleMousedown.bind(this);
+    }
+
+    handleMousedown(e) {
+        
+        var hamburger = document.querySelector(`#joeIsAwesome${this.props.song.id}`);
+        var box = document.querySelector(`.add-song-text${this.props.song.id}`);
+        if (hamburger && hamburger.contains(e.target)) {
+            this.flag = false;
+            
+        }
+        if (!box.contains(e.target)) {
+            this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
+        }
+        document.removeEventListener("mousedown", this.handleMousedown);
     }
 
 
     handleDropdown() {
-        this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
+        // this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
+        if (this.flag) {
+            this.setState({ hamburgerClicked: !this.state.hamburgerClicked }, () => {
+                document.addEventListener("mousedown", this.handleMousedown);
+            });
+        }
+        this.flag = true;
     }
 
 
@@ -37,12 +59,13 @@ class AlbumSong extends React.Component {
                     </div>
                     <i
                         onClick={this.handleDropdown}
+                        id={`joeIsAwesome${this.props.song.id}`}
                         className="material-icons album-show-hamburger">view_headline</i>
 
                     <div className={`drop-down-menu ${klass}`}>
                         <ul className="drop-down-actions">
                             <li
-                                // onClick={this.props.openModal}
+                                className={`add-song-text${this.props.song.id}`}
                                 onClick={() => this.props.openModal("addplaylistsong", 
                                 {
                                     chosenSong: song

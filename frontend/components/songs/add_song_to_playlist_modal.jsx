@@ -18,60 +18,6 @@ class AddSongToPlaylistModal extends React.Component {
     })
   }
 
-  // playlistInfo() {
-    
-  //   if (this.props.playlist) {
-  //     if (!this.props.playlist.photo) {
-  //       this.props.playlist.photo = window.brentURL2;
-  //     }
-  //     return (
-  //       <li className="playlist-modal" onClick={this.handleClick}>
-  //         <img className="playlist-song-modal-images" src={this.props.playlist.photo} />
-  //         <p className="playlist-song-modal-title">{this.props.playlist.title}</p>
-  //       </li>
-
-  //     )
-  //   }
-  // }
-
-  // playlistInfo() {
-    
-  //   const allPlaylists = this.props.playlists;
-  //   
-  //   if (allPlaylists) {
-  //     allPlaylists.map( playlist => {
-  //       
-  //       return (
-  //         <li key={playlist.id} className="playlist-modal" onClick={this.handleClick}>
-  //           <img className="playlist-song-modal-images" src={playlist.photo} />
-  //           <p className="playlist-song-modal-title">{playlist.title}</p>
-  //         </li>
-  //       )
-  //     })
-  //   }
-  // }
-
-  // render() {
-  //   const { playlists } = this.props;
-  //   if (playlists.length === 0 ) return null;
-
-  //   const allPlaylistsInfo = playlists.map(playlist => {
-  //     return (
-  //       <li key={playlist.id} className="playlist-modal" onClick={this.handleClick}>
-  //         <img className="playlist-song-modal-images" src={playlist.photo} />
-  //         <p className="playlist-song-modal-title">{playlist.title}</p>
-  //       </li>
-  //     )
-  //   });
-  //   // 
-
-  //   return (
-  //     <ul className="all-playlists-for-song">
-  //       {allPlaylistsInfo}
-  //     </ul>
-  //   )
-  // }
-
   render() {
     if (!this.props.playlist.photo) {
         this.props.playlist.photo = window.brentURL2;

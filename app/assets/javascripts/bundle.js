@@ -754,8 +754,6 @@ function (_React$Component) {
         });
       }
 
-      debugger;
-
       if (!this.props.album.songs) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "album-backgrounddd"
@@ -854,21 +852,50 @@ function (_React$Component) {
     _this.state = {
       hamburgerClicked: false
     };
+    _this.flag = true;
     _this.handleDropdown = _this.handleDropdown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleMousedown = _this.handleMousedown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(AlbumSong, [{
+    key: "handleMousedown",
+    value: function handleMousedown(e) {
+      var hamburger = document.querySelector("#joeIsAwesome".concat(this.props.song.id));
+      var box = document.querySelector(".add-song-text".concat(this.props.song.id));
+
+      if (hamburger && hamburger.contains(e.target)) {
+        this.flag = false;
+      }
+
+      if (!box.contains(e.target)) {
+        this.setState({
+          hamburgerClicked: !this.state.hamburgerClicked
+        });
+      }
+
+      document.removeEventListener("mousedown", this.handleMousedown);
+    }
+  }, {
     key: "handleDropdown",
     value: function handleDropdown() {
-      this.setState({
-        hamburgerClicked: !this.state.hamburgerClicked
-      });
+      var _this2 = this;
+
+      // this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
+      if (this.flag) {
+        this.setState({
+          hamburgerClicked: !this.state.hamburgerClicked
+        }, function () {
+          document.addEventListener("mousedown", _this2.handleMousedown);
+        });
+      }
+
+      this.flag = true;
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var song = this.props.song;
       var klass = this.state.hamburgerClicked ? "active-dropdown" : "";
@@ -882,21 +909,22 @@ function (_React$Component) {
         className: "album-music-note"
       }, "\u266A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         onClick: function onClick() {
-          _this2.props.fetchPlayingSong(song.id);
+          _this3.props.fetchPlayingSong(song.id);
         } // .then(() => document.querySelector(".flex-wrap-albums").style.paddingBottom = "100px")} 
         ,
         className: "album-song-title"
       }, song.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.handleDropdown,
+        id: "joeIsAwesome".concat(this.props.song.id),
         className: "material-icons album-show-hamburger"
       }, "view_headline"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "drop-down-menu ".concat(klass)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "drop-down-actions"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        // onClick={this.props.openModal}
+        className: "add-song-text".concat(this.props.song.id),
         onClick: function onClick() {
-          return _this2.props.openModal("addplaylistsong", {
+          return _this3.props.openModal("addplaylistsong", {
             chosenSong: song
           });
         }
@@ -1192,8 +1220,6 @@ function (_React$Component) {
           className: "album-backgrounddd"
         });
       }
-
-      debugger;
 
       if (!this.props.artist.songs) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1754,8 +1780,13 @@ function (_React$Component) {
       var finalMinutes = minutes < 60 ? minutes : 0;
       var seconds = Math.floor(sec) % 60;
       var finalSeconds = seconds < 10 ? ":0".concat(seconds) : ":".concat(seconds);
-      if (finalMinutes < 10) finalMinutes = "0".concat(finalMinutes);else finalMinutes = "".concat(finalMinutes);
-      return finalMinutes + finalSeconds;
+
+      if (finalMinutes && finalSeconds || finalSeconds !== ":NaN") {
+        if (finalMinutes < 10) finalMinutes = "0".concat(finalMinutes);else finalMinutes = "".concat(finalMinutes);
+        return finalMinutes + finalSeconds;
+      } else {
+        return null;
+      }
     }
   }, {
     key: "render",
@@ -1790,10 +1821,9 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "range",
         className: "music-progress-bar",
-        min: "0",
-        max: length,
-        step: "1" // value={100 * (currentTime / length)}
+        min: "0" // max={length} 
         ,
+        step: "1",
         onChange: this.setTime
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "outer-music-bar"
@@ -2230,12 +2260,16 @@ function (_React$Component) {
         className: "modal-create-new-playlist"
       }, " Create new playlist"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "total-modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: function onSubmit() {
+          return _this4.handleCreate();
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "playlist-name-bar",
         placeholder: "Start typing...",
         value: this.state.title,
         onChange: this.update('title')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "modal-cancel",
@@ -2535,9 +2569,7 @@ function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      // debugger
       if (this.state.loading) {
-        // debugger
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "loader"
         });
@@ -2549,7 +2581,6 @@ function (_React$Component) {
         this.props.playlist.photo = window.brentURL2;
       }
 
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "playlist-show-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2805,7 +2836,6 @@ function (_React$Component) {
 
       if (hamburger && hamburger.contains(e.target)) {
         this.flag = false;
-        debugger;
       }
 
       if (!box.contains(e.target)) {
@@ -3842,28 +3872,29 @@ function (_React$Component) {
         to: "/collection/playlists"
       }, "Fraudify")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-pic-name"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "search-mag-glass-link",
+        to: "/search"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "magnifying-glass"
-      }, "\uD83D\uDD0D"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "\u26B2")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "search-linkk",
         to: "/search"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "search-color"
       }, "Search"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "home-pic-name"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "search-home-pic-link",
+        to: "/collection/playlists"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "home-pic"
-      }, "\u2302"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "\u2302")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "home-name",
         to: "/collection/playlists"
       }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "lib-pic-name"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "lib-pic"
-      }, "\uD83D\uDCD6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "lib-name",
-        to: "/collection/playlists"
-      }, "Your Library")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-bottom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "center-welcome-user"
@@ -4102,53 +4133,7 @@ function (_React$Component) {
       this.props.addPlaylistSong(this.props.playlist.id, this.props.chosenSong.id).then(function () {
         _this2.props.closeModal();
       });
-    } // playlistInfo() {
-    //   if (this.props.playlist) {
-    //     if (!this.props.playlist.photo) {
-    //       this.props.playlist.photo = window.brentURL2;
-    //     }
-    //     return (
-    //       <li className="playlist-modal" onClick={this.handleClick}>
-    //         <img className="playlist-song-modal-images" src={this.props.playlist.photo} />
-    //         <p className="playlist-song-modal-title">{this.props.playlist.title}</p>
-    //       </li>
-    //     )
-    //   }
-    // }
-    // playlistInfo() {
-    //   const allPlaylists = this.props.playlists;
-    //   
-    //   if (allPlaylists) {
-    //     allPlaylists.map( playlist => {
-    //       
-    //       return (
-    //         <li key={playlist.id} className="playlist-modal" onClick={this.handleClick}>
-    //           <img className="playlist-song-modal-images" src={playlist.photo} />
-    //           <p className="playlist-song-modal-title">{playlist.title}</p>
-    //         </li>
-    //       )
-    //     })
-    //   }
-    // }
-    // render() {
-    //   const { playlists } = this.props;
-    //   if (playlists.length === 0 ) return null;
-    //   const allPlaylistsInfo = playlists.map(playlist => {
-    //     return (
-    //       <li key={playlist.id} className="playlist-modal" onClick={this.handleClick}>
-    //         <img className="playlist-song-modal-images" src={playlist.photo} />
-    //         <p className="playlist-song-modal-title">{playlist.title}</p>
-    //       </li>
-    //     )
-    //   });
-    //   // 
-    //   return (
-    //     <ul className="all-playlists-for-song">
-    //       {allPlaylistsInfo}
-    //     </ul>
-    //   )
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -4906,7 +4891,6 @@ var playlistReducer = function playlistReducer() {
     // return action.data.playlist
 
     case _actions_playlist_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_PLAYLIST"]:
-      debugger;
       newState = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state);
       delete newState[action.playlistId];
       return newState;
