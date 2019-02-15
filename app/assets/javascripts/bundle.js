@@ -2790,48 +2790,51 @@ function (_React$Component) {
     _this.state = {
       hamburgerClicked: false
     };
+    _this.flag = true;
     _this.klass = "";
     _this.handleDropdown = _this.handleDropdown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleMousedown = _this.handleMousedown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(PlaylistSong, [{
+    key: "handleMousedown",
+    value: function handleMousedown(e) {
+      var hamburger = document.querySelector("#joeIsAwesome".concat(this.props.song.id));
+      var box = document.querySelector(".delete-song-text".concat(this.props.song.id));
+
+      if (hamburger && hamburger.contains(e.target)) {
+        this.flag = false;
+        debugger;
+      }
+
+      if (!box.contains(e.target)) {
+        this.setState({
+          hamburgerClicked: !this.state.hamburgerClicked
+        });
+      }
+
+      document.removeEventListener("mousedown", this.handleMousedown);
+    }
+  }, {
     key: "handleDropdown",
     value: function handleDropdown() {
-      this.setState({
-        hamburgerClicked: !this.state.hamburgerClicked
-      }); // const box = document.getElementById("joeIsAwesome");
+      var _this2 = this;
 
-      var box = document.querySelector("#joeIsAwesome");
-      document.addEventListener("click", function (e) {
-        debugger;
+      if (this.flag) {
+        this.setState({
+          hamburgerClicked: !this.state.hamburgerClicked
+        }, function () {
+          document.addEventListener("mousedown", _this2.handleMousedown);
+        });
+      }
 
-        if (e.target.closest("#joeIsAwesome")) {
-          return;
-        } else {
-          box.classList.add("js-is-hidden");
-        } // If user clicks outside the element, hide it!
-        // e.stopPropagation();
-        // const container = document.getElementById("joeIsAwesome")
-        // debugger
-        // this.klass = ""
-        // if the target of the click isn't the container nor a descendant of the container
-        // if (!container.__reactInternalInstance$kyhqsdhsydd.stateNode === e.target) {
-        //   debugger
-        //   this.klass = ""
-        // }
-        // if (!container.contains(event.target)) { // or use: event.target.closest(selector) === null
-        //   element.style.display = 'none'
-        //   removeClickListener()
-        //   this.klass = ""
-        // }
-
-      });
+      this.flag = true;
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var song = this.props.song;
       this.klass = this.state.hamburgerClicked ? "active-dropdownn" : "";
@@ -2844,7 +2847,7 @@ function (_React$Component) {
         className: "hamburger-icon-flex"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         onClick: function onClick() {
-          _this2.props.fetchPlayingSong(song.id);
+          _this3.props.fetchPlayingSong(song.id);
         },
         className: "playlist-show-song-title"
       }, song.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2858,16 +2861,16 @@ function (_React$Component) {
         to: "/collection/albums/".concat(song.album_id)
       }, song.album))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.handleDropdown,
-        id: "joeIsAwesome",
+        id: "joeIsAwesome".concat(this.props.song.id),
         className: "material-icons album-show-hamburger"
       }, "view_headline"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "drop-down-menuu ".concat(this.klass)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "drop-down-actionss"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "delete-song-text",
+        className: "delete-song-text".concat(this.props.song.id),
         onClick: function onClick() {
-          return _this2.props.deletePlaylistSong(_this2.props.playlistId, song.id);
+          return _this3.props.deletePlaylistSong(_this3.props.playlistId, song.id);
         } // .then(
         // fetchPlaylist(this.props.playlistId))
 

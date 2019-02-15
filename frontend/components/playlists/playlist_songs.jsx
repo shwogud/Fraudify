@@ -9,53 +9,32 @@ class PlaylistSong extends React.Component {
       hamburgerClicked: false,
       
     }
-
+    this.flag = true;
     this.klass = "";
     this.handleDropdown = this.handleDropdown.bind(this);
+    this.handleMousedown = this.handleMousedown.bind(this);
+  }
+
+  handleMousedown(e) {
+    var hamburger = document.querySelector(`#joeIsAwesome${this.props.song.id}`);
+    var box = document.querySelector(`.delete-song-text${this.props.song.id}`);
+    if (hamburger && hamburger.contains(e.target)) {
+      this.flag = false;
+      debugger
+    }
+    if (!box.contains(e.target)) {
+      this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
+    } 
+    document.removeEventListener("mousedown", this.handleMousedown);
   }
 
   handleDropdown() {
-    this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
-
-    // const box = document.getElementById("joeIsAwesome");
-    var box = document.querySelector("#joeIsAwesome");
-
-    document.addEventListener("click", (e) => {
-      debugger
-
-      if (e.target.closest("#joeIsAwesome")) {
-        return;
-      }
-      else {
-        box.classList.add("js-is-hidden");
-      }
-
-
-      // If user clicks outside the element, hide it!
-      
-
-
-      // e.stopPropagation();
-      // const container = document.getElementById("joeIsAwesome")
-      // debugger
-
-      // this.klass = ""
-
-
-      // if the target of the click isn't the container nor a descendant of the container
-      // if (!container.__reactInternalInstance$kyhqsdhsydd.stateNode === e.target) {
-      //   debugger
-      //   this.klass = ""
-      // }
-
-      // if (!container.contains(event.target)) { // or use: event.target.closest(selector) === null
-      //   element.style.display = 'none'
-      //   removeClickListener()
-      //   this.klass = ""
-      // }
-
-
-    })
+    if (this.flag) {
+      this.setState({ hamburgerClicked: !this.state.hamburgerClicked }, () => {
+          document.addEventListener("mousedown", this.handleMousedown);
+      });
+    }
+    this.flag = true;
   }
 
 
@@ -89,13 +68,13 @@ class PlaylistSong extends React.Component {
           
           <i
             onClick={this.handleDropdown}
-            id="joeIsAwesome"
+            id={`joeIsAwesome${this.props.song.id}`}
             className="material-icons album-show-hamburger">view_headline</i>
           
           <div className={`drop-down-menuu ${this.klass}`}>
             <ul className="drop-down-actionss">
               <li
-                className="delete-song-text"
+                className={`delete-song-text${this.props.song.id}`}
                 onClick={() => this.props.deletePlaylistSong(this.props.playlistId, song.id)
                   // .then(
                   // fetchPlaylist(this.props.playlistId))
