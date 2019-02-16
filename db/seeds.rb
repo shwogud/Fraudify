@@ -69,12 +69,12 @@ a4.photo.attach(io: file, filename: 'avicibigggg.jpeg')
 a4.save!
 
 a5 = Artist.new(name: 'TWICE')
-file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/TWICE8.jpg')
-a5.photo.attach(io: file, filename: 'TWICE8.jpg')
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/twiceclear.jpg')
+a5.photo.attach(io: file, filename: 'twiceclear.jpg')
 a5.save!
 
 a6 = Artist.new(name: 'Billy Joel')
-file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/billy-joel-net-worth-mst.jpg')
+file = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/billyyy.png')
 a6.photo.attach(io: file, filename: 'billy-joel-net-worth-mst.jpg')
 a6.save!
 

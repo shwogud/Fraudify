@@ -65,6 +65,7 @@
 .search-linkk {
   padding-left: 22px;
   transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .search-color {

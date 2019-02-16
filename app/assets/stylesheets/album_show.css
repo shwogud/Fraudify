@@ -89,13 +89,16 @@
   /* border: 1px solid red; */
   margin-left: 75px;
   margin-top: 40px;
+  width: 67%;
+  padding-right: 100px;
+  
 }
 
 .flex-music-song {
   display: flex;
   padding: 15px;
   font-family: 'Montserrat', sans-serif;
-  width: 750px;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
 }

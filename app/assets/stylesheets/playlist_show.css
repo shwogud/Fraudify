@@ -69,7 +69,8 @@ padding-bottom: 25px;
   /* border: 1px solid red; */
   list-style-type: none;
   color: white;
-  width: 650px;
+  width: 67%;
+  padding-right: 100px;
 }
 
 .delete-button {
@@ -94,6 +95,7 @@ padding-bottom: 25px;
 
 .playlist-show-each-song {
   /* border: 1px solid blue; */
+  /* width: 100%; */
   margin-bottom: 25px;
   display: flex;
 }
@@ -151,7 +153,7 @@ padding-bottom: 25px;
 
 
 .hamburger-icon-flex {
-  width: 600px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-content: center;
