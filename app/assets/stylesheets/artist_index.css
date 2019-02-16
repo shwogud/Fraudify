@@ -21,6 +21,8 @@
   overflow: hidden;
   border-radius: 50%;
   padding-bottom: 10px;
+  -webkit-transition: color .25s linear;
+  transition: all .2s ease-in-out;
 }
 
 .artist-index-image:hover {

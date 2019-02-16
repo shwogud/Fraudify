@@ -13,7 +13,7 @@
   display: flex;
   width: 70%;
   justify-content: space-between;
-  margin-left: 25%;
+  margin-left: 35%;
 
   font-family: 'Montserrat', sans-serif;
 }
@@ -60,6 +60,7 @@
   transition: all .3s ease-in-out;
   border: none;
   outline: 0;
+  margin-right: 50px;
 }
 
 .new-playlist-button:hover {

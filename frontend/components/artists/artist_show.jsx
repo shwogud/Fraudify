@@ -33,13 +33,14 @@ class ArtistShow extends React.Component {
        let artistInfo = (
         <div className="artist-top">
            <img className="artist-top-pic" src={this.props.artist.photo} />
-          <p className="artist-name">{this.props.artist.name}</p>
-          <div className="flex-play-button">
-            <button
-               onClick={() => {
-                 this.props.fetchPlayingSong(this.props.artist.songs[0].id)
-               }}
-              className="artist-play-button">PLAY</button>
+              <p className="artist-name">{this.props.artist.name}</p>
+            <div className="flex-play-button">
+              <button
+                onClick={() => {
+                  this.props.fetchPlayingSong(this.props.artist.songs[0].id)
+                }}
+                className="artist-play-button">PLAY</button>
+
           </div>
         </div>
         )

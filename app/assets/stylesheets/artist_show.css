@@ -25,6 +25,7 @@
 }
 
 
+
 .artist-name {
   text-align: center;
   font-size: 72px;
@@ -56,9 +57,10 @@
   border: none;
   transition: all .3s ease-in-out;
   outline: 0;
-  position: absolute;
+  margin-top: 25px;
+  /* position: absolute;
   top: 228px;
-  left: 873px;
+  left: 873px; */
 }
 
 .artist-play-button:hover {

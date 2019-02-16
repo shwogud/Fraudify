@@ -88,7 +88,7 @@ class AudioPlayer extends React.Component {
               type="range" 
               className="music-progress-bar" 
               min="0" 
-              // max={length} 
+              max={length} 
               step="1"
               onChange={this.setTime} />
 

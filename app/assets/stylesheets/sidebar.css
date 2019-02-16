@@ -56,6 +56,12 @@
 .search-pic-name {
   display: flex;
   padding-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+}
+
+.search-pic-name:hover {
+  /* color: rgb(3, 193, 3); */
 }
 
 .searchh {
@@ -66,16 +72,17 @@
   padding-left: 22px;
   transition: color 0.3s ease;
   text-decoration: none;
+  font-size: 18px;
 }
 
 .search-color {
   margin-top: 4px;
   margin-left: 8px;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .search-color:hover {
-  color: rgb(7, 187, 7);
+  /* color: rgb(7, 187, 7); */
 }
 
 .home-pic-name {
@@ -85,12 +92,17 @@
   padding-bottom: 15px;
 }
 
+.home-pic-name:hover {
+  color: rgb(7, 187, 7);
+}
+
 .home-name {
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
   color: white;
   transition: color 0.3s ease;
   margin-top: 5px;
+  padding-left: 25px;
 }
 
 .home-name:hover {
@@ -101,6 +113,23 @@
   text-decoration: none;
 }
 
+.search-home-pic-link:hover{
+  color: rgb(7, 187, 7);
+}
+
+.home-all {
+  color: white;
+  font-size: 18px;
+  padding-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.home-all:hover {
+  color: rgb(7, 187, 7);
+}
+
+
 .home-pic {
   font-size: 25px;
   padding-top: 5px;
@@ -109,6 +138,7 @@
   margin-bottom: 5px;
   cursor: pointer;
   text-decoration: none;
+  color: white;
 }
 
 .home-pic:hover {

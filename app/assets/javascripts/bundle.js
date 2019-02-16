@@ -689,6 +689,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _album_songs_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./album_songs_container */ "./frontend/components/albums/album_songs_container.js");
 /* harmony import */ var _components_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -708,6 +709,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
  // import AudioPlayerContainer
+
 
 
 
@@ -767,9 +769,12 @@ function (_React$Component) {
         src: this.props.album.photo
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "album-show-title"
-      }, this.props.album.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.props.album.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        className: "album-artist-link",
+        to: "/collection/artists/".concat(this.props.album.artist_id)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "album-show-artist"
-      }, this.props.album.artist), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, this.props.album.artist)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           _this2.props.fetchPlayingSong(_this2.props.album.songs[0].id);
         },
@@ -1821,8 +1826,8 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "range",
         className: "music-progress-bar",
-        min: "0" // max={length} 
-        ,
+        min: "0",
+        max: length,
         step: "1",
         onChange: this.setTime
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2188,13 +2193,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -2216,6 +2221,7 @@ function (_React$Component) {
     _this.state = {
       title: ''
     };
+    _this.handleCreate = _this.handleCreate.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -2230,9 +2236,10 @@ function (_React$Component) {
     }
   }, {
     key: "handleCreate",
-    value: function handleCreate() {
+    value: function handleCreate(e) {
       var _this3 = this;
 
+      e.preventDefault();
       this.props.createPlaylist(this.state, this.props.user).then(function (playlist) {
         _this3.props.closeModal();
 
@@ -2261,9 +2268,7 @@ function (_React$Component) {
       }, " Create new playlist"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "total-modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: function onSubmit() {
-          return _this4.handleCreate();
-        }
+        onSubmit: this.handleCreate
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "playlist-name-bar",
         placeholder: "Start typing...",
@@ -3877,22 +3882,18 @@ function (_React$Component) {
         to: "/search"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "magnifying-glass"
-      }, "\u26B2")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "search-linkk",
-        to: "/search"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "search-color"
-      }, "Search"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u26B2", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "search-linkk"
+      }, "Search")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "home-pic-name"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "search-home-pic-link",
         to: "/collection/playlists"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "home-pic"
-      }, "\u2302")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "home-name",
-        to: "/collection/playlists"
-      }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "home-all"
+      }, "\u2302", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "home-name"
+      }, "Home")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "lib-pic-name"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-bottom"

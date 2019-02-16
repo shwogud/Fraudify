@@ -23,27 +23,31 @@ class Sidebar extends React.Component {
           </div>
 
           <div className="search-pic-name">
-              <Link className="search-mag-glass-link" to="/search">
-                <div className="magnifying-glass">
-                  {/* &#x1f50d; */}
-                  &#9906;
-                </div>
-            
-              </Link>
-            <Link className="search-linkk" to="/search">
-              <p className="search-color">Search</p>
+            <Link className="search-mag-glass-link" to="/search">
+              <div className="magnifying-glass">
+                &#9906; 
+                <span className="search-linkk">Search</span>
+              </div>
             </Link>
+            {/* <Link className="search-linkk" to="/search">
+              <p className="search-color">Search</p>
+            </Link> */}
           </div>
 
           <div className="home-pic-name">
               <Link className="search-home-pic-link" to="/collection/playlists">
-                <p className="home-pic">⌂</p>
+                <div className="home-all">
+                  {/* <span className="home-pic">⌂</span> */}
+                  ⌂
+                  <span className="home-name">Home</span>
+
+                </div>
               </Link>
             
-            <Link
+            {/* <Link
               className="home-name"
               to="/collection/playlists">
-              Home</Link>
+              Home</Link> */}
             {/* <p className="home-name">Home</p> */}
           </div>
           

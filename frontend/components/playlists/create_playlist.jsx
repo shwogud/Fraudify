@@ -12,6 +12,7 @@ class CreatePlaylist extends React.Component {
     this.state = {
       title: ''
     };
+    this.handleCreate = this.handleCreate.bind(this);
   }
 
   update(field) {
@@ -20,8 +21,8 @@ class CreatePlaylist extends React.Component {
     };
   }
 
-  handleCreate() {
-    
+  handleCreate(e) {
+    e.preventDefault();
     this.props.createPlaylist(this.state, this.props.user).then((playlist) => {
       
     this.props.closeModal();
@@ -41,7 +42,7 @@ class CreatePlaylist extends React.Component {
         <div className="modal-X" onClick={() => this.props.closeModal()}>X</div>
         <h1 className="modal-create-new-playlist"> Create new playlist</h1>
         <section className="total-modal">
-          <form onSubmit={() => this.handleCreate()}>
+          <form onSubmit={this.handleCreate}>
             <input 
               className="playlist-name-bar"
               placeholder="Start typing..." 

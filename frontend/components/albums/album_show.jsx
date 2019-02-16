@@ -2,6 +2,7 @@ import React from 'react';
 // import AudioPlayerContainer
 import AlbumSongContainer from './album_songs_container';
 import NavBarContainer from '../../components/navbar/navbar_container';
+import { Link } from 'react-router-dom';
 
 class AlbumShow extends React.Component {
   constructor(props) {
@@ -34,12 +35,16 @@ class AlbumShow extends React.Component {
         <div className="album-backgrounddd"></div>
       )
     }
-
+    
     let albumInfo = (
       <div className="album-show-left">
         <img className="album-show-image" src={this.props.album.photo} />
         <p className="album-show-title">{this.props.album.title}</p>
-        <p className="album-show-artist">{this.props.album.artist}</p>
+        <Link 
+          className="album-artist-link"
+          to={`/collection/artists/${this.props.album.artist_id}`}>
+          <p className="album-show-artist">{this.props.album.artist}</p>
+        </Link>
         <button
           onClick={() => {
             this.props.fetchPlayingSong(this.props.album.songs[0].id)

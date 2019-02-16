@@ -32,6 +32,8 @@
   margin-left: 50px;
   margin-bottom: 10px;
   cursor: pointer;
+  -webkit-transition: color .25s linear;
+  transition: all .2s ease-in-out;
 }
 
 .album-image:hover {

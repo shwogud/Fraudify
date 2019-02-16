@@ -16,11 +16,15 @@
 
 
 .album-show-left {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   /* border: 1px solid red; */
   text-align: center;
   margin-left: 95px;
   margin-top: 40px;
+
 }
 
 .album-show-image {
@@ -64,6 +68,7 @@
 .album-show-artist {
   padding-bottom: 20px;
   color: rgb(194, 194, 194);
+  width: 100px;
 }
 
 .album-show-year {
@@ -166,31 +171,23 @@
   height: 100px;
 
 }
-/* 
-.drop-down-menu > li {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  cursor: pointer;
+
+.album-artist-link {
+  text-decoration: none;
 }
 
-.drop-down-menu:hover { 
-  display: block;
-  z-index: 100;
-  position: fixed;
-  background-color: dark-grey;
-  color: light-transparent;
-  padding: 5px 0;
-  font-size: 14px;
-  font-weight: 300;
- } */
+.album-artist-link:hover {
+  color: rgb(3, 193, 3);
+}
 
 .drop-down-actions li {
   padding: 10px;
   cursor: pointer;
   color: rgb(197, 194, 194);
+  
 }
 
 .drop-down-actions li:hover {
   color: white;
 }
+

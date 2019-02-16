@@ -39,6 +39,7 @@ class PlaylistShow extends React.Component {
     //     <div className="album-backgrounddd"></div>
     //   )
     // }
+    
     if (this.props.songs.length < 1 || !this.props.playlist.song_ids) { return null; }
     
     return this.props.songs.map( song => {
