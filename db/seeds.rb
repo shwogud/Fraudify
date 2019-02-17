@@ -135,100 +135,100 @@ alb8.save!
 
 
 
-s1 = Song.new({title: "Love Story", album: alb1})
+s1 = Song.new({title: "Love Story", album: alb1, length: 236})
 song = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/Taylor+Swift+-+Love+Story.mp3')
 s1.mp3_file.attach(io: song, filename: 'Taylor Swift - Love Story.mp3')
 s1.save!
 
-s2 = Song.new({title: "You Belong with Me", album: alb1})
+s2 = Song.new({title: "You Belong with Me", album: alb1, length: 228})
 song = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/Taylor+Swift+-+You+Belong+With+Me.mp3')
 s2.mp3_file.attach(io: song, filename: 'Taylor Swift - You Belong With Me.mp3')
 s2.save!
 
-s3 = Song.new({title: "Our Song", album: alb1})
+s3 = Song.new({title: "Our Song", album: alb1, length: 202})
 song = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/Taylor+Swift+-+Our+Song.mp3')
 s3.mp3_file.attach(io: song, filename: 'Taylor Swift - Our Song.mp3')
 s3.save!
 
-s4 = Song.new({title: "Blank Space", album: alb1})
+s4 = Song.new({title: "Blank Space", album: alb1, length: 272})
 song = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/Taylor+Swift+-+Blank+Space.mp3')
 s4.mp3_file.attach(io: song, filename: 'Taylor Swift - Blank Space.mp3')
 s4.save!
 
-s5 = Song.new({title: "22", album: alb1})
+s5 = Song.new({title: "22", album: alb1, length: 243})
 song = EzDownload.open('https://s3.amazonaws.com/full-stack-upload-dev/Taylor+Swift+-+22.mp3')
 s5.mp3_file.attach(io: song, filename: 'Taylor Swift - 22.mp3')
 s5.save!
 
-s6 = Song.new({title: "I'm Yours", album: alb2})
+s6 = Song.new({title: "I'm Yours", album: alb2, length: 221})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Jason+Mraz+-+I'm+Yours+(Official+Video).mp3")
 s6.mp3_file.attach(io: song, filename: "Jason Mraz - I'm Yours (Official Video).mp3")
 s6.save!
 
-s7 = Song.new({title: "Lucky", album: alb2})
+s7 = Song.new({title: "Lucky", album: alb2, length: 201})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Jason+Mraz++Colbie+Caillat+-+Lucky+(Video).mp3")
 s7.mp3_file.attach(io: song, filename: "Jason Mraz  Colbie Caillat - Lucky (Video).mp3")
 s7.save!
 
 
-s8 = Song.new({title: "Sorry", album: alb3})
+s8 = Song.new({title: "Sorry", album: alb3, length: 205})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Justin+Bieber+-+Sorry+(Dance+Video).mp3")
 s8.mp3_file.attach(io: song, filename: "Justin Bieber - Sorry (Dance Video).mp3")
 s8.save!
 
-s9 = Song.new({title: "What Do You Mean", album: alb3})
+s9 = Song.new({title: "What Do You Mean", album: alb3, length: 297})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Justin+Bieber+-+What+Do+You+Mean.mp3")
 s9.mp3_file.attach(io: song, filename: "Justin Bieber - What Do You Mean.mp3")
 s9.save!
 
-s16 = Song.new({title: "Love Yourself", album: alb3})
+s16 = Song.new({title: "Love Yourself", album: alb3, length: 272})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Justin+Bieber+-+Love+Yourself++(PURPOSE++The+Movement).mp3")
 s16.mp3_file.attach(io: song, filename: "Justin Bieber - Love Yourself  (PURPOSE  The Movement).mp3")
 s16.save!
 
 
-s10 = Song.new({title: "Broken Arrows", album: alb4})
+s10 = Song.new({title: "Broken Arrows", album: alb4, length: 234})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Avicii+-+Broken+Arrows.mp3")
 s10.mp3_file.attach(io: song, filename: "Avicii - Broken Arrows.mp3")
 s10.save!
 
-s11 = Song.new({title: "Hey Brother", album: alb4})
+s11 = Song.new({title: "Hey Brother", album: alb4, length: 258})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Avicii+-+Hey+Brother+(Lyric).mp3")
 s11.mp3_file.attach(io: song, filename: "Avicii - Hey Brother (Lyric).mp3")
 s11.save!
 
 
-s12 = Song.new({title: "OOH-AHH 하게", album: alb5})
+s12 = Song.new({title: "OOH-AHH 하게", album: alb5, length: 271})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/TWICE+OOH-AHH%E1%84%92%E1%85%A1%E1%84%80%E1%85%A6(Like+OOH-AHH)+MV.mp3")
 s12.mp3_file.attach(io: song, filename: "TWICE OOH-AHH하게(Like OOH-AHH) MV.mp3")
 s12.save!
 
-s13 = Song.new({title: "LIKEY", album: alb5})
+s13 = Song.new({title: "LIKEY", album: alb5, length: 221})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/TWICE+LIKEY+MV.mp3")
 s13.mp3_file.attach(io: song, filename: "TWICE LIKEY MV.mp3")
 s13.save!
 
-s17 = Song.new({title: "Sandstorm", album: alb5})
+s17 = Song.new({title: "Sandstorm", album: alb5, length: 232})
 song = EzDownload.open("https://s3.amazonaws.com/notefloat-dev/sandstorm.mp3")
 s17.mp3_file.attach(io: song, filename: "sandstorm.mp3")
 s17.save!
 
-s14 = Song.new({title: "Piano Man", album: alb6})
+s14 = Song.new({title: "Piano Man", album: alb6, length: 338})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Piano+Man.mp3")
 s14.mp3_file.attach(io: song, filename: "Piano Man.mp3")
 s14.save!
 
-s15 = Song.new({title: "Uptown Girl", album: alb6})
+s15 = Song.new({title: "Uptown Girl", album: alb6, length: 202})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Billy+Joel+-+Uptown+Girl.mp3")
 s15.mp3_file.attach(io: song, filename: "Billy Joel - Uptown Girl.mp3")
 s15.save!
 
-s19 = Song.new({title: "I Want You Back", album: alb7})
+s19 = Song.new({title: "I Want You Back", album: alb7, length: 173})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/7.+Jackson+5+-+I+Want+You+Back.mp3")
 s19.mp3_file.attach(io: song, filename: "7. Jackson 5 - I Want You Back.mp3")
 s19.save!
 
-s20 = Song.new({title: "Runaway", album: alb8})
+s20 = Song.new({title: "Runaway", album: alb8, length: 263})
 song = EzDownload.open("https://s3.amazonaws.com/full-stack-upload-dev/Galantis+-+Runaway+(U++I)+(Official+Video).mp3")
 s20.mp3_file.attach(io: song, filename: "Galantis - Runaway (U  I) (Official Video).mp3")
 s20.save!

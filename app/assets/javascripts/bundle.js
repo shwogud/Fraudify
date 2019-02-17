@@ -770,7 +770,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "album-show-title"
       }, this.props.album.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-        className: "album-artist-link",
+        className: "album-artist-linkk",
         to: "/collection/artists/".concat(this.props.album.artist_id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "album-show-artist"
@@ -1729,7 +1729,6 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(AudioPlayer).call(this, props));
     _this.audioRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     _this.state = {
-      length: 0,
       currentTime: 0
     };
     _this.handleMusicBarUpdate = _this.handleMusicBarUpdate.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -1766,7 +1765,6 @@ function (_React$Component) {
     key: "handleMusicBarUpdate",
     value: function handleMusicBarUpdate() {
       this.setState({
-        length: this.audioRef.current.duration,
         currentTime: this.audioRef.current.currentTime
       });
     }
@@ -1785,13 +1783,8 @@ function (_React$Component) {
       var finalMinutes = minutes < 60 ? minutes : 0;
       var seconds = Math.floor(sec) % 60;
       var finalSeconds = seconds < 10 ? ":0".concat(seconds) : ":".concat(seconds);
-
-      if (finalMinutes && finalSeconds || finalSeconds !== ":NaN") {
-        if (finalMinutes < 10) finalMinutes = "0".concat(finalMinutes);else finalMinutes = "".concat(finalMinutes);
-        return finalMinutes + finalSeconds;
-      } else {
-        return null;
-      }
+      if (finalMinutes < 10) finalMinutes = "0".concat(finalMinutes);else finalMinutes = "".concat(finalMinutes);
+      return finalMinutes + finalSeconds;
     }
   }, {
     key: "render",
@@ -1799,9 +1792,8 @@ function (_React$Component) {
       var _this2 = this;
 
       var currentSong = this.props.currentSong;
-      var _this$state = this.state,
-          currentTime = _this$state.currentTime,
-          length = _this$state.length;
+      var length = currentSong.length;
+      var currentTime = this.state.currentTime;
       var togglePlay = currentSong.isPlaying ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "material-icons toggle-button",
         onClick: function onClick() {

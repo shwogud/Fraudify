@@ -41,7 +41,7 @@ class AlbumShow extends React.Component {
         <img className="album-show-image" src={this.props.album.photo} />
         <p className="album-show-title">{this.props.album.title}</p>
         <Link 
-          className="album-artist-link"
+          className="album-artist-linkk"
           to={`/collection/artists/${this.props.album.artist_id}`}>
           <p className="album-show-artist">{this.props.album.artist}</p>
         </Link>

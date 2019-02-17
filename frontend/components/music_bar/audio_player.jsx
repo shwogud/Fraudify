@@ -6,7 +6,6 @@ class AudioPlayer extends React.Component {
     super(props);
     this.audioRef = React.createRef();
     this.state = {
-      length: 0,
       currentTime: 0
     };
     this.handleMusicBarUpdate = this.handleMusicBarUpdate.bind(this);
@@ -39,7 +38,6 @@ class AudioPlayer extends React.Component {
 
   handleMusicBarUpdate() {
     this.setState({
-      length: this.audioRef.current.duration,
       currentTime: this.audioRef.current.currentTime,
     });
   }
@@ -56,27 +54,22 @@ class AudioPlayer extends React.Component {
     const seconds = Math.floor(sec) % 60;
     const finalSeconds = seconds < 10 ? `:0${seconds}` : `:${seconds}`;
     
-    if ((finalMinutes && finalSeconds) || finalSeconds !== ":NaN") {
-      if (finalMinutes < 10) finalMinutes = `0${finalMinutes}`;
-      else finalMinutes = `${finalMinutes}`;
-  
-      return finalMinutes + finalSeconds;
-    }
-    else {
-      return null;
-    }
+    if (finalMinutes < 10) finalMinutes = `0${finalMinutes}`;
+    else finalMinutes = `${finalMinutes}`;
+
+    return finalMinutes + finalSeconds;
 
   }
 
   render() {
     let { currentSong } = this.props;
-    let { currentTime, length } = this.state;
+    const { length } = currentSong;
+    let { currentTime} = this.state;
     
     const togglePlay = currentSong.isPlaying ? (
       <i className="material-icons toggle-button" onClick={() => this.props.toggleSong()}>pause</i> ) : ( // pause button
         <i className="material-icons toggle-button" onClick={() => this.props.toggleSong()}>play_arrow</i>)          //play button
       
-
     return (
       <div className="music-barrrr">
         { togglePlay }

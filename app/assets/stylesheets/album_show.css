@@ -55,7 +55,7 @@
 .album-show-info {
   display: flex;
   text-align: center;
-  padding-left: 117px;
+  /* padding-left: 117px; */
   font-family: 'Montserrat', sans-serif;
   padding-top: 15px;
 }
@@ -172,11 +172,12 @@
 
 }
 
-.album-artist-link {
+.album-artist-linkk {
   text-decoration: none;
+  margin-bottom: 20px;
 }
 
-.album-artist-link:hover {
+.album-artist-linkk:hover {
   color: rgb(3, 193, 3);
 }
 
