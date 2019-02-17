@@ -3674,7 +3674,7 @@ function (_React$Component) {
       new typed_js__WEBPACK_IMPORTED_MODULE_2___default.a(".username", username);
       setTimeout(function () {
         new typed_js__WEBPACK_IMPORTED_MODULE_2___default.a(".password", password);
-      }, 1500);
+      }, 1000);
       setTimeout(function () {
         _this5.props.demoSignup({
           username: "demo",
