@@ -67,8 +67,8 @@ class AudioPlayer extends React.Component {
     let { currentTime} = this.state;
     
     const togglePlay = currentSong.isPlaying ? (
-      <i className="material-icons toggle-button" onClick={() => this.props.toggleSong()}>pause</i> ) : ( // pause button
-        <i className="material-icons toggle-button" onClick={() => this.props.toggleSong()}>play_arrow</i>)          //play button
+      <i class="far fa-pause-circle toggle-button" onClick={() => this.props.toggleSong()}></i> ) : ( // pause button
+        <i className="far fa-play-circle toggle-button" onClick={() => this.props.toggleSong()}></i>)          //play button
       
     return (
       <div className="music-barrrr">

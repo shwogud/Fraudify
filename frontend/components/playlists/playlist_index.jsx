@@ -9,6 +9,9 @@ class PlaylistIndex extends React.Component {
     super(props);
     this.currentUser = this.props.currentUser;
     // this.state = this.props.currentUser;
+    this.state = {
+      loading: true,
+    }
     
     
   }
@@ -18,6 +21,9 @@ class PlaylistIndex extends React.Component {
   }
 
   render() {
+    if (this.state.loading) {
+      <div class="loader"></div>
+    }
     
     let playlists;
 

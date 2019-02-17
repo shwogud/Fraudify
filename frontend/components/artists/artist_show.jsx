@@ -20,7 +20,11 @@ class ArtistShow extends React.Component {
     if (this.props.artist === undefined) {
       return (
         <div className="album-backgrounddd"></div>
-      )
+        )
+      }
+
+    const artistImg = {
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url("${this.props.artist.photo}")`
     }
     
     if (!this.props.artist.songs) {
@@ -28,19 +32,20 @@ class ArtistShow extends React.Component {
         <div className="album-backgrounddd"></div>
       )
     }
+
     
     else {
        let artistInfo = (
-        <div className="artist-top">
-           <img className="artist-top-pic" src={this.props.artist.photo} />
-              <p className="artist-name">{this.props.artist.name}</p>
-            <div className="flex-play-button">
-              <button
-                onClick={() => {
-                  this.props.fetchPlayingSong(this.props.artist.songs[0].id)
-                }}
-                className="artist-play-button">PLAY</button>
-
+        <div className="artist-top" style={artistImg}>
+           {/* <img className="artist-top-pic" src={this.props.artist.photo} /> */}
+          <p className="artist-name">{this.props.artist.name}</p>
+          <div className="flex-play-button">
+            <button
+              onClick={() => {
+                this.props.fetchPlayingSong(this.props.artist.songs[0].id)
+              }}
+              className="artist-play-button">PLAY
+            </button>
           </div>
         </div>
         )

@@ -4,20 +4,25 @@
 }
 
 .artist-top {
-  /* margin-left: 315px; */
+  padding-top: 50px;
   /* border: 1px solid red; */
   height: 415px;
   /* background-image: linear-gradient(
                   rgba(20, 20, 20, .5),
                   rgba(20, 20, 20, .5)),
                   url('taylor_image.jpg'); */
-  background-repeat: round;  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .artist-top-pic {
   position: relative;
   overflow: hidden;
-  opacity: 0.5;
+  opacity: 0.5; 
   filter: alpha(opacity=50);
   height: 415px;
   width: 100%;
@@ -36,9 +41,9 @@
   text-transform: none;
   margin-bottom: 15px;
   font-weight: bold;
-  position: absolute;
+  /* position: absolute;
   top: 135px;
-  left: 735px;
+  left: 735px; */
 }
 
 .flex-play-button{

@@ -51,8 +51,8 @@ class CreatePlaylist extends React.Component {
           </form>
         </section>
         <div className="modal-buttons">
-          <button className="modal-cancel" onClick={() => this.props.closeModal()}>CANCEL</button>
-          <button className="modal-create" onClick={() => this.handleCreate()}>CREATE</button>
+          <button className="modal-cancel" onClick={this.props.closeModal}>CANCEL</button>
+          <button className="modal-create" onClick={this.handleCreate}>CREATE</button>
 
         </div>
 

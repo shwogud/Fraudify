@@ -1226,17 +1226,19 @@ function (_React$Component) {
         });
       }
 
+      var artistImg = {
+        backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url(\"".concat(this.props.artist.photo, "\")")
+      };
+
       if (!this.props.artist.songs) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "album-backgrounddd"
         });
       } else {
         var artistInfo = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "artist-top"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          className: "artist-top-pic",
-          src: this.props.artist.photo
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "artist-top",
+          style: artistImg
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "artist-name"
         }, this.props.artist.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flex-play-button"
@@ -1795,17 +1797,17 @@ function (_React$Component) {
       var length = currentSong.length;
       var currentTime = this.state.currentTime;
       var togglePlay = currentSong.isPlaying ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "material-icons toggle-button",
+        class: "far fa-pause-circle toggle-button",
         onClick: function onClick() {
           return _this2.props.toggleSong();
         }
-      }, "pause") : // pause button
+      }) : // pause button
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "material-icons toggle-button",
+        className: "far fa-play-circle toggle-button",
         onClick: function onClick() {
           return _this2.props.toggleSong();
         }
-      }, "play_arrow"); //play button
+      }); //play button
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "music-barrrr"
@@ -2270,14 +2272,10 @@ function (_React$Component) {
         className: "modal-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "modal-cancel",
-        onClick: function onClick() {
-          return _this4.props.closeModal();
-        }
+        onClick: this.props.closeModal
       }, "CANCEL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "modal-create",
-        onClick: function onClick() {
-          return _this4.handleCreate();
-        }
+        onClick: this.handleCreate
       }, "CREATE")));
     }
   }]);
@@ -2358,6 +2356,9 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PlaylistIndex).call(this, props));
     _this.currentUser = _this.props.currentUser; // this.state = this.props.currentUser;
 
+    _this.state = {
+      loading: true
+    };
     return _this;
   }
 
@@ -2370,6 +2371,12 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var _this2 = this;
+
+      if (this.state.loading) {
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          class: "loader"
+        });
+      }
 
       var playlists;
 
