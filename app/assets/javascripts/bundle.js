@@ -1220,6 +1220,12 @@ function (_React$Component) {
     value: function render() {
       var _this = this;
 
+      if (!this.props.artist) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "album-backgrounddd"
+        });
+      }
+
       if (this.props.artist === undefined) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "album-backgrounddd"

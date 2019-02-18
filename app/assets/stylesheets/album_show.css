@@ -1,3 +1,5 @@
+
+
 .album-show-page {
   display: flex;
   /* border: 1px solid blue; */
@@ -106,6 +108,7 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .flex-music-song:hover {
@@ -131,7 +134,7 @@
 .album-backgrounddd {
   height: 100vh;
   width: 100%;
-  /* background-image: linear-gradient(to bottom right, rgb(60, 60, 60), rgb(7, 7, 7)); */
+  background-image: linear-gradient(to bottom right, rgb(60, 60, 60), rgb(7, 7, 7));
 }
 
 .album-show-hamburger {
@@ -154,11 +157,12 @@
   background-color: rgb(60, 60, 60);
     width: 185px;
     height: 100px;
-    position: fixed;
+    position: absolute;
     visibility: hidden;
     height: 35px;
     margin-left: 525px;
     border: 1px solid white;
+  right: 80px;
 }
 
 .active-dropdown {
