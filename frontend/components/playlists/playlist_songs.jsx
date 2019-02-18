@@ -7,7 +7,7 @@ class PlaylistSong extends React.Component {
     super(props);
     this.state = {
       hamburgerClicked: false,
-      
+
     }
     this.flag = true;
     this.klass = "";
@@ -24,14 +24,14 @@ class PlaylistSong extends React.Component {
     }
     if (!box.contains(e.target)) {
       this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
-    } 
+    }
     document.removeEventListener("mousedown", this.handleMousedown);
   }
 
   handleDropdown() {
     if (this.flag) {
       this.setState({ hamburgerClicked: !this.state.hamburgerClicked }, () => {
-          document.addEventListener("mousedown", this.handleMousedown);
+        document.addEventListener("mousedown", this.handleMousedown);
       });
     }
     this.flag = true;
@@ -39,10 +39,10 @@ class PlaylistSong extends React.Component {
 
 
   render() {
-    
+
     const { song } = this.props;
     this.klass = this.state.hamburgerClicked ? "active-dropdownn" : "";
-    
+
 
     return (
       <div className="playlist-show-each-song" key={song.id}>
@@ -54,7 +54,7 @@ class PlaylistSong extends React.Component {
             <p
               onClick={() => {
                 this.props.fetchPlayingSong(song.id)
-              }}  
+              }}
               className="playlist-show-song-title">{song.title}</p>
             <div className="playlist-show-song-artist-album">
               <p className="playlist-show-song-artist">{song.artist}</p>
@@ -66,22 +66,24 @@ class PlaylistSong extends React.Component {
               {/* <p className="playlist-show-song-album">{song.album}</p> */}
             </div>
           </div>
-          
-          <i
-            onClick={this.handleDropdown}
-            id={`joeIsAwesome${this.props.song.id}`}
-            className="material-icons album-show-hamburger">view_headline</i>
-          
-          <div className={`drop-down-menuu ${this.klass}`}>
-            <ul className="drop-down-actionss">
-              <li
-                className={`delete-song-text${this.props.song.id}`}
-                onClick={() => this.props.deletePlaylistSong(this.props.playlistId, song.id)
-                  // .then(
-                  // fetchPlaylist(this.props.playlistId))
-                }>
-                Delete Song from Playlist</li>
-            </ul>
+
+          <div className="hamburger-menu">
+            <i
+              onClick={this.handleDropdown}
+              id={`joeIsAwesome${this.props.song.id}`}
+              className="material-icons album-show-hamburger">view_headline</i>
+
+            <div className={`drop-down-menuu ${this.klass}`}>
+              <ul className="drop-down-actionss">
+                <li
+                  className={`delete-song-text${this.props.song.id}`}
+                  onClick={() => this.props.deletePlaylistSong(this.props.playlistId, song.id)
+                    // .then(
+                    // fetchPlaylist(this.props.playlistId))
+                  }>
+                  Delete Song from Playlist</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

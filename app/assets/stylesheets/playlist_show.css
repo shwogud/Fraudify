@@ -98,6 +98,7 @@ padding-bottom: 25px;
   /* width: 100%; */
   margin-bottom: 25px;
   display: flex;
+  width: 100%;
 }
 
 
@@ -117,7 +118,7 @@ padding-bottom: 25px;
 .playlist-show-song-artist-album {
   display: flex;
   align-items: center;
-
+  
 }
 
 .playlist-show-song-artist {
@@ -151,7 +152,6 @@ padding-bottom: 25px;
 }
 
 
-
 .hamburger-icon-flex {
   width: 100%;
   display: flex;
@@ -159,27 +159,36 @@ padding-bottom: 25px;
   align-content: center;
 }
 
+.hamburger-menu{
+  position:relative;
+}
+
 .drop-down-menuu {
   margin: 0px;
   padding: 0px;
   /* background-color: rgb(41, 214, 18); */
-    width: 185px;
+    /* width: 100%; */
+    /* width: 185px; */
     height: 100px;
-    position: fixed;
+    /* position: fixed; */
     visibility: hidden;
     height: 35px;
-  margin-left: 400px;
+  /* margin-left: 400px; */
  
 }
 
 .active-dropdownn {
   visibility: visible;
-  /* width: 100px; */
-
+  /* width: 100%; */
+  /* width: 200px; */
 }
 
 .drop-down-actionss {
-  margin-right: 50px;
+  width: 200px;
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  /* margin-right: 50px; */
   cursor: pointer;
   /* background-color: rgb(143, 148, 143); */
   /* color: black; */

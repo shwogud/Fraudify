@@ -2893,7 +2893,9 @@ function (_React$Component) {
       }, "\xB7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "playlist-show-song-album",
         to: "/collection/albums/".concat(song.album_id)
-      }, song.album))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, song.album))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "hamburger-menu"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.handleDropdown,
         id: "joeIsAwesome".concat(this.props.song.id),
         className: "material-icons album-show-hamburger"
@@ -2908,7 +2910,7 @@ function (_React$Component) {
         } // .then(
         // fetchPlaylist(this.props.playlistId))
 
-      }, "Delete Song from Playlist")))));
+      }, "Delete Song from Playlist"))))));
     }
   }]);
 
