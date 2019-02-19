@@ -155,14 +155,15 @@
 
 .drop-down-menu {
   background-color: rgb(60, 60, 60);
-    width: 185px;
+    /* width: 185px; */
     height: 100px;
     position: absolute;
     visibility: hidden;
     height: 35px;
     margin-left: 525px;
     border: 1px solid white;
-  right: 80px;
+  right: 48px;
+  top: 25px;
 }
 
 .active-dropdown {
@@ -183,6 +184,10 @@
 
 .album-artist-linkk:hover {
   color: rgb(3, 193, 3);
+}
+
+.drop-down-actions {
+  /* width: 100px; */
 }
 
 .drop-down-actions li {

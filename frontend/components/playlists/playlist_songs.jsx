@@ -45,7 +45,7 @@ class PlaylistSong extends React.Component {
 
 
     return (
-      <div className="playlist-show-each-song" key={song.id}>
+      <div className="playlist-show-each-song">
         <div>
           <p className="playlist-music-note">♪</p>
         </div>
@@ -57,7 +57,11 @@ class PlaylistSong extends React.Component {
               }}
               className="playlist-show-song-title">{song.title}</p>
             <div className="playlist-show-song-artist-album">
-              <p className="playlist-show-song-artist">{song.artist}</p>
+              <Link
+                to={`/collection/artists/${song.artist_id}`}
+                className="playlist-show-song-album">
+                <p className="playlist-show-song-album">{song.artist}</p>
+              </Link>
               <p className="playlist-show-song-separator">·</p>
               <Link
                 className="playlist-show-song-album"

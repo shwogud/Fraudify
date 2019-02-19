@@ -198,7 +198,7 @@ input[id=password-login] {
   letter-spacing: 2px;
   cursor: pointer;
   margin-top: 25px;
-  margin-left: 100px;
+  margin-left: 53%;
   width: 95%;
   transition: all .5s ease-in-out;
   outline: none;

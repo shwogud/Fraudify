@@ -2653,10 +2653,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
+  var playlistId = ownProps.match.params.playlistId;
+  var playlist = state.entities.playlists[ownProps.match.params.playlistId];
+  var songs = Object.values(state.entities.songs).filter(function (song) {
+    return playlist.song_ids.includes(song.id);
+  });
   return {
-    playlist: state.entities.playlists[ownProps.match.params.playlistId],
+    playlist: playlist,
     currentUser: state.entities.users[state.session.id],
-    songs: Object.values(state.entities.songs)
+    songs: songs
   };
 };
 
@@ -2879,8 +2884,7 @@ function (_React$Component) {
       var song = this.props.song;
       this.klass = this.state.hamburgerClicked ? "active-dropdownn" : "";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "playlist-show-each-song",
-        key: song.id
+        className: "playlist-show-each-song"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "playlist-music-note"
       }, "\u266A")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2892,9 +2896,12 @@ function (_React$Component) {
         className: "playlist-show-song-title"
       }, song.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "playlist-show-song-artist-album"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/collection/artists/".concat(song.artist_id),
+        className: "playlist-show-song-album"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "playlist-show-song-artist"
-      }, song.artist), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "playlist-show-song-album"
+      }, song.artist)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "playlist-show-song-separator"
       }, "\xB7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "playlist-show-song-album",
@@ -5078,7 +5085,12 @@ var songsReducer = function songsReducer() {
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, newObj);
 
     case _actions_artist_actions__WEBPACK_IMPORTED_MODULE_4__["RECEIVE_ARTIST"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, action.artist.songs);
+      // return merge({}, state, action.artist.songs);
+      var songs = {};
+      action.artist.songs.forEach(function (song) {
+        songs[song.id] = song;
+      });
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, songs);
     // case RECEIVE_ALL_ARTISTS:
     //   return merge({}, state, action.artists.song_ids);
 

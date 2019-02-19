@@ -35,7 +35,12 @@ const songsReducer = (state = {}, action) => {
       return merge({}, newObj);
     
     case RECEIVE_ARTIST:
-      return merge({}, state, action.artist.songs);
+      // return merge({}, state, action.artist.songs);
+      let songs = {};
+      action.artist.songs.forEach( song => {
+        songs[song.id] = song
+      })
+      return merge({}, state, songs);
     
     // case RECEIVE_ALL_ARTISTS:
 

@@ -26,18 +26,20 @@
 }
 
 .album-image {
-  width: 250px;
-  height: 250px;
+  width: 275px;
+  height: 275px;
   margin-top: 75px;
   margin-left: 50px;
   margin-bottom: 10px;
   cursor: pointer;
   -webkit-transition: color .25s linear;
   transition: all .2s ease-in-out;
+  border: 1px solid transparent;
+
 }
 
 .album-image:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   border: 1px solid rgb(3, 203, 3);
 }
 

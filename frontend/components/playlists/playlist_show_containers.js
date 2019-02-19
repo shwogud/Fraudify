@@ -7,11 +7,14 @@ import { fetchPlayingSong } from '../../actions/current_song_actions';
 import { removePlaylistSong } from '../../actions/song_actions';
 
 const msp = (state, ownProps) => {
+  const playlistId = ownProps.match.params.playlistId;
+  const playlist = state.entities.playlists[ownProps.match.params.playlistId];
+  const songs = Object.values(state.entities.songs).filter( song => playlist.song_ids.includes(song.id))
   
   return {
-    playlist: state.entities.playlists[ownProps.match.params.playlistId],
+    playlist: playlist,
     currentUser: state.entities.users[state.session.id],
-    songs: Object.values(state.entities.songs)
+    songs: songs
   }
 }
 
