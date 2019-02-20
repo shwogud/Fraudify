@@ -3905,7 +3905,9 @@ function (_React$Component) {
         to: "/collection/playlists"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "home-all"
-      }, "\u2302", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sidebar-home-pic"
+      }, "\u2302"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "home-name"
       }, "Home")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "lib-pic-name"

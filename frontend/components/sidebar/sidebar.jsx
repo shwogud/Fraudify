@@ -37,9 +37,10 @@ class Sidebar extends React.Component {
           <div className="home-pic-name">
               <Link className="search-home-pic-link" to="/collection/playlists">
                 <div className="home-all">
-                  {/* <span className="home-pic">⌂</span> */}
-                  ⌂
-                  <span className="home-name">Home</span>
+
+                  <p className="sidebar-home-pic">⌂</p>
+
+                  <p className="home-name">Home</p>
 
                 </div>
               </Link>
