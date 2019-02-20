@@ -2,7 +2,7 @@
 footer {
   background-color: rgb(31, 31, 31);
   border-top: 1px solid rgb(206, 206, 206);
-  height: 100px;
+  height: 80px;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -11,14 +11,14 @@ footer {
 
 .music_bar {
   
-  height: 90px;
+  /* height: 80px; */
   position: fixed;
 }
 
 .music-bar-content {
   margin-left: 0px;
   width: 55%;
-  height: 100px;
+  height: 85px;
   display: flex;
   /* border: 2px solid blue; */
   justify-content: space-between;
