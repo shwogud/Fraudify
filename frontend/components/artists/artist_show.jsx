@@ -71,6 +71,13 @@ class ArtistShow extends React.Component {
                   this.props.fetchPlayingSong(song.id)
                 }}
                 className="song-title">{song.title}</li>
+
+              {/* <div>
+                <i
+                  // onClick={this.handleDropdown}
+                  // id={`joeIsAwesome${this.props.song.id}`}
+                  className="material-icons album-show-hamburger">view_headline</i>
+              </div> */}
             </ul>
           )
         })
@@ -91,6 +98,7 @@ class ArtistShow extends React.Component {
                   <li className="artist-artist-name">{this.props.artist.name}</li>
 
                 </div>
+                
               </div>
             </ul>
           )
