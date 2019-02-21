@@ -9,11 +9,11 @@ import { removePlaylistSong } from '../../actions/song_actions';
 const msp = (state, ownProps) => {
   const playlistId = ownProps.match.params.playlistId;
   const playlist = state.entities.playlists[ownProps.match.params.playlistId];
-  const songs = Object.values(state.entities.songs).filter( song => playlist.song_ids.includes(song.id))
+  const songs = playlist ? Object.values(state.entities.songs).filter( song => playlist.song_ids.includes(song.id)) : []
   
   return {
     playlist: playlist,
-    currentUser: state.entities.users[state.session.id],
+    currentUser: state. entities.users[state.session.id],
     songs: songs
   }
 }

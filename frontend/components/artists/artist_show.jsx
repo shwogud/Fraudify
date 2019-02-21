@@ -1,18 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBarContainer from '../../components/navbar/navbar_container';
+import ArtistSongContainer from '../artists/artist_songs_container'
 
 
 class ArtistShow extends React.Component {
   constructor(props) {
     super(props);
-    
+    this.state = {
+      hamburgerClicked: false
+    }
+    this.handleDropdown = this.handleDropdown.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchArtist(this.props.match.params.artistId);
     // this.props.fetchAllSongs();
     // this.props.fetchAllAlbums();
+  }
+
+  handleDropdown() {
+    this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
   }
 
   render() {
@@ -55,31 +63,7 @@ class ArtistShow extends React.Component {
         )
         
         let songs = this.props.artist.songs.map( song => {
-          
-          return (
-            <ul key={song.id} className="artist-middle">
-              <li className="artist-music-note">♪</li>
-              <li><img 
-                onClick={() => {
-                  this.props.fetchPlayingSong(song.id)
-                }}
-                src={this.props.artist.photo} 
-                className="artist-middle-pic"/></li>
-              
-              <li 
-                onClick={() => {
-                  this.props.fetchPlayingSong(song.id)
-                }}
-                className="song-title">{song.title}</li>
-
-              {/* <div>
-                <i
-                  // onClick={this.handleDropdown}
-                  // id={`joeIsAwesome${this.props.song.id}`}
-                  className="material-icons album-show-hamburger">view_headline</i>
-              </div> */}
-            </ul>
-          )
+          return <ArtistSongContainer key={song.id} song={song} artist={this.props.artist} />
         })
     
         let albums = this.props.artist.albums.map( album => {

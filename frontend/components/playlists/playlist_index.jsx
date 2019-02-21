@@ -22,7 +22,7 @@ class PlaylistIndex extends React.Component {
 
   render() {
     if (this.state.loading) {
-      <div class="loader"></div>
+      <div className="loader"></div>
     }
     
     let playlists;
