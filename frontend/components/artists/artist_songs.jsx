@@ -13,7 +13,7 @@ class ArtistSong extends React.Component {
 
   handleMousedown(e) {
 
-    var hamburger = document.querySelector(`#joeIsAwesome${this.props.song.id}`);
+    var hamburger = document.querySelector(`#hamburger-icon${this.props.song.id}`);
     var box = document.querySelector(`.add-song-text${this.props.song.id}`);
     
     if (hamburger && hamburger.contains(e.target)) {
@@ -63,7 +63,7 @@ class ArtistSong extends React.Component {
         <div style={{position:"relative"}}>
           <i
             onClick={this.handleDropdown}
-            id={`joeIsAwesome${song.id}`}
+            id={`hamburger-icon${song.id}`}
             className="material-icons album-show-hamburger artist-ham-pad">view_headline</i>
 
 

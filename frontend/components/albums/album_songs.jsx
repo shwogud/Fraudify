@@ -13,8 +13,7 @@ class AlbumSong extends React.Component {
     }
 
     handleMousedown(e) {
-        
-        var hamburger = document.querySelector(`#joeIsAwesome${this.props.song.id}`);
+        var hamburger = document.querySelector(`#hamburger-icon${this.props.song.id}`);
         var box = document.querySelector(`.add-song-text${this.props.song.id}`);
         if (hamburger && hamburger.contains(e.target)) {
             this.flag = false;
@@ -28,7 +27,6 @@ class AlbumSong extends React.Component {
 
 
     handleDropdown() {
-        // this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
         if (this.flag) {
             this.setState({ hamburgerClicked: !this.state.hamburgerClicked }, () => {
                 document.addEventListener("mousedown", this.handleMousedown);
@@ -59,7 +57,7 @@ class AlbumSong extends React.Component {
                     </div>
                     <i
                         onClick={this.handleDropdown}
-                        id={`joeIsAwesome${this.props.song.id}`}
+                        id={`hamburger-icon${this.props.song.id}`}
                         className="material-icons album-show-hamburger">view_headline</i>
 
                     <div className={`drop-down-menu ${klass}`}>

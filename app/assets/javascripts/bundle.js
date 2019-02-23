@@ -862,7 +862,7 @@ function (_React$Component) {
   _createClass(AlbumSong, [{
     key: "handleMousedown",
     value: function handleMousedown(e) {
-      var hamburger = document.querySelector("#joeIsAwesome".concat(this.props.song.id));
+      var hamburger = document.querySelector("#hamburger-icon".concat(this.props.song.id));
       var box = document.querySelector(".add-song-text".concat(this.props.song.id));
 
       if (hamburger && hamburger.contains(e.target)) {
@@ -882,7 +882,6 @@ function (_React$Component) {
     value: function handleDropdown() {
       var _this2 = this;
 
-      // this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
       if (this.flag) {
         this.setState({
           hamburgerClicked: !this.state.hamburgerClicked
@@ -916,7 +915,7 @@ function (_React$Component) {
         className: "album-song-title"
       }, song.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.handleDropdown,
-        id: "joeIsAwesome".concat(this.props.song.id),
+        id: "hamburger-icon".concat(this.props.song.id),
         className: "material-icons album-show-hamburger"
       }, "view_headline"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "drop-down-menu ".concat(klass)
@@ -1360,7 +1359,7 @@ function (_React$Component) {
   _createClass(ArtistSong, [{
     key: "handleMousedown",
     value: function handleMousedown(e) {
-      var hamburger = document.querySelector("#joeIsAwesome".concat(this.props.song.id));
+      var hamburger = document.querySelector("#hamburger-icon".concat(this.props.song.id));
       var box = document.querySelector(".add-song-text".concat(this.props.song.id));
 
       if (hamburger && hamburger.contains(e.target)) {
@@ -1422,7 +1421,7 @@ function (_React$Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.handleDropdown,
-        id: "joeIsAwesome".concat(song.id),
+        id: "hamburger-icon".concat(song.id),
         className: "material-icons album-show-hamburger artist-ham-pad"
       }, "view_headline"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "drop-down-menu ".concat(klass, " artist-box-position")
@@ -2938,7 +2937,7 @@ function (_React$Component) {
   _createClass(PlaylistSong, [{
     key: "handleMousedown",
     value: function handleMousedown(e) {
-      var hamburger = document.querySelector("#joeIsAwesome".concat(this.props.song.id));
+      var hamburger = document.querySelector("#hamburger-icon".concat(this.props.song.id));
       var box = document.querySelector(".delete-song-text".concat(this.props.song.id));
 
       if (hamburger && hamburger.contains(e.target)) {
@@ -3002,7 +3001,7 @@ function (_React$Component) {
         className: "hamburger-menu"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         onClick: this.handleDropdown,
-        id: "joeIsAwesome".concat(this.props.song.id),
+        id: "hamburger-icon".concat(this.props.song.id),
         className: "material-icons album-show-hamburger"
       }, "view_headline"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "drop-down-menuu ".concat(this.klass)

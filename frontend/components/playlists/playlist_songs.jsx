@@ -15,7 +15,7 @@ class PlaylistSong extends React.Component {
   }
 
   handleMousedown(e) {
-    var hamburger = document.querySelector(`#joeIsAwesome${this.props.song.id}`);
+    var hamburger = document.querySelector(`#hamburger-icon${this.props.song.id}`);
     var box = document.querySelector(`.delete-song-text${this.props.song.id}`);
     if (hamburger && hamburger.contains(e.target)) {
       this.flag = false;
@@ -71,7 +71,7 @@ class PlaylistSong extends React.Component {
           <div className="hamburger-menu">
             <i
               onClick={this.handleDropdown}
-              id={`joeIsAwesome${this.props.song.id}`}
+              id={`hamburger-icon${this.props.song.id}`}
               className="material-icons album-show-hamburger">view_headline</i>
 
             <div className={`drop-down-menuu ${this.klass}`}>
