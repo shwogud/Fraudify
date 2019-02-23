@@ -2502,8 +2502,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/route_util */ "./frontend/util/route_util.jsx");
-/* harmony import */ var _components_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
+/* harmony import */ var _components_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2523,8 +2522,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
- // import PlaylistShowContainer from './playlist_show_container';
-
 
 
 
@@ -2539,8 +2536,7 @@ function (_React$Component) {
     _classCallCheck(this, PlaylistIndex);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PlaylistIndex).call(this, props));
-    _this.currentUser = _this.props.currentUser; // this.state = this.props.currentUser;
-
+    _this.currentUser = _this.props.currentUser;
     _this.state = {
       loading: true
     };
@@ -2594,13 +2590,11 @@ function (_React$Component) {
             }, playlist.title)));
           }
         });
-      } else {
-        playlists = null;
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "playlist-page"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "all-playlist-boxes"
       }, playlists));
     }
@@ -3402,14 +3396,12 @@ function (_React$Component) {
     _classCallCheck(this, SearchAlbums);
 
     return _possibleConstructorReturn(this, _getPrototypeOf(SearchAlbums).call(this, props));
-  }
+  } // componentDidMount() {
+  //   this.props.fetchAlbums();
+  // }
+
 
   _createClass(SearchAlbums, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchAlbums();
-    }
-  }, {
     key: "render",
     value: function render() {
       var albums;
@@ -3496,14 +3488,13 @@ function (_React$Component) {
     _classCallCheck(this, SearchArtists);
 
     return _possibleConstructorReturn(this, _getPrototypeOf(SearchArtists).call(this, props));
-  }
+  } // componentDidMount() {
+  //   debugger
+  //   this.props.fetchArtists();
+  // }
+
 
   _createClass(SearchArtists, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchArtists();
-    }
-  }, {
     key: "render",
     value: function render() {
       var artists;
@@ -3635,14 +3626,12 @@ function (_React$Component) {
     _classCallCheck(this, SearchPlaylists);
 
     return _possibleConstructorReturn(this, _getPrototypeOf(SearchPlaylists).call(this, props));
-  }
+  } // componentDidMount() {
+  //   this.props.fetchPlaylists();
+  // }
+
 
   _createClass(SearchPlaylists, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchPlaylists();
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this = this;

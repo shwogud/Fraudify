@@ -7,9 +7,9 @@ class SearchAlbums extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchAlbums();
-  }
+  // componentDidMount() {
+  //   this.props.fetchAlbums();
+  // }
 
 
   render() {

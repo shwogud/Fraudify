@@ -15,6 +15,7 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
+    
     this.props.fetchPlaylists();
     this.props.fetchArtists();
     this.props.fetchAlbums();

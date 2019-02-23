@@ -7,9 +7,9 @@ class SearchPlaylists extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchPlaylists();
-  }
+  // componentDidMount() {
+  //   this.props.fetchPlaylists();
+  // }
 
   render() {
     let playlists;
