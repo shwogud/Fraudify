@@ -7,11 +7,6 @@ class SearchAlbums extends React.Component {
     super(props);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchAlbums();
-  // }
-
-
   render() {
     let albums;
     
@@ -31,7 +26,6 @@ class SearchAlbums extends React.Component {
                 <div>
                   <Link
                     className="search-type-labels"
-                    // key={album.artist_id} 
                     to={`/collection/artists/${album.artist_id}`}>
                     {album.artist}</Link>
                 </div>

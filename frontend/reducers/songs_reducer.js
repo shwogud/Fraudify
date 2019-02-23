@@ -4,7 +4,6 @@ import { RECEIVE_ALL_SONGS, RECEIVE_SONG,
         REMOVE_PLAYLIST_SONG 
         } from '../actions/song_actions';
 
-// import { REMOVE_PLAYLIST_SONG } from '../actions/playlist_song_actions'
 
 import { RECEIVE_PLAYLIST } from '../actions/playlist_actions';
 import { RECEIVE_ALBUM } from '../actions/album_actions';
@@ -17,13 +16,9 @@ const songsReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
 
-    // case RECEIVE_ALL_SONGS:
-    //   return merge({}, action.songs);
-
     case RECEIVE_SONG:
       return merge({}, { [action.song.id]: action.song });
 
-    //When I go to playlist page, only puts those playlist songs up
     case RECEIVE_PLAYLIST:
       return merge({}, action.data.songs);
     
@@ -35,18 +30,11 @@ const songsReducer = (state = {}, action) => {
       return merge({}, newObj);
     
     case RECEIVE_ARTIST:
-      // return merge({}, state, action.artist.songs);
       let songs = {};
       action.artist.songs.forEach( song => {
         songs[song.id] = song
       })
       return merge({}, state, songs);
-    
-    // case RECEIVE_ALL_ARTISTS:
-
-    //   return merge({}, state, action.artists.song_ids);
-
-
       
     case RECEIVE_PLAYLIST_SONG:
       

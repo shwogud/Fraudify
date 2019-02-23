@@ -12,7 +12,7 @@ const msp = state => {
     playlists: Object.values(state.entities.playlists),
     artists: Object.values(state.entities.artists),
     albums: Object.values(state.entities.albums),
-    // songs: Object.values(state.entities.songs)
+
   }
 }
 const mdp = dispatch => {
@@ -20,7 +20,7 @@ const mdp = dispatch => {
     fetchPlaylists: () => dispatch(requestAllPlaylists()),
     fetchArtists: () => dispatch(requestAllArtists()),
     fetchAlbums: () => dispatch(requestAllAlbums()),
-    // fetchSongs: () => dispatch(requestAllSongs())
+
   }
 }
 

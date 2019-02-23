@@ -28,7 +28,6 @@ class ArtistSong extends React.Component {
 
 
   handleDropdown() {
-    // this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
     if (this.flag) {
       this.setState({ hamburgerClicked: !this.state.hamburgerClicked }, () => {
         document.addEventListener("mousedown", this.handleMousedown);

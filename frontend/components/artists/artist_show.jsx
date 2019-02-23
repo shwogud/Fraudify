@@ -15,8 +15,6 @@ class ArtistShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchArtist(this.props.match.params.artistId);
-    // this.props.fetchAllSongs();
-    // this.props.fetchAllAlbums();
   }
 
   handleDropdown() {
@@ -49,7 +47,6 @@ class ArtistShow extends React.Component {
     else {
        let artistInfo = (
         <div className="artist-top" style={artistImg}>
-           {/* <img className="artist-top-pic" src={this.props.artist.photo} /> */}
           <p className="artist-name">{this.props.artist.name}</p>
           <div className="flex-play-button">
             <button
@@ -72,7 +69,6 @@ class ArtistShow extends React.Component {
               <div className="each-album">
                 <div>
                   <li><img src={this.props.artist.photo} className="artist-bottom-pic"/></li>
-                  {/* <li className="album-title">{album.title}</li> */}
                   <Link
                     className="album-title"
                     key={album.id} 

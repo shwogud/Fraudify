@@ -7,11 +7,6 @@ class SearchArtists extends React.Component {
     super(props);
   }
 
-  // componentDidMount() {
-  //   debugger
-  //   this.props.fetchArtists();
-  // }
-
   render() {
     let artists;
 

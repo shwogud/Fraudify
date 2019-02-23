@@ -2,8 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {addPlaylistSong} from '../../actions/song_actions';
 import {closeModal} from '../../actions/modal_actions';
-// import AddPlaylistSong from './add_playlist_song';
-// import { requestAllPlaylists } from '../../actions/playlist_actions';
 
 class AddSongToPlaylistModal extends React.Component {
   constructor(props) {
@@ -44,7 +42,6 @@ const mdp = dispatch => {
   return {
     addPlaylistSong: (playlistId, songId) => dispatch(addPlaylistSong(playlistId, songId)),
     closeModal: () => dispatch(closeModal()),
-    // fetchPlaylists: () => dispatch(requestAllPlaylists()),
   }
 }
 

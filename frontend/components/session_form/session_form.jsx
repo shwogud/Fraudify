@@ -126,7 +126,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br />
-            {/* {signupInfo} */}
+
             <label>
               <input required
                 id={`password-${this.props.inputType}`}

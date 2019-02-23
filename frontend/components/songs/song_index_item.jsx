@@ -30,7 +30,6 @@ class SongIndexItem extends React.Component {
               key={this.props.song.artist.id}
               to={`/collection/artists/${this.props.song.artist_id}`}>
               {this.props.song.artist.name}</Link>
-              {/* <p>HELLOOOOOOOOOO</p> */}
           </li>
           <li className='song-separator'>·</li>
           <li className="song-album">
@@ -41,11 +40,6 @@ class SongIndexItem extends React.Component {
               {this.props.song.albumTitle}</Link>
           </li>
         </div>
-        
-
-
-        {/* <li>{this.props.song.artist.name}</li>
-        <li>{this.props.song.albumTitle}</li> */}
       </ul>
     )
 

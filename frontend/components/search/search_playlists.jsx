@@ -7,10 +7,6 @@ class SearchPlaylists extends React.Component {
     super(props);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchPlaylists();
-  // }
-
   render() {
     let playlists;
 
@@ -26,12 +22,11 @@ class SearchPlaylists extends React.Component {
               <Link to={`/collection/playlists/${playlist.id}`}>
                 <img className="search-images-rect" src={playlist.photo} />
               </Link>
-              {/* <img className="playlist-index-images" src={playlist.photo} /> */}
+
               <Link
                 className="playlist-title-link"
                 to={`/collection/playlists/${playlist.id}`}>
                 <p className="search-type-labels">{playlist.title}</p></Link>
-              {/* <p className="playlist-username">{playlist.username}</p> */}
 
             </li>
           )

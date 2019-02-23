@@ -15,7 +15,7 @@ class Sidebar extends React.Component {
               <i className="fab fa-spotify"></i>
             
             </Link>
-            {/* <p className="sidebar-name">Fraudify</p> */}
+
             <Link
               className="sidebar-name"
               to={`/collection/playlists`}>
@@ -29,9 +29,7 @@ class Sidebar extends React.Component {
                 <span className="search-linkk">Search</span>
               </div>
             </Link>
-            {/* <Link className="search-linkk" to="/search">
-              <p className="search-color">Search</p>
-            </Link> */}
+
           </div>
 
           <div className="home-pic-name">
@@ -43,22 +41,7 @@ class Sidebar extends React.Component {
                   <p className="home-name">Home</p>
 
                 </div>
-              </Link>
-            
-            {/* <Link
-              className="home-name"
-              to="/collection/playlists">
-              Home</Link> */}
-            {/* <p className="home-name">Home</p> */}
-          </div>
-          
-          <div className="lib-pic-name">
-              {/* <p className="lib-pic">&#128214;</p>
-              <Link
-                className="lib-name"
-                to="/collection/playlists">
-                Your Library</Link> */}
-            {/* <p className="lib-name">Your Library</p> */}
+              </Link>     
           </div>
 
 

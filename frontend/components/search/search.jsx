@@ -19,7 +19,7 @@ class Search extends React.Component {
     this.props.fetchPlaylists();
     this.props.fetchArtists();
     this.props.fetchAlbums();
-    // this.props.fetchSongs();
+
   }
 
   handleInput(e) {

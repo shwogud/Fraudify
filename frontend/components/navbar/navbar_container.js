@@ -20,6 +20,3 @@ const mdp = dispatch => {
 
 
 export default withRouter(connect(msp, mdp)(Navbar));
-
-
-// 6768347a

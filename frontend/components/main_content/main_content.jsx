@@ -34,10 +34,7 @@ class MainContent extends React.Component {
             <PlaylistIndexContainer />
             <ArtistsIndexContainer />
             <AlbumsIndexContainer />
-
-            {/* <SongsIndexContainer /> */}
-
-            {/* <button onClick={this.handleLogout}>Log Out</button> */}
+            
           </div>
 
         </div>

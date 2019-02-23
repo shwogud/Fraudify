@@ -30,7 +30,6 @@ class AddPlaylistSong extends React.Component {
       user_playlists = this.props.playlists.map( (playlist, index) => {
         
         if (playlist.user_id === this.props.currentUser.id) {
-          //I think I need to somehow pass in the songId here...
           
           return (
             <AddSongToPlaylistModal
@@ -63,7 +62,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     modal: state.ui.modal,
     playlists: Object.values(state.entities.playlists),
-    // playlists: Object.values(state.entities.albums)[0].playlists,
     currentUser: state.entities.users[state.session.id],
     chosenSong: state.ui.optional_props.chosenSong,
   };

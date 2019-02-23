@@ -55,9 +55,7 @@ class Navbar extends React.Component {
         </ul>
 
         <div>
-          {/* <button onClick={this.props.openModal} className="new-playlist-button">NEW PLAYLIST</button> */}
-          {/* <h1>{this.props.currentUser.username}</h1> */}
-          {/* <button onClick={this.props.logout}>Log Out</button> */}
+          
         </div>
       </div>
     );
