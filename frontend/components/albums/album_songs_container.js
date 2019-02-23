@@ -14,8 +14,3 @@ const mdp = (dispatch) => {
 };
 
 export default connect(null, mdp)(AlbumSongs);
-
-
-// const mapDispatchToProps = (dispatch) => ({
-//   openModal: (modal, optional_props) =>dispatch(openModal(modal, optionalProps))
-// });

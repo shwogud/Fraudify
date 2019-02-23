@@ -1,5 +1,4 @@
 import React from 'react';
-// import AudioPlayerContainer
 import AlbumSongContainer from './album_songs_container';
 import NavBarContainer from '../../components/navbar/navbar_container';
 import { Link } from 'react-router-dom';
@@ -60,9 +59,6 @@ class AlbumShow extends React.Component {
       </div>
     )
 
-    // let albumInfo = (
-    //   <AlbumInfo />
-    // )
     
     const songs = this.props.album.songs.map( song => {
       return <AlbumSongContainer key={song.id} song={song} />

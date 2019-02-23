@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { fetchPlaylist } from '../../util/playlist_api_util';
 
 class PlaylistSong extends React.Component {
   constructor(props) {
@@ -43,7 +42,6 @@ class PlaylistSong extends React.Component {
     const { song } = this.props;
     this.klass = this.state.hamburgerClicked ? "active-dropdownn" : "";
 
-
     return (
       <div className="playlist-show-each-song">
         <div>
@@ -67,7 +65,6 @@ class PlaylistSong extends React.Component {
                 className="playlist-show-song-album"
                 to={`/collection/albums/${song.album_id}`}
               >{song.album}</Link>
-              {/* <p className="playlist-show-song-album">{song.album}</p> */}
             </div>
           </div>
 
@@ -82,8 +79,6 @@ class PlaylistSong extends React.Component {
                 <li
                   className={`delete-song-text${this.props.song.id}`}
                   onClick={() => this.props.deletePlaylistSong(this.props.playlistId, song.id)
-                    // .then(
-                    // fetchPlaylist(this.props.playlistId))
                   }>
                   Delete Song from Playlist</li>
               </ul>
@@ -93,16 +88,6 @@ class PlaylistSong extends React.Component {
       </div>
     )
   }
-
-
 }
 
 export default PlaylistSong;
-
-
-// handleSubmit(e) {
-//   e.preventDefault();
-//   const playlist = Object.assign({}, this.playlist);
-//   this.props.deletePlaylist(playlist)
-//     .then(() => this.props.history.push("/collection/playlists"));
-// }

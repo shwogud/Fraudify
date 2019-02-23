@@ -7,23 +7,17 @@ class AlbumsIndex extends React.Component {
     super(props);
     this.albums = this.props.albums;
     this.currentUser = this.props.currentUser;
-    
   }
 
   componentDidMount() {
     this.props.fetchAllAlbums();
   }
 
-
-
   render() {
-     
     const albums =  this.props.albums.map( (album, idx) => {
-      // let artist = this.props.fetchArtist(this.props.albums.artist_id);
       
       return (
         <li className="album-covers" key={idx}>
-          {/* <div className="album-box-all"> */}
             <Link to={`/collection/albums/${album.id}`}>
               <img className="album-image" src={album.photo} />
             </Link>
@@ -37,13 +31,10 @@ class AlbumsIndex extends React.Component {
               <div>
                 <Link
                   className="album-artist-link"
-                  // key={album.artist_id} 
                   to={`/collection/artists/${album.artist_id}`}>
                   {album.artist}</Link>
               </div>
             </div>
-
-          {/* </div> */}
         </li>
       )
     })

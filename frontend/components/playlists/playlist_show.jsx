@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import PlaylistShowSongInfo from './playlist_show_song_info';
-// import { deletePlaylist } from '../../actions/playlist_actions';
 import PlaylistSongContainer from './playlist_song_container';
 import NavBarContainer from '../../components/navbar/navbar_container';
 
@@ -10,16 +7,13 @@ class PlaylistShow extends React.Component {
     super(props);
     this.playlist = this.props.playlist;
     this.state = {
-      hamburgerClicked: false,
       loading: true
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleDropdown = this.handleDropdown.bind(this);
   }
   
   componentDidMount() {
     this.props.fetchPlaylist(this.props.match.params.playlistId);
-    // this.props.fetchAllSongs();
   }
 
   handleSubmit(e) {
@@ -29,16 +23,7 @@ class PlaylistShow extends React.Component {
       .then(() => this.props.history.push("/collection/playlists"));
   }
 
-  // handleDropdown() {
-  //   this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
-  // }
-
   playlistSongs() {
-    // if (!this.props.songs) {
-    //   return (
-    //     <div className="album-backgrounddd"></div>
-    //   )
-    // }
     
     if (this.props.songs.length < 1 || !this.props.playlist.song_ids) { return null; }
 
@@ -53,7 +38,6 @@ class PlaylistShow extends React.Component {
   render() {
     
     if (this.state.loading) {
-
       <div className="loader"></div>
     }
 
