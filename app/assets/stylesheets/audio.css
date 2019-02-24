@@ -6,6 +6,13 @@
 
 }
 
+.music-bar-toggle-buttons {
+  display: flex;
+  margin-left: 50%;
+  /* width: 50px; */
+  margin-bottom: 10px;
+}
+
 .music-progress-bar {
   width: 650px;
   position: absolute;
@@ -62,15 +69,17 @@
 
 .toggle-button {
   font-size: 25px;
-  margin-left: 50%;
+  /* margin-left: 50%; */
   color: white;
   cursor: pointer;
   transition: color .2s;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .toggle-button:hover {
   font-size: 25px;
-  margin-left: 50%;
+  /* margin-left: 50%; */
   color: rgb(22, 246, 2);
   cursor: pointer;
 

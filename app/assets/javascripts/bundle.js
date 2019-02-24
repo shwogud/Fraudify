@@ -189,23 +189,43 @@ var requestArtist = function requestArtist(id) {
 /*!**************************************************!*\
   !*** ./frontend/actions/current_song_actions.js ***!
   \**************************************************/
-/*! exports provided: RECEIVE_PLAYING_SONG, TOGGLE_PLAY, receivePlayingSong, toggleSong, fetchPlayingSong */
+/*! exports provided: RECEIVE_PLAYING_SONG, TOGGLE_PLAY, PREV_PLAYING_SONG, NEXT_PLAYING_SONG, receivePlayingSong, prevPlayingSong, nextPlayingSong, toggleSong, fetchPlayingSong, fetchPreviousSong, fetchNextSong */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_PLAYING_SONG", function() { return RECEIVE_PLAYING_SONG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOGGLE_PLAY", function() { return TOGGLE_PLAY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PREV_PLAYING_SONG", function() { return PREV_PLAYING_SONG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NEXT_PLAYING_SONG", function() { return NEXT_PLAYING_SONG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePlayingSong", function() { return receivePlayingSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prevPlayingSong", function() { return prevPlayingSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nextPlayingSong", function() { return nextPlayingSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleSong", function() { return toggleSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPlayingSong", function() { return fetchPlayingSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPreviousSong", function() { return fetchPreviousSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchNextSong", function() { return fetchNextSong; });
 /* harmony import */ var _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/song_api_util */ "./frontend/util/song_api_util.js");
 
 var RECEIVE_PLAYING_SONG = "RECEIVE_PLAYING_SONG";
 var TOGGLE_PLAY = "TOGGLE_PLAY";
+var PREV_PLAYING_SONG = "PREV_PLAYING_SONG";
+var NEXT_PLAYING_SONG = "NEXT_PLAYING_SONG";
 var receivePlayingSong = function receivePlayingSong(song) {
   return {
     type: RECEIVE_PLAYING_SONG,
+    song: song
+  };
+};
+var prevPlayingSong = function prevPlayingSong(song) {
+  return {
+    type: PREV_PLAYING_SONG,
+    song: song
+  };
+};
+var nextPlayingSong = function nextPlayingSong(song) {
+  return {
+    type: NEXT_PLAYING_SONG,
     song: song
   };
 };
@@ -218,6 +238,20 @@ var fetchPlayingSong = function fetchPlayingSong(id) {
   return function (dispatch) {
     return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCompleteSong"](id).then(function (song) {
       dispatch(receivePlayingSong(song));
+    });
+  };
+};
+var fetchPreviousSong = function fetchPreviousSong(id) {
+  return function (dispatch) {
+    return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCompleteSong"](id).then(function (song) {
+      dispatch(prevPlayingSong(song));
+    });
+  };
+};
+var fetchNextSong = function fetchNextSong(id) {
+  return function (dispatch) {
+    return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCompleteSong"](id).then(function (song) {
+      dispatch(nextPlayingSong(song));
     });
   };
 };
@@ -1709,6 +1743,8 @@ function (_React$Component) {
     };
     _this.handleMusicBarUpdate = _this.handleMusicBarUpdate.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.setTime = _this.setTime.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.nextSong = _this.nextSong.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.prevSong = _this.prevSong.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -1763,29 +1799,71 @@ function (_React$Component) {
       return finalMinutes + finalSeconds;
     }
   }, {
+    key: "nextSong",
+    value: function nextSong() {
+      var _this$props = this.props,
+          songs = _this$props.songs,
+          currentSong = _this$props.currentSong,
+          fetchSong = _this$props.fetchSong,
+          currentPosition = _this$props.currentPosition,
+          queue = _this$props.queue,
+          fetchNextSong = _this$props.fetchNextSong;
+
+      if (currentPosition === queue.length - 1) {
+        for (var i = 0; i < songs.length; i++) {
+          if (songs[i].id === currentSong.id) {
+            var NextSongId = i === songs.length - 1 ? songs[0].id : songs[i + 1].id;
+            fetchSong(NextSongId);
+            break;
+          }
+        }
+      } else {
+        fetchNextSong(queue[currentPosition + 1]);
+      }
+    }
+  }, {
+    key: "prevSong",
+    value: function prevSong() {
+      var _this$props2 = this.props,
+          queue = _this$props2.queue,
+          currentPosition = _this$props2.currentPosition,
+          fetchPreviousSong = _this$props2.fetchPreviousSong;
+
+      if (!currentPosition || this.audioRef.current.currentTime > 1) {
+        this.audioRef.current.currentTime = 0;
+        this.setState({
+          currentTime: 0
+        });
+      } else {
+        fetchPreviousSong(queue[currentPosition - 1]);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       var currentSong = this.props.currentSong;
       var length = currentSong.length;
       var currentTime = this.state.currentTime;
       var togglePlay = currentSong.isPlaying ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-pause-circle toggle-button",
-        onClick: function onClick() {
-          return _this2.props.toggleSong();
-        }
+        onClick: this.props.toggleSong
       }) : // pause button
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-play-circle toggle-button",
-        onClick: function onClick() {
-          return _this2.props.toggleSong();
-        }
+        onClick: this.props.toggleSong
       }); //play button
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "music-barrrr"
-      }, togglePlay, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "music-bar-toggle-buttons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-step-backward toggle-button",
+        onClick: this.prevSong
+      }), togglePlay, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-step-forward toggle-button",
+        onClick: this.nextSong
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "music-time"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "music-bar-time-left"
@@ -1814,7 +1892,8 @@ function (_React$Component) {
         className: "music-bar-time-right"
       }, this.formatTime(length))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
         src: this.props.source,
-        ref: this.audioRef
+        ref: this.audioRef,
+        onEnded: this.nextSong
       }));
     }
   }]);
@@ -1842,17 +1921,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var msp = function msp(state) {
   return {
-    currentSong: state.ui.currentSong
+    currentSong: state.ui.currentSong.song,
+    currentPosition: state.ui.currentSong.currentPosition,
+    queue: state.ui.currentSong.queue,
+    songs: Object.values(state.entities.songs)
   };
 };
 
 var mdp = function mdp(dispatch) {
   return {
-    //toggleSong() --> TOGGLE_PLAY --> toggles state in reducer
     toggleSong: function toggleSong() {
       return dispatch(Object(_actions_current_song_actions__WEBPACK_IMPORTED_MODULE_2__["toggleSong"])());
+    },
+    fetchSong: function fetchSong(id) {
+      return dispatch(Object(_actions_current_song_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPlayingSong"])(id));
+    },
+    fetchPreviousSong: function fetchPreviousSong(id) {
+      return dispatch(Object(_actions_current_song_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPreviousSong"])(id));
+    },
+    fetchNextSong: function fetchNextSong(id) {
+      return dispatch(Object(_actions_current_song_actions__WEBPACK_IMPORTED_MODULE_2__["fetchNextSong"])(id));
     }
   };
 };
@@ -1960,7 +2051,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state) {
   return {
-    currentSong: state.ui.currentSong
+    currentSong: state.ui.currentSong.song
   };
 };
 
@@ -4351,30 +4442,47 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var defaultState = {
+  song: null,
+  queue: [],
+  currentPosition: null
+};
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(null);
+  Object.freeze(state);
   var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])({}, state);
 
   switch (action.type) {
     case _actions_current_song_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_PLAYING_SONG"]:
       action.song.isPlaying = true;
-      return action.song;
-    // case NEXT_SONG:
-    //   action.song.isPlaying = state.isPlaying;
-    //   return action.song;
+      newState.song = action.song;
+      newState.queue.push(action.song.id);
+      newState.currentPosition = newState.queue.length - 1;
+      return newState;
+
+    case _actions_current_song_actions__WEBPACK_IMPORTED_MODULE_0__["PREV_PLAYING_SONG"]:
+      action.song.isPlaying = newState.song.isPlaying;
+      newState.song = action.song;
+      newState.currentPosition = newState.currentPosition - 1;
+      return newState;
+
+    case _actions_current_song_actions__WEBPACK_IMPORTED_MODULE_0__["NEXT_PLAYING_SONG"]:
+      action.song.isPlaying = newState.song.isPlaying;
+      newState.song = action.song;
+      newState.currentPosition = newState.currentPosition + 1;
+      return newState;
 
     case _actions_current_song_actions__WEBPACK_IMPORTED_MODULE_0__["TOGGLE_PLAY"]:
-      if (newState.isPlaying) newState.isPlaying = false;else newState.isPlaying = true;
+      if (newState.song.isPlaying) newState.song.isPlaying = false;else newState.song.isPlaying = true;
       return newState;
 
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_PLAYLIST_SONG"]:
-      if (action.songId === newState.id) return null;
+      if (action.songId === newState.song.id) return null;
       return newState;
 
     default:
-      return state;
+      return newState;
   }
 });
 

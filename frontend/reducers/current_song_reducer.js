@@ -1,33 +1,51 @@
 import {
   RECEIVE_PLAYING_SONG,
   TOGGLE_PLAY,
-  // NEXT_SONG
+  PREV_PLAYING_SONG,
+  NEXT_PLAYING_SONG,
 } from '../actions/current_song_actions'
 import { REMOVE_PLAYLIST_SONG } from '../actions/song_actions';
 import { merge } from 'lodash';
 
-export default (state = null, action) => {
-  Object.freeze(null);
+const defaultState = {
+  song: null,
+  queue: [],
+  currentPosition: null,
+}
+
+export default (state = defaultState, action) => {
+  Object.freeze(state);
   let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_PLAYING_SONG:
       action.song.isPlaying = true;
-      return action.song;
+      newState.song = action.song;
+      newState.queue.push(action.song.id);
+      newState.currentPosition = newState.queue.length - 1;
+      return newState;
 
-    // case NEXT_SONG:
-    //   action.song.isPlaying = state.isPlaying;
-    //   return action.song;
+    case PREV_PLAYING_SONG:
+      action.song.isPlaying = newState.song.isPlaying;
+      newState.song = action.song;
+      newState.currentPosition = newState.currentPosition - 1;
+      return newState;
+
+    case NEXT_PLAYING_SONG:
+      action.song.isPlaying = newState.song.isPlaying;
+      newState.song = action.song;
+      newState.currentPosition = newState.currentPosition+1;
+      return newState;
 
     case TOGGLE_PLAY:
-      if (newState.isPlaying) newState.isPlaying = false;
-      else newState.isPlaying = true;
+      if (newState.song.isPlaying) newState.song.isPlaying = false;
+      else newState.song.isPlaying = true;
       return newState;
 
     case REMOVE_PLAYLIST_SONG:
-      if (action.songId === newState.id) return null;
+      if (action.songId === newState.song.id) return null;
       return newState;
       
     default:
-      return state;
+      return newState;
   }
 };

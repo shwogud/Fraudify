@@ -4,7 +4,7 @@ import { receivePlayingSong, toggleSong } from '../../actions/current_song_actio
 
 const msp = (state) => {
   return {
-    currentSong: state.ui.currentSong,
+    currentSong: state.ui.currentSong.song,
   };
 };
 

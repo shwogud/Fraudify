@@ -26,10 +26,11 @@ const receivePlaylistSong = song => {
   };
 };
 
-const deletePlaylistSong = data => ({
+const deletePlaylistSong = data => {
+  return {
   type: REMOVE_PLAYLIST_SONG,
   data
-});
+}};
 
 
 
