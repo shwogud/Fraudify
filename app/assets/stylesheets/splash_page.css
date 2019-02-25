@@ -117,6 +117,7 @@
   border: none;
   transition: background-color 0.3s ease;
   transition: all .5s ease-in-out;
+  outline: none;
 }
 
 .splash-button:hover {
