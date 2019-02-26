@@ -26,10 +26,10 @@ const receivePlaylistSong = song => {
   };
 };
 
-const deletePlaylistSong = data => {
+const deletePlaylistSong = songId => {
   return {
   type: REMOVE_PLAYLIST_SONG,
-  data
+  songId
 }};
 
 
@@ -43,12 +43,6 @@ export const requestAllSongs = () => dispatch => {
 export const requestSong = (id) => dispatch => {
   return APIUtil.fetchSong(id).then(song => dispatch(receiveSong(song)))
 }
-
-
-//this is updating the database, and request_playlist (from playlist actions)
-//is fetching entire playlist from database.
-//I should really just be adding a song using receivePlaylistSong
-//Next Step: add RECEIVE_PLAYLIST_SONG to songs_reducer? 
 
 export const addPlaylistSong = (playlistId, songId) => {
   return dispatch => {
@@ -65,7 +59,7 @@ export const removePlaylistSong = (playlistId, songId) => {
   return dispatch => {
     
     return APIUtil.removePlaylistSong(playlistId, songId).then(payload => {
-      return dispatch(deletePlaylistSong(payload));
+      return dispatch(deletePlaylistSong(songId));
     });
   };
 };

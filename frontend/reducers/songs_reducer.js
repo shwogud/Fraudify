@@ -13,7 +13,7 @@ import { RECEIVE_ARTIST } from '../actions/artist_actions';
 const songsReducer = (state = {}, action) => {
 
   Object.freeze(state);
-  let newState;
+  let newState = merge({}, state);
   switch (action.type) {
 
     case RECEIVE_SONG:
@@ -42,8 +42,8 @@ const songsReducer = (state = {}, action) => {
       return newState;
 
     case REMOVE_PLAYLIST_SONG:
-    //destroyed the song already in my backend
-      return merge({}, action.data.songs);
+      delete newState[action.songId];
+      return newState;
 
     default:
       return state;

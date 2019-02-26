@@ -33,7 +33,7 @@ export default (state = defaultState, action) => {
     case NEXT_PLAYING_SONG:
       action.song.isPlaying = newState.song.isPlaying;
       newState.song = action.song;
-      newState.currentPosition = newState.currentPosition+1;
+      newState.currentPosition = newState.currentPosition + 1;
       return newState;
 
     case TOGGLE_PLAY:
@@ -42,7 +42,7 @@ export default (state = defaultState, action) => {
       return newState;
 
     case REMOVE_PLAYLIST_SONG:
-      if (action.songId === newState.song.id) return null;
+      if (newState.song && action.songId === newState.song.id) newState.song = null;
       return newState;
       
     default:

@@ -494,10 +494,10 @@ var receivePlaylistSong = function receivePlaylistSong(song) {
   };
 };
 
-var deletePlaylistSong = function deletePlaylistSong(data) {
+var deletePlaylistSong = function deletePlaylistSong(songId) {
   return {
     type: REMOVE_PLAYLIST_SONG,
-    data: data
+    songId: songId
   };
 }; //Thunk actionssssss
 
@@ -515,11 +515,7 @@ var requestSong = function requestSong(id) {
       return dispatch(receiveSong(song));
     });
   };
-}; //this is updating the database, and request_playlist (from playlist actions)
-//is fetching entire playlist from database.
-//I should really just be adding a song using receivePlaylistSong
-//Next Step: add RECEIVE_PLAYLIST_SONG to songs_reducer? 
-
+};
 var addPlaylistSong = function addPlaylistSong(playlistId, songId) {
   return function (dispatch) {
     return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["addPlaylistSong"](playlistId, songId).then(function (payload) {
@@ -531,7 +527,7 @@ var addPlaylistSong = function addPlaylistSong(playlistId, songId) {
 var removePlaylistSong = function removePlaylistSong(playlistId, songId) {
   return function (dispatch) {
     return _util_song_api_util__WEBPACK_IMPORTED_MODULE_0__["removePlaylistSong"](playlistId, songId).then(function (payload) {
-      return dispatch(deletePlaylistSong(payload));
+      return dispatch(deletePlaylistSong(songId));
     });
   };
 };
@@ -897,7 +893,9 @@ function (_React$Component) {
   return AlbumSong;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (AlbumSong);
+/* harmony default export */ __webpack_exports__["default"] = (AlbumSong); // for (let i = 0; i < document.getElementsByClassName("drop-down-menu").length; i++) {
+//     document.getElementsByClassName("drop-down-menu")[i].classList.remove("active-dropdown");
+// }
 
 /***/ }),
 
@@ -4478,7 +4476,7 @@ var defaultState = {
       return newState;
 
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_PLAYLIST_SONG"]:
-      if (action.songId === newState.song.id) return null;
+      if (newState.song && action.songId === newState.song.id) newState.song = null;
       return newState;
 
     default:
@@ -4776,7 +4774,7 @@ var songsReducer = function songsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
-  var newState;
+  var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state);
 
   switch (action.type) {
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SONG"]:
@@ -4806,8 +4804,8 @@ var songsReducer = function songsReducer() {
       return newState;
 
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_PLAYLIST_SONG"]:
-      //destroyed the song already in my backend
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, action.data.songs);
+      delete newState[action.songId];
+      return newState;
 
     default:
       return state;

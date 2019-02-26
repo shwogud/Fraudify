@@ -88,3 +88,9 @@ class AlbumSong extends React.Component {
 }
 
 export default AlbumSong;
+
+// for (let i = 0; i < document.getElementsByClassName("drop-down-menu").length; i++) {
+
+//     document.getElementsByClassName("drop-down-menu")[i].classList.remove("active-dropdown");
+
+// }

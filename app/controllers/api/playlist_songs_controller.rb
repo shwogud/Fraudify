@@ -23,10 +23,9 @@ class Api::PlaylistSongsController < ApplicationController
       playlist_id: params[:playlist_song][:playlist_id],
       song_id: params[:playlist_song][:song_id],
     )
-    @playlist = Playlist.find(params[:playlist_song][:playlist_id]);
+    # @playlist = Playlist.find(params[:playlist_song][:playlist_id]);
     if @playlist_song
       @playlist_song.destroy 
-      render "api/playlists/show"
     else
       render @playlist_song.errors.full_messages;
     end
