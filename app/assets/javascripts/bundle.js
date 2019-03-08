@@ -326,10 +326,10 @@ var receivePlaylist = function receivePlaylist(data) {
     data: data
   };
 };
-var removePlaylist = function removePlaylist(playlist) {
+var removePlaylist = function removePlaylist(playlistId) {
   return {
     type: REMOVE_PLAYLIST,
-    playlistId: playlist.id
+    playlistId: playlistId
   };
 }; //Thunk actionssssss
 
@@ -363,10 +363,10 @@ var createPlaylist = function createPlaylist(playlist, user_id) {
 //   }
 // }
 
-var deletePlaylist = function deletePlaylist(playlist) {
+var deletePlaylist = function deletePlaylist(id) {
   return function (dispatch) {
-    return _util_playlist_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyPlaylist"](playlist).then(function () {
-      return dispatch(removePlaylist(playlist));
+    return _util_playlist_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyPlaylist"](id).then(function () {
+      return dispatch(removePlaylist(id));
     });
   };
 };
@@ -882,8 +882,12 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "add-song-text".concat(this.props.song.id),
         onClick: function onClick() {
-          return _this3.props.openModal("addplaylistsong", {
+          _this3.props.openModal("addplaylistsong", {
             chosenSong: song
+          });
+
+          _this3.setState({
+            hamburgerClicked: !_this3.state.hamburgerClicked
           });
         }
       }, "Add to Playlist")))));
@@ -1388,8 +1392,12 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "add-song-text".concat(this.props.song.id),
         onClick: function onClick() {
-          return _this3.props.openModal("addplaylistsong", {
+          _this3.props.openModal("addplaylistsong", {
             chosenSong: song
+          });
+
+          _this3.setState({
+            hamburgerClicked: !_this3.state.hamburgerClicked
           });
         }
       }, "Add to Playlist")))));
@@ -2569,7 +2577,6 @@ function (_React$Component) {
     _classCallCheck(this, PlaylistShow);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PlaylistShow).call(this, props));
-    _this.playlist = _this.props.playlist;
     _this.state = {
       loading: true
     };
@@ -2588,8 +2595,7 @@ function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      var playlist = Object.assign({}, this.playlist);
-      this.props.deletePlaylist(playlist).then(function () {
+      this.props.deletePlaylist(this.props.playlist.id).then(function () {
         return _this2.props.history.push("/collection/playlists");
       });
     }
@@ -2650,10 +2656,7 @@ function (_React$Component) {
       }, this.props.songs.length, " Songs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "delete-button",
-        onClick: function onClick(e) {
-          return _this4.props.deletePlaylist(_this4.props.playlist.id);
-        }
+        className: "delete-button"
       }, "Delete Playlist ?")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "playlist-show-songs"
       }, this.playlistSongs())));

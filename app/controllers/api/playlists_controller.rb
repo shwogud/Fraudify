@@ -26,12 +26,10 @@ class Api::PlaylistsController < ApplicationController
 
 
   def destroy
-    @playlist = Playlist.find_by(id: params[:id])
+    @playlist = Playlist.find(params[:id])
 
     if @playlist 
-      playlisty = @playlist.id
       @playlist.destroy 
-      render "api/playlists/show"
     else
       render json: ['Playlist cannot be found']
     end

@@ -21,10 +21,11 @@ export const receivePlaylist = (data) => {
   }
 }
 
-export const removePlaylist = (playlist) => {
+export const removePlaylist = (playlistId) => {
+  
   return {
     type: REMOVE_PLAYLIST,
-    playlistId: playlist.id,
+    playlistId,
   }
 }
 
@@ -40,7 +41,6 @@ export const requestPlaylist = (id) => dispatch => {
 }
 
 export const createPlaylist = (playlist, user_id) => dispatch => {
-   
   return APIUtil.createPlaylist(playlist, user_id).then(playlist => dispatch(receivePlaylist(playlist)),
     err => (
       dispatch(receiveErrors(err.responseJSON))
@@ -55,8 +55,8 @@ export const createPlaylist = (playlist, user_id) => dispatch => {
 //   }
 // }
 
-export const deletePlaylist = (playlist) => dispatch => {
+export const deletePlaylist = (id) => dispatch => {
   
-  return APIUtil.destroyPlaylist(playlist).then(() => dispatch(removePlaylist(playlist)));
+  return APIUtil.destroyPlaylist(id).then(() => dispatch(removePlaylist(id)));
 }
 

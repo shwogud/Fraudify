@@ -5,7 +5,6 @@ import NavBarContainer from '../../components/navbar/navbar_container';
 class PlaylistShow extends React.Component {
   constructor(props) {
     super(props);
-    this.playlist = this.props.playlist;
     this.state = {
       loading: true
     }
@@ -18,8 +17,8 @@ class PlaylistShow extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const playlist = Object.assign({}, this.playlist);
-    this.props.deletePlaylist(playlist)
+    
+    this.props.deletePlaylist(this.props.playlist.id)
       .then(() => this.props.history.push("/collection/playlists"));
   }
 
@@ -65,8 +64,7 @@ class PlaylistShow extends React.Component {
 
               <form onSubmit={this.handleSubmit}>
                 < button
-                  className="delete-button"
-                  onClick={(e) => this.props.deletePlaylist(this.props.playlist.id)} >
+                  className="delete-button">
                   Delete Playlist ?</button >
               </form>
             </ul>

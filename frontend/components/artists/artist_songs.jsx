@@ -70,10 +70,14 @@ class ArtistSong extends React.Component {
             <ul className="drop-down-actions">
               <li
                 className={`add-song-text${this.props.song.id}`}
-                onClick={() => this.props.openModal("addplaylistsong",
-                  {
-                    chosenSong: song
-                  })}
+                onClick={
+                () => {
+                  this.props.openModal("addplaylistsong",
+                    {
+                      chosenSong: song
+                    });
+                  this.setState({ hamburgerClicked: !this.state.hamburgerClicked });
+                }}
               >Add to Playlist</li>
 
 
