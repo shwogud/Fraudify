@@ -1,6 +1,9 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    @playlists = Playlist.all
+    @playlists = Playlist
+    .includes(:songs)
+    .includes(:user)
+    .with_attached_photo
   end
 
   def create

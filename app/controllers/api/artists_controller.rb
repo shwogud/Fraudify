@@ -1,6 +1,9 @@
 class Api::ArtistsController < ApplicationController
   def index
-    @artists = Artist.all 
+    @artists = Artist
+      .includes(:albums)
+      .includes(:songs)
+      .with_attached_photo
   end
 
   def show
