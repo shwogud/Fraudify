@@ -1203,7 +1203,7 @@ function (_React$Component) {
       }
 
       var artistImg = {
-        backgroundImage: "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url(\"".concat(this.props.artist.photo, "\")")
+        backgroundImage: "linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.75)), url(\"".concat(this.props.artist.photo, "\")")
       };
 
       if (!this.props.artist.songs) {
